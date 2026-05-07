@@ -1,8 +1,10 @@
 {
+  "buildCommand": "vite build",
+  "outputDirectory": "dist/client",
   "rewrites": [
     {
-      "source": "/(.*)",
-      "destination": "/"
+      "source": "/:path((?!.*\\..*).*)",
+      "destination": "/index.html"
     }
   ]
 }
