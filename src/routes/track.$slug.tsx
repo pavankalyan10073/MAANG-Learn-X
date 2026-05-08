@@ -13,17 +13,17 @@ export const Route = createFileRoute("/track/$slug")({
   loader: ({ params }) => {
     const t = trackBySlug(params.slug);
     if (!t) throw notFound();
-    return { track: t };
+    return { slug: params.slug, title: t.title, tagline: t.tagline, topics: t.topics };
   },
   head: ({ loaderData }) => {
-    const t = loaderData?.track;
-    if (!t) return { meta: [{ title: "Track" }] };
+    const d = loaderData;
+    if (!d) return { meta: [{ title: "Track" }] };
     return {
       meta: [
-        { title: `${t.title} — MAANG Learn X` },
-        { name: "description", content: t.tagline },
-        { property: "og:title", content: `${t.title} — MAANG Learn X` },
-        { property: "og:description", content: t.tagline },
+        { title: `${d.title} — MAANG Learn X` },
+        { name: "description", content: d.tagline },
+        { property: "og:title", content: `${d.title} — MAANG Learn X` },
+        { property: "og:description", content: d.tagline },
       ],
     };
   },
@@ -36,26 +36,30 @@ export const Route = createFileRoute("/track/$slug")({
   ),
 });
 
-const typeIcon: Record<Resource["type"], React.ComponentType<{ className?: string }>> = {
-  video: VideoIcon,
-  article: FileTextIcon,
-  practice: CodeIcon,
-  docs: BookOpenIcon,
-  course: GraduationCapIcon,
-  book: LibraryIcon,
-};
-
 function TrackPage() {
-  const { track } = Route.useLoaderData() as { track: Track };
-  const { doneIds, toggle, isLoggedIn } = useProgress();
-  const Icon = track.icon;
+  const typeIcon: Record<Resource["type"], React.ComponentType<{ className?: string }>> = {
+    video: VideoIcon,
+    article: FileTextIcon,
+    practice: CodeIcon,
+    docs: BookOpenIcon,
+    course: GraduationCapIcon,
+    book: LibraryIcon,
+  };
 
-  const totalResources = track.topics.reduce((a, t) => a + t.resources.length, 0);
-  const doneCount = track.topics.reduce(
+  const data = Route.useLoaderData();
+  const trackFull = trackBySlug(data.slug);
+  if (!trackFull) return null;
+  const Icon = trackFull.icon;
+  const { doneIds, toggle, isLoggedIn } = useProgress();
+
+  const totalResources = data.topics.reduce((a, t) => a + t.resources.length, 0);
+  const doneCount = data.topics.reduce(
     (a, t) => a + t.resources.filter((r) => doneIds.has(r.id)).length,
     0
   );
   const pct = totalResources ? Math.round((doneCount / totalResources) * 100) : 0;
+
+  const pctStyle = { width: pct + "%" };
 
   return (
     <div className="px-6 py-8 md:px-12 max-w-6xl mx-auto">
@@ -68,19 +72,19 @@ function TrackPage() {
           <Icon className="h-6 w-6 text-primary-foreground" />
         </div>
         <div className="flex-1 min-w-0">
-          <h1 className="text-3xl md:text-4xl font-bold">{track.title}</h1>
-          <p className="text-muted-foreground mt-1">{track.tagline}</p>
+          <h1 className="text-3xl md:text-4xl font-bold">{data.title}</h1>
+          <p className="text-muted-foreground mt-1">{data.tagline}</p>
           {isLoggedIn && (
             <div className="mt-4 flex items-center gap-3">
               <div className="h-2 flex-1 max-w-xs rounded-full bg-muted overflow-hidden">
-                <div className="h-full bg-gradient-primary transition-all" style={{ width: `${pct}%` }} />
+                <div className="h-full bg-gradient-primary transition-all" style={pctStyle} />
               </div>
               <span className="text-xs text-muted-foreground">{doneCount}/{totalResources} · {pct}%</span>
             </div>
           )}
         </div>
         <Button asChild variant="outline" size="sm">
-          <Link to="/tutor" search={{ topic: track.title }}>
+          <Link to="/tutor" search={{ topic: data.title }}>
             <MessageCircleIcon className="h-4 w-4 mr-1" /> Ask AI
           </Link>
         </Button>
@@ -94,8 +98,8 @@ function TrackPage() {
         </Card>
       )}
 
-      <Accordion type="multiple" defaultValue={[track.topics[0]?.id]} className="space-y-3">
-        {track.topics.map((topic) => (
+      <Accordion type="multiple" defaultValue={[data.topics[0]?.id]} className="space-y-3">
+        {data.topics.map((topic) => (
           <AccordionItem
             key={topic.id}
             value={topic.id}
@@ -114,6 +118,7 @@ function TrackPage() {
                   {topic.resources.map((res) => {
                     const TypeIcon = typeIcon[res.type];
                     const done = doneIds.has(res.id);
+                    const doneClass = done ? "line-through text-muted-foreground" : "";
                     return (
                       <div
                         key={res.id}
@@ -129,7 +134,7 @@ function TrackPage() {
                           href={res.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className={`flex-1 text-sm hover:text-primary ${done ? "line-through text-muted-foreground" : ""}`}
+                          className={"flex-1 text-sm hover:text-primary " + doneClass}
                         >
                           {res.title}
                           {res.source && <span className="text-muted-foreground"> · {res.source}</span>}
@@ -137,6 +142,29 @@ function TrackPage() {
                         <Badge variant="secondary" className="text-[10px] uppercase">{res.type}</Badge>
                         <ExternalLinkIcon className="h-3 w-3 text-muted-foreground" />
                       </div>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {topic.questions && topic.questions.length > 0 && (
+                <div>
+                  <h4 className="text-xs font-semibold uppercase text-muted-foreground mb-2">
+                    Important Interview Questions
+                  </h4>
+                  <div className="grid gap-2 sm:grid-cols-2">
+                    {topic.questions.map((q, i) => (
+                      <a
+                        key={i}
+                        href={q.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 rounded-lg border border-border bg-background/40 px-3 py-2 text-sm hover:border-primary/40 hover:text-primary transition-colors"
+                      >
+                        <span className="text-primary">›</span>
+                        <span className="flex-1">{q.q}</span>
+                        <ExternalLinkIcon className="h-3 w-3 text-muted-foreground" />
+                      </a>
                     ))}
                   </div>
                 </div>
