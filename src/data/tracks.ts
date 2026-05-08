@@ -1,8 +1,8 @@
 import {
-  Code2, Brain, Network, Database, Cpu, GitBranch, Sigma,
-  Calculator, Sparkles, Layers, Cloud, BarChart3, Workflow, BookOpen, Briefcase
-} from "lucide-react";
-import type { LucideIcon } from "lucide-react";
+  Code2Icon, BrainIcon, NetworkIcon, DatabaseIcon, CpuIcon, GitBranchIcon, SigmaIcon,
+  CalculatorIcon, SparklesIcon, LayersIcon, CloudIcon, BarChart3Icon, WorkflowIcon, BookOpenIcon, BriefcaseIcon
+} from "@/components/icons";
+import type { ComponentType } from "react";
 
 export type Resource = {
   id: string;
@@ -24,7 +24,7 @@ export type Track = {
   slug: string;
   title: string;
   tagline: string;
-  icon: LucideIcon;
+  icon: ComponentType<{ className?: string }>;
   color: string; // tailwind hue token use via style
   topics: Topic[];
 };
@@ -36,7 +36,7 @@ export const tracks: Track[] = [
     slug: "dsa",
     title: "DSA (300+ Problems)",
     tagline: "Topic-wise patterns, must-do problems & video solutions for MAANG.",
-    icon: Code2,
+    icon: Code2Icon,
     color: "255",
     topics: [
       {
@@ -148,7 +148,7 @@ export const tracks: Track[] = [
     slug: "system-design",
     title: "System Design",
     tagline: "HLD + LLD case studies, scaling, distributed systems.",
-    icon: Layers,
+    icon: LayersIcon,
     color: "210",
     topics: [
       {
@@ -196,7 +196,7 @@ export const tracks: Track[] = [
     slug: "ai-ml",
     title: "AI & ML (LLM, RAG, Agents)",
     tagline: "ML, DL, NLP, LLMs, RAG, LangChain, multi-agent systems.",
-    icon: Brain,
+    icon: BrainIcon,
     color: "300",
     topics: [
       {
@@ -256,7 +256,7 @@ export const tracks: Track[] = [
     slug: "core-cs",
     title: "Core CS (DBMS, OS, CN, OOPs)",
     tagline: "Theory MAANG interviewers test in round 2.",
-    icon: Cpu,
+    icon: CpuIcon,
     color: "180",
     topics: [
       {
@@ -304,7 +304,7 @@ export const tracks: Track[] = [
     slug: "aptitude",
     title: "Aptitude",
     tagline: "Quant, logical & verbal — for OAs and screening rounds.",
-    icon: Calculator,
+    icon: CalculatorIcon,
     color: "75",
     topics: [
       {
@@ -340,7 +340,7 @@ export const tracks: Track[] = [
     slug: "python",
     title: "Python (DSA + ML)",
     tagline: "Master Python for both interviews and ML.",
-    icon: Code2,
+    icon: Code2Icon,
     color: "45",
     topics: [
       {
@@ -378,7 +378,7 @@ export const tracks: Track[] = [
     slug: "math",
     title: "Maths for Engineering",
     tagline: "Stats, probability, linear algebra, calculus for ML+CS.",
-    icon: Sigma,
+    icon: SigmaIcon,
     color: "320",
     topics: [
       {
@@ -423,7 +423,7 @@ export const tracks: Track[] = [
     slug: "fullstack",
     title: "Full Stack (MERN)",
     tagline: "HTML/CSS/JS → React → Node → MongoDB → APIs.",
-    icon: Workflow,
+    icon: WorkflowIcon,
     color: "150",
     topics: [
       {
@@ -464,7 +464,7 @@ export const tracks: Track[] = [
     slug: "git-linux",
     title: "Git, GitHub & Linux",
     tagline: "Version control + shell mastery.",
-    icon: GitBranch,
+    icon: GitBranchIcon,
     color: "30",
     topics: [
       {
@@ -494,7 +494,7 @@ export const tracks: Track[] = [
     slug: "data-science",
     title: "Data Science & Analytics",
     tagline: "EDA, visualization, SQL, BI tools.",
-    icon: BarChart3,
+    icon: BarChart3Icon,
     color: "200",
     topics: [
       {
@@ -531,7 +531,7 @@ export const tracks: Track[] = [
     slug: "cloud-devops",
     title: "Cloud & DevOps (AWS, Vercel)",
     tagline: "Deploy, scale, automate.",
-    icon: Cloud,
+    icon: CloudIcon,
     color: "260",
     topics: [
       {
@@ -560,7 +560,7 @@ export const tracks: Track[] = [
     slug: "behavioral",
     title: "Behavioral & SWE Practices",
     tagline: "STAR stories, leadership principles, software engineering.",
-    icon: Briefcase,
+    icon: BriefcaseIcon,
     color: "10",
     topics: [
       {

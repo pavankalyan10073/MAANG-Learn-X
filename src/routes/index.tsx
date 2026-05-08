@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { tracks } from "@/data/tracks";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Sparkles, Target, Trophy } from "lucide-react";
+import { ArrowRightIcon, SparklesIcon, TargetIcon, TrophyIcon } from "@/components/icons";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -17,10 +17,9 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <div className="px-6 py-10 md:px-12 md:py-16 max-w-7xl mx-auto">
-      {/* Hero */}
       <section className="mb-16 text-center">
         <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card/50 px-3 py-1 text-xs text-muted-foreground mb-6 backdrop-blur">
-          <Sparkles className="h-3 w-3 text-primary" />
+          <SparklesIcon className="h-3 w-3 text-primary" />
           One hub. Every MAANG topic. Topic-wise.
         </div>
         <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-4">
@@ -33,7 +32,7 @@ function Index() {
         <div className="flex flex-wrap items-center justify-center gap-3">
           <Button asChild size="lg" className="bg-gradient-primary shadow-glow border-0">
             <Link to="/track/$slug" params={{ slug: "dsa" }}>
-              Start with DSA <ArrowRight className="ml-2 h-4 w-4" />
+              Start with DSA <ArrowRightIcon className="ml-2 h-4 w-4" />
             </Link>
           </Button>
           <Button asChild size="lg" variant="outline">
@@ -42,13 +41,12 @@ function Index() {
         </div>
 
         <div className="mt-12 grid grid-cols-3 gap-4 max-w-2xl mx-auto">
-          <Stat icon={Target} value={`${tracks.length}`} label="Tracks" />
-          <Stat icon={Trophy} value={`${tracks.reduce((a, t) => a + t.topics.length, 0)}+`} label="Topics" />
-          <Stat icon={Sparkles} value="AI" label="Tutor" />
+          <Stat icon={TargetIcon} value={`${tracks.length}`} label="Tracks" />
+          <Stat icon={TrophyIcon} value={`${tracks.reduce((a, t) => a + t.topics.length, 0)}+`} label="Topics" />
+          <Stat icon={SparklesIcon} value="AI" label="Tutor" />
         </div>
       </section>
 
-      {/* Tracks grid */}
       <section>
         <h2 className="text-2xl md:text-3xl font-bold mb-6">Pick your track</h2>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

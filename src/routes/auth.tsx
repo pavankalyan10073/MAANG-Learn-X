@@ -14,7 +14,7 @@ import {
 import { getFirebaseAuth, getGoogleProvider } from "@/integrations/firebase/client";
 import { useAuth } from "@/hooks/use-auth";
 import { toast } from "sonner";
-import { Rocket, Loader2 } from "lucide-react";
+import { RocketIcon, LoaderIcon } from "@/components/icons";
 
 export const Route = createFileRoute("/auth")({
   head: () => ({
@@ -96,7 +96,7 @@ function AuthPage() {
             to="/"
             className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-primary shadow-glow mb-3"
           >
-            <Rocket className="h-5 w-5 text-primary-foreground" />
+            <RocketIcon className="h-5 w-5 text-primary-foreground" />
           </Link>
           <h1 className="text-2xl font-bold">
             Welcome to <span className="text-gradient">MAANG Learn X</span>
@@ -125,7 +125,7 @@ function AuthPage() {
               disabled={loading}
               className="w-full bg-gradient-primary border-0 shadow-glow"
             >
-              {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : "Sign in"}
+              {loading ? <LoaderIcon className="h-4 w-4 animate-spin" /> : "Sign in"}
             </Button>
             <div className="relative my-2">
               <div className="absolute inset-0 flex items-center">
@@ -190,7 +190,7 @@ function AuthPage() {
               disabled={loading}
               className="w-full bg-gradient-primary border-0 shadow-glow"
             >
-              {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : "Create account"}
+              {loading ? <LoaderIcon className="h-4 w-4 animate-spin" /> : "Create account"}
             </Button>
             <div className="relative my-2">
               <div className="absolute inset-0 flex items-center">

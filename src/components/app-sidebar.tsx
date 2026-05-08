@@ -1,5 +1,5 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Rocket, Home, MessageSquare } from "lucide-react";
+import { RocketIcon, HomeIcon, MessageSquareIcon } from "@/components/icons";
 import { tracks } from "@/data/tracks";
 import {
   Sidebar,
@@ -22,7 +22,7 @@ export function AppSidebar() {
       <SidebarHeader className="border-b border-sidebar-border">
         <Link to="/" className="flex items-center gap-2.5 px-2 py-3">
           <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-primary shadow-glow">
-            <Rocket className="h-4.5 w-4.5 text-primary-foreground" />
+            <RocketIcon className="h-4.5 w-4.5 text-primary-foreground" />
           </div>
           <div className="flex flex-col leading-tight min-w-0">
             <span className="text-sm font-bold tracking-tight">MAANG Learn X</span>
@@ -39,7 +39,7 @@ export function AppSidebar() {
               <SidebarMenuItem>
                 <SidebarMenuButton asChild isActive={isActive("/")}>
                   <Link to="/">
-                    <Home className="h-4 w-4" />
+                    <HomeIcon className="h-4 w-4" />
                     <span>Home</span>
                   </Link>
                 </SidebarMenuButton>
@@ -47,7 +47,7 @@ export function AppSidebar() {
               <SidebarMenuItem>
                 <SidebarMenuButton asChild isActive={isActive("/tutor")}>
                   <Link to="/tutor">
-                    <MessageSquare className="h-4 w-4" />
+                    <MessageSquareIcon className="h-4 w-4" />
                     <span>AI Tutor</span>
                   </Link>
                 </SidebarMenuButton>

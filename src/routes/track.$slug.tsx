@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { useProgress } from "@/hooks/use-progress";
-import { ExternalLink, ArrowLeft, Video, BookOpen, FileText, Code, GraduationCap, Library, MessageSquare } from "lucide-react";
+import { ExternalLinkIcon, ArrowLeftIcon, VideoIcon, BookOpenIcon, FileTextIcon, CodeIcon, GraduationCapIcon, LibraryIcon, MessageCircleIcon } from "@/components/icons";
 import type { Resource } from "@/data/tracks";
 
 export const Route = createFileRoute("/track/$slug")({
@@ -37,12 +37,12 @@ export const Route = createFileRoute("/track/$slug")({
 });
 
 const typeIcon: Record<Resource["type"], React.ComponentType<{ className?: string }>> = {
-  video: Video,
-  article: FileText,
-  practice: Code,
-  docs: BookOpen,
-  course: GraduationCap,
-  book: Library,
+  video: VideoIcon,
+  article: FileTextIcon,
+  practice: CodeIcon,
+  docs: BookOpenIcon,
+  course: GraduationCapIcon,
+  book: LibraryIcon,
 };
 
 function TrackPage() {
@@ -60,7 +60,7 @@ function TrackPage() {
   return (
     <div className="px-6 py-8 md:px-12 max-w-6xl mx-auto">
       <Button asChild variant="ghost" size="sm" className="mb-6">
-        <Link to="/"><ArrowLeft className="h-4 w-4 mr-1" /> All tracks</Link>
+        <Link to="/"><ArrowLeftIcon className="h-4 w-4 mr-1" /> All tracks</Link>
       </Button>
 
       <div className="flex items-start gap-5 mb-8">
@@ -81,7 +81,7 @@ function TrackPage() {
         </div>
         <Button asChild variant="outline" size="sm">
           <Link to="/tutor" search={{ topic: track.title }}>
-            <MessageSquare className="h-4 w-4 mr-1" /> Ask AI
+            <MessageCircleIcon className="h-4 w-4 mr-1" /> Ask AI
           </Link>
         </Button>
       </div>
@@ -135,30 +135,10 @@ function TrackPage() {
                           {res.source && <span className="text-muted-foreground"> · {res.source}</span>}
                         </a>
                         <Badge variant="secondary" className="text-[10px] uppercase">{res.type}</Badge>
-                        <ExternalLink className="h-3 w-3 text-muted-foreground" />
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-
-              {topic.questions && topic.questions.length > 0 && (
-                <div>
-                  <h4 className="text-xs font-semibold uppercase text-muted-foreground mb-2">
-                    Important Interview Questions
-                  </h4>
-                  <div className="grid gap-2 sm:grid-cols-2">
-                    {topic.questions.map((q, i) => (
-                      <a
-                        key={i}
-                        href={q.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 rounded-lg border border-border bg-background/40 px-3 py-2 text-sm hover:border-primary/40 hover:text-primary transition-colors"
-                      >
-                        <span className="text-primary">›</span>
-                        <span className="flex-1">{q.q}</span>
-                        <ExternalLink className="h-3 w-3 text-muted-foreground" />
+<ExternalLinkIcon className="h-3 w-3 text-muted-foreground" />
+                        </a>
+                        <Badge variant="secondary" className="text-[10px] uppercase">{res.type}</Badge>
+                        <ExternalLinkIcon className="h-3 w-3 text-muted-foreground" />
                       </a>
                     ))}
                   </div>

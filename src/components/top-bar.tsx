@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import { useAuth } from "@/hooks/use-auth";
 import { getFirebaseAuth } from "@/integrations/firebase/client";
-import { LogOut } from "lucide-react";
+import { LogOutIcon } from "@/components/icons";
 
 export function TopBar() {
   const { user } = useAuth();
@@ -20,7 +20,7 @@ export function TopBar() {
           <>
             <span className="text-xs text-muted-foreground hidden sm:inline">{user.email}</span>
             <Button variant="ghost" size="sm" onClick={() => getFirebaseAuth().signOut()}>
-              <LogOut className="h-4 w-4" />
+              <LogOutIcon className="h-4 w-4" />
             </Button>
           </>
         ) : (

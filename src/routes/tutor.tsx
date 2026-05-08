@@ -6,7 +6,7 @@ import remarkGfm from "remark-gfm";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
-import { Sparkles, Send, Loader2 } from "lucide-react";
+import { SparklesIcon, SendIcon, LoaderIcon } from "@/components/icons";
 import { toast } from "sonner";
 
 const search = z.object({ topic: z.string().optional() });
@@ -116,7 +116,7 @@ function TutorPage() {
       <div className="px-6 pt-6 pb-3 border-b border-border">
         <div className="flex items-center gap-3">
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-primary shadow-glow">
-            <Sparkles className="h-5 w-5 text-primary-foreground" />
+            <SparklesIcon className="h-5 w-5 text-primary-foreground" />
           </div>
           <div>
             <h1 className="text-xl font-bold">AI Tutor</h1>
@@ -130,7 +130,7 @@ function TutorPage() {
       <div ref={scrollRef} className="flex-1 overflow-y-auto px-6 py-6 space-y-4">
         {messages.length === 0 && (
           <div className="text-center text-muted-foreground mt-12">
-            <Sparkles className="h-8 w-8 mx-auto mb-3 text-primary" />
+            <SparklesIcon className="h-8 w-8 mx-auto mb-3 text-primary" />
             <p className="text-sm">Ask anything — explain a concept, walk through a problem, mock-interview me…</p>
             <div className="mt-6 grid gap-2 sm:grid-cols-2 max-w-xl mx-auto">
               {[
@@ -166,7 +166,7 @@ function TutorPage() {
         {streaming && messages[messages.length - 1]?.role === "user" && (
           <div className="flex justify-start">
             <Card className="p-4 bg-card/70 backdrop-blur">
-              <Loader2 className="h-4 w-4 animate-spin text-primary" />
+              <LoaderIcon className="h-4 w-4 animate-spin text-primary" />
             </Card>
           </div>
         )}
@@ -193,7 +193,7 @@ function TutorPage() {
             size="lg"
             className="bg-gradient-primary shadow-glow border-0 px-4"
           >
-            {streaming ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
+            {streaming ? <LoaderIcon className="h-4 w-4 animate-spin" /> : <SendIcon className="h-4 w-4" />}
           </Button>
         </div>
       </div>
