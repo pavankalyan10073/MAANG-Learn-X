@@ -173,7 +173,7 @@ function AuthPage() {
             <Field id="su-email" label="Email" type="email" value={email} onChange={setEmail} />
             <Field
               id="su-pass"
-              label="Password (min 6)"
+              label="Password"
               type="password"
               value={password}
               onChange={setPassword}

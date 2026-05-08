@@ -12,7 +12,7 @@ export function TopBar() {
       <div className="flex items-center gap-2">
         <SidebarTrigger />
         <span className="text-sm text-muted-foreground hidden sm:inline">
-          MAANG prep, organized.
+          Complete MAANG Interview Prep Hub
         </span>
       </div>
       <div className="flex items-center gap-2">
