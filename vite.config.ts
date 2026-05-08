@@ -12,7 +12,35 @@ export default defineConfig({
   plugins: [nitro({ preset: "vercel" })],
   vite: {
     ssr: {
-      noExternal: ["lucide-react", "@radix-ui/*", "sonner"],
+      noExternal: true,
+      resolve: {
+        conditions: ["module", "import", "default"],
+      },
+    },
+    optimizeDeps: {
+      include: [
+        "lucide-react",
+        "@radix-ui/react-dialog",
+        "@radix-ui/react-slot",
+        "@radix-ui/react-tooltip",
+        "@radix-ui/react-separator",
+        "@radix-ui/react-collapsible",
+        "@radix-ui/react-accordion",
+        "@radix-ui/react-checkbox",
+        "@radix-ui/react-tabs",
+        "@radix-ui/react-label",
+        "@radix-ui/react-avatar",
+        "@radix-ui/react-dropdown-menu",
+        "@radix-ui/react-menubar",
+        "@radix-ui/react-navigation-menu",
+        "@radix-ui/react-select",
+        "@radix-ui/react-toast",
+        "sonner",
+        "class-variance-authority",
+      ],
+      esbuildOptions: {
+        target: "esnext",
+      },
     },
   },
 });
