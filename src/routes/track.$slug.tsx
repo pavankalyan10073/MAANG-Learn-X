@@ -135,11 +135,8 @@ function TrackPage() {
                           {res.source && <span className="text-muted-foreground"> · {res.source}</span>}
                         </a>
                         <Badge variant="secondary" className="text-[10px] uppercase">{res.type}</Badge>
-<ExternalLinkIcon className="h-3 w-3 text-muted-foreground" />
-                        </a>
-                        <Badge variant="secondary" className="text-[10px] uppercase">{res.type}</Badge>
                         <ExternalLinkIcon className="h-3 w-3 text-muted-foreground" />
-                      </a>
+                      </div>
                     ))}
                   </div>
                 </div>
