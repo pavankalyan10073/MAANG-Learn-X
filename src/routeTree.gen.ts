@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TutorRouteImport } from './routes/tutor'
 import { Route as RoadmapsRouteImport } from './routes/roadmaps'
+import { Route as MentorsRouteImport } from './routes/mentors'
 import { Route as CommunityRouteImport } from './routes/community'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as IndexRouteImport } from './routes/index'
@@ -24,6 +25,11 @@ const TutorRoute = TutorRouteImport.update({
 const RoadmapsRoute = RoadmapsRouteImport.update({
   id: '/roadmaps',
   path: '/roadmaps',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MentorsRoute = MentorsRouteImport.update({
+  id: '/mentors',
+  path: '/mentors',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CommunityRoute = CommunityRouteImport.update({
@@ -51,6 +57,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/community': typeof CommunityRoute
+  '/mentors': typeof MentorsRoute
   '/roadmaps': typeof RoadmapsRoute
   '/tutor': typeof TutorRoute
   '/track/$slug': typeof TrackSlugRoute
@@ -59,6 +66,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/community': typeof CommunityRoute
+  '/mentors': typeof MentorsRoute
   '/roadmaps': typeof RoadmapsRoute
   '/tutor': typeof TutorRoute
   '/track/$slug': typeof TrackSlugRoute
@@ -68,6 +76,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/community': typeof CommunityRoute
+  '/mentors': typeof MentorsRoute
   '/roadmaps': typeof RoadmapsRoute
   '/tutor': typeof TutorRoute
   '/track/$slug': typeof TrackSlugRoute
@@ -78,16 +87,25 @@ export interface FileRouteTypes {
     | '/'
     | '/auth'
     | '/community'
+    | '/mentors'
     | '/roadmaps'
     | '/tutor'
     | '/track/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/auth' | '/community' | '/roadmaps' | '/tutor' | '/track/$slug'
+  to:
+    | '/'
+    | '/auth'
+    | '/community'
+    | '/mentors'
+    | '/roadmaps'
+    | '/tutor'
+    | '/track/$slug'
   id:
     | '__root__'
     | '/'
     | '/auth'
     | '/community'
+    | '/mentors'
     | '/roadmaps'
     | '/tutor'
     | '/track/$slug'
@@ -97,6 +115,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthRoute: typeof AuthRoute
   CommunityRoute: typeof CommunityRoute
+  MentorsRoute: typeof MentorsRoute
   RoadmapsRoute: typeof RoadmapsRoute
   TutorRoute: typeof TutorRoute
   TrackSlugRoute: typeof TrackSlugRoute
@@ -116,6 +135,13 @@ declare module '@tanstack/react-router' {
       path: '/roadmaps'
       fullPath: '/roadmaps'
       preLoaderRoute: typeof RoadmapsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentors': {
+      id: '/mentors'
+      path: '/mentors'
+      fullPath: '/mentors'
+      preLoaderRoute: typeof MentorsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/community': {
@@ -153,6 +179,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthRoute: AuthRoute,
   CommunityRoute: CommunityRoute,
+  MentorsRoute: MentorsRoute,
   RoadmapsRoute: RoadmapsRoute,
   TutorRoute: TutorRoute,
   TrackSlugRoute: TrackSlugRoute,

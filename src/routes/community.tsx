@@ -1,13 +1,15 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { MentorMatchingDialog } from "@/components/mentor-matching-dialog";
 import {
   UsersIcon, MessageCircleIcon, UserCheckIcon,
-  ArrowRightIcon, SparklesIcon, CheckIcon,
+  ArrowRightIcon, CheckIcon,
   MessageSquareIcon, VideoIcon, FileTextIcon,
   GraduationCapIcon, TrophyIcon, BookOpenIcon, TargetIcon,
   CalendarDaysIcon, StarIcon, ShieldCheckIcon, RocketIcon,
 } from "@/components/icons";
+import { useState } from "react";
 
 export const Route = createFileRoute("/community")({
   head: () => ({
@@ -20,18 +22,25 @@ export const Route = createFileRoute("/community")({
 });
 
 function CommunityPage() {
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const handleViewAllMentors = () => {
+    navigate({ to: "/mentors" });
+  };
+
   return (
-    <div className="px-6 py-10 md:px-12 md:py-16 max-w-7xl mx-auto">
+    <div className="px-4 py-8 sm:px-6 sm:py-10 md:px-12 md:py-16 max-w-7xl mx-auto">
       {/* Header */}
       <section className="mb-14 text-center">
         <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card/50 px-3 py-1 text-xs text-muted-foreground mb-6 backdrop-blur">
           <UsersIcon className="h-3 w-3 text-primary" />
           Learn together. Grow together.
         </div>
-        <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-4">
+        <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight mb-4">
           Join the <span className="text-gradient">Community</span>
         </h1>
-        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+        <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
           Connect with thousands of MAANG aspirants, participate in study groups, and get personalized mentorship from industry experts.
         </p>
       </section>
@@ -41,18 +50,18 @@ function CommunityPage() {
         {/* Community Card */}
         <Card className="group relative overflow-hidden bg-card/60 backdrop-blur border-border hover:border-primary/50 transition-all hover:shadow-glow">
           <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-primary-glow/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-          <div className="relative z-10 p-8 md:p-10">
+          <div className="relative z-10 p-6 sm:p-8 md:p-10">
             <div className="flex items-center gap-4 mb-6">
-              <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-primary shadow-glow">
-                <MessageCircleIcon className="h-7 w-7 text-primary-foreground" />
+              <div className="flex h-14 w-14 sm:h-16 sm:w-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-primary shadow-glow">
+                <MessageCircleIcon className="h-6 w-6 sm:h-7 sm:w-7 text-primary-foreground" />
               </div>
               <div>
-                <h2 className="text-2xl font-bold group-hover:text-primary transition-colors">Community</h2>
+                <h2 className="text-xl sm:text-2xl font-bold group-hover:text-primary transition-colors">Community</h2>
                 <p className="text-sm text-muted-foreground">Learn alongside fellow aspirants</p>
               </div>
             </div>
 
-            <p className="text-muted-foreground leading-relaxed mb-8">
+            <p className="text-muted-foreground leading-relaxed mb-8 text-sm sm:text-base">
               Join a thriving community of MAANG aspirants from around the world. Discuss problems, share resources, participate in mock interviews, and stay motivated together on your journey to cracking top tech companies.
             </p>
 
@@ -65,10 +74,10 @@ function CommunityPage() {
               ].map((feature) => {
                 const FIcon = feature.icon;
                 return (
-                  <div key={feature.label} className="rounded-xl border border-border bg-background/40 p-3.5">
-                    <FIcon className="h-5 w-5 text-primary mb-2" />
-                    <h4 className="font-semibold text-sm mb-0.5">{feature.label}</h4>
-                    <p className="text-xs text-muted-foreground">{feature.desc}</p>
+                  <div key={feature.label} className="rounded-xl border border-border bg-background/40 p-3 sm:p-3.5">
+                    <FIcon className="h-4 w-4 sm:h-5 sm:w-5 text-primary mb-1.5 sm:mb-2" />
+                    <h4 className="font-semibold text-xs sm:text-sm mb-0.5">{feature.label}</h4>
+                    <p className="text-[10px] sm:text-xs text-muted-foreground">{feature.desc}</p>
                   </div>
                 );
               })}
@@ -85,7 +94,7 @@ function CommunityPage() {
                 ].map((color, i) => (
                   <div
                     key={i}
-                    className={`h-8 w-8 rounded-full ${color} border-2 border-card flex items-center justify-center text-[10px] font-bold text-primary-foreground`}
+                    className={`h-7 w-7 sm:h-8 sm:w-8 rounded-full ${color} border-2 border-card flex items-center justify-center text-[9px] sm:text-[10px] font-bold text-primary-foreground`}
                   >
                     {String.fromCharCode(65 + i)}
                   </div>
@@ -107,18 +116,18 @@ function CommunityPage() {
         {/* 1:1 Mentorship Card */}
         <Card className="group relative overflow-hidden bg-card/60 backdrop-blur border-border hover:border-accent/50 transition-all hover:shadow-[0_10px_40px_-10px_oklch(0.7_0.18_180/0.4)]">
           <div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-          <div className="relative z-10 p-8 md:p-10">
+          <div className="relative z-10 p-6 sm:p-8 md:p-10">
             <div className="flex items-center gap-4 mb-6">
-              <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-accent to-primary shadow-[0_10px_40px_-10px_oklch(0.7_0.18_180/0.4)]">
-                <UserCheckIcon className="h-7 w-7 text-primary-foreground" />
+              <div className="flex h-14 w-14 sm:h-16 sm:w-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-accent to-primary shadow-[0_10px_40px_-10px_oklch(0.7_0.18_180/0.4)]">
+                <UserCheckIcon className="h-6 w-6 sm:h-7 sm:w-7 text-primary-foreground" />
               </div>
               <div>
-                <h2 className="text-2xl font-bold group-hover:text-accent transition-colors">1:1 Mentorship</h2>
+                <h2 className="text-xl sm:text-2xl font-bold group-hover:text-accent transition-colors">1:1 Mentorship</h2>
                 <p className="text-sm text-muted-foreground">Personal guidance from industry experts</p>
               </div>
             </div>
 
-            <p className="text-muted-foreground leading-relaxed mb-8">
+            <p className="text-muted-foreground leading-relaxed mb-8 text-sm sm:text-base">
               Get personalized guidance from industry mentors working at top tech companies like Google, Amazon, Microsoft, and Meta. From resume reviews to mock interviews and career advice — your mentor has been where you want to go.
             </p>
 
@@ -131,10 +140,10 @@ function CommunityPage() {
               ].map((feature) => {
                 const FIcon = feature.icon;
                 return (
-                  <div key={feature.label} className="rounded-xl border border-border bg-background/40 p-3.5">
-                    <FIcon className="h-5 w-5 text-accent mb-2" />
-                    <h4 className="font-semibold text-sm mb-0.5">{feature.label}</h4>
-                    <p className="text-xs text-muted-foreground">{feature.desc}</p>
+                  <div key={feature.label} className="rounded-xl border border-border bg-background/40 p-3 sm:p-3.5">
+                    <FIcon className="h-4 w-4 sm:h-5 sm:w-5 text-accent mb-1.5 sm:mb-2" />
+                    <h4 className="font-semibold text-xs sm:text-sm mb-0.5">{feature.label}</h4>
+                    <p className="text-[10px] sm:text-xs text-muted-foreground">{feature.desc}</p>
                   </div>
                 );
               })}
@@ -143,7 +152,7 @@ function CommunityPage() {
             <div className="flex items-center gap-3 mb-6">
               <div className="flex items-center gap-1">
                 {[1, 2, 3, 4, 5].map((s) => (
-                  <StarIcon key={s} className="h-4 w-4 text-warning fill-warning" />
+                  <StarIcon key={s} className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-warning fill-warning" />
                 ))}
               </div>
               <span className="text-xs text-muted-foreground">
@@ -151,7 +160,10 @@ function CommunityPage() {
               </span>
             </div>
 
-            <Button className="w-full bg-gradient-to-r from-accent to-primary border-0 shadow-[0_10px_40px_-10px_oklch(0.7_0.18_180/0.3)]">
+            <Button
+              onClick={() => setDialogOpen(true)}
+              className="w-full bg-gradient-to-r from-accent to-primary border-0 shadow-[0_10px_40px_-10px_oklch(0.7_0.18_180/0.3)]"
+            >
               Find a Mentor <ArrowRightIcon className="ml-2 h-4 w-4" />
             </Button>
           </div>
@@ -162,7 +174,7 @@ function CommunityPage() {
       <section className="mb-14">
         <h2 className="text-2xl md:text-3xl font-bold text-center mb-2">How 1:1 Mentorship Works</h2>
         <p className="text-muted-foreground text-center mb-8 max-w-lg mx-auto">A simple, structured process to get you interview-ready with expert guidance.</p>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-4 grid-cols-2 lg:grid-cols-4">
           {[
             {
               step: "01",
@@ -195,15 +207,15 @@ function CommunityPage() {
           ].map((item) => {
             const SIcon = item.icon;
             return (
-              <Card key={item.step} className="p-6 bg-card/60 backdrop-blur border-border hover:border-primary/30 transition-all text-center">
-                <div className={`text-xs font-bold uppercase tracking-widest ${item.color} mb-3`}>
+              <Card key={item.step} className="p-4 sm:p-6 bg-card/60 backdrop-blur border-border hover:border-primary/30 transition-all text-center">
+                <div className={`text-[10px] sm:text-xs font-bold uppercase tracking-widest ${item.color} mb-2 sm:mb-3`}>
                   Step {item.step}
                 </div>
-                <div className={`inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-primary shadow-glow mb-4`}>
-                  <SIcon className="h-5 w-5 text-primary-foreground" />
+                <div className="inline-flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-gradient-primary shadow-glow mb-3 sm:mb-4">
+                  <SIcon className="h-4 w-4 sm:h-5 sm:w-5 text-primary-foreground" />
                 </div>
-                <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+                <h3 className="font-semibold text-sm sm:text-lg mb-1 sm:mb-2">{item.title}</h3>
+                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{item.description}</p>
               </Card>
             );
           })}
@@ -214,7 +226,7 @@ function CommunityPage() {
       <section className="mb-14">
         <h2 className="text-2xl md:text-3xl font-bold text-center mb-2">Meet Our Mentors</h2>
         <p className="text-muted-foreground text-center mb-8 max-w-lg mx-auto">Learn from engineers and hiring managers at top tech companies.</p>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {[
             {
               name: "Arjun S.",
@@ -238,39 +250,47 @@ function CommunityPage() {
               sessions: "300+ sessions",
             },
           ].map((mentor) => (
-            <Card key={mentor.name} className="p-6 bg-card/60 backdrop-blur border-border hover:border-primary/30 transition-all group">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-primary shadow-glow text-lg font-bold text-primary-foreground">
+            <Card key={mentor.name} className="p-5 sm:p-6 bg-card/60 backdrop-blur border-border hover:border-primary/30 transition-all group">
+              <div className="flex items-center gap-3 sm:gap-4 mb-4">
+                <div className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-gradient-primary shadow-glow text-base sm:text-lg font-bold text-primary-foreground">
                   {mentor.name.charAt(0)}
                 </div>
                 <div>
                   <h3 className="font-semibold group-hover:text-primary transition-colors">{mentor.name}</h3>
-                  <p className="text-sm text-muted-foreground">{mentor.role}</p>
+                  <p className="text-xs sm:text-sm text-muted-foreground">{mentor.role}</p>
                 </div>
               </div>
-              <div className="space-y-2">
+              <div className="space-y-1.5 sm:space-y-2">
                 <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                  <ShieldCheckIcon className="h-3.5 w-3.5 text-primary" />
+                  <ShieldCheckIcon className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-primary" />
                   <span>Specialty: <span className="text-foreground">{mentor.specialty}</span></span>
                 </div>
                 <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                  <CheckIcon className="h-3.5 w-3.5 text-success" />
+                  <CheckIcon className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-success" />
                   <span>Experience: <span className="text-foreground">{mentor.experience}</span></span>
                 </div>
                 <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                  <StarIcon className="h-3.5 w-3.5 text-warning fill-warning" />
+                  <StarIcon className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-warning fill-warning" />
                   <span>{mentor.sessions} completed</span>
                 </div>
               </div>
             </Card>
           ))}
         </div>
+
+        <div className="text-center mt-8">
+          <Button asChild variant="outline" size="lg">
+            <Link to="/mentors">
+              View All Mentors <ArrowRightIcon className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
+        </div>
       </section>
 
       {/* CTA */}
       <section className="text-center">
-        <Card className="inline-block p-8 bg-card/60 backdrop-blur border-border">
-          <h3 className="text-xl font-bold mb-2">Start your MAANG journey today</h3>
+        <Card className="inline-block p-6 sm:p-8 bg-card/60 backdrop-blur border-border">
+          <h3 className="text-lg sm:text-xl font-bold mb-2">Start your MAANG journey today</h3>
           <p className="text-sm text-muted-foreground mb-5 max-w-md">
             Join the community, find a mentor, and get the structured preparation you need to crack your dream company.
           </p>
@@ -286,6 +306,13 @@ function CommunityPage() {
           </div>
         </Card>
       </section>
+
+      {/* Mentor Matching Dialog */}
+      <MentorMatchingDialog
+        open={dialogOpen}
+        onOpenChange={setDialogOpen}
+        onViewAllMentors={handleViewAllMentors}
+      />
     </div>
   );
 }
