@@ -10,6 +10,8 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TutorRouteImport } from './routes/tutor'
+import { Route as RoadmapsRouteImport } from './routes/roadmaps'
+import { Route as CommunityRouteImport } from './routes/community'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as TrackSlugRouteImport } from './routes/track.$slug'
@@ -17,6 +19,16 @@ import { Route as TrackSlugRouteImport } from './routes/track.$slug'
 const TutorRoute = TutorRouteImport.update({
   id: '/tutor',
   path: '/tutor',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RoadmapsRoute = RoadmapsRouteImport.update({
+  id: '/roadmaps',
+  path: '/roadmaps',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CommunityRoute = CommunityRouteImport.update({
+  id: '/community',
+  path: '/community',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthRoute = AuthRouteImport.update({
@@ -38,12 +50,16 @@ const TrackSlugRoute = TrackSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
+  '/community': typeof CommunityRoute
+  '/roadmaps': typeof RoadmapsRoute
   '/tutor': typeof TutorRoute
   '/track/$slug': typeof TrackSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
+  '/community': typeof CommunityRoute
+  '/roadmaps': typeof RoadmapsRoute
   '/tutor': typeof TutorRoute
   '/track/$slug': typeof TrackSlugRoute
 }
@@ -51,20 +67,37 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
+  '/community': typeof CommunityRoute
+  '/roadmaps': typeof RoadmapsRoute
   '/tutor': typeof TutorRoute
   '/track/$slug': typeof TrackSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/auth' | '/tutor' | '/track/$slug'
+  fullPaths:
+    | '/'
+    | '/auth'
+    | '/community'
+    | '/roadmaps'
+    | '/tutor'
+    | '/track/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/auth' | '/tutor' | '/track/$slug'
-  id: '__root__' | '/' | '/auth' | '/tutor' | '/track/$slug'
+  to: '/' | '/auth' | '/community' | '/roadmaps' | '/tutor' | '/track/$slug'
+  id:
+    | '__root__'
+    | '/'
+    | '/auth'
+    | '/community'
+    | '/roadmaps'
+    | '/tutor'
+    | '/track/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthRoute: typeof AuthRoute
+  CommunityRoute: typeof CommunityRoute
+  RoadmapsRoute: typeof RoadmapsRoute
   TutorRoute: typeof TutorRoute
   TrackSlugRoute: typeof TrackSlugRoute
 }
@@ -76,6 +109,20 @@ declare module '@tanstack/react-router' {
       path: '/tutor'
       fullPath: '/tutor'
       preLoaderRoute: typeof TutorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/roadmaps': {
+      id: '/roadmaps'
+      path: '/roadmaps'
+      fullPath: '/roadmaps'
+      preLoaderRoute: typeof RoadmapsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/community': {
+      id: '/community'
+      path: '/community'
+      fullPath: '/community'
+      preLoaderRoute: typeof CommunityRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/auth': {
@@ -105,6 +152,8 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthRoute: AuthRoute,
+  CommunityRoute: CommunityRoute,
+  RoadmapsRoute: RoadmapsRoute,
   TutorRoute: TutorRoute,
   TrackSlugRoute: TrackSlugRoute,
 }

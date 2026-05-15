@@ -1,5 +1,5 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { RocketIcon, HomeIcon, MessageSquareIcon } from "@/components/icons";
+import { RocketIcon, HomeIcon, MessageSquareIcon, MapIcon, UsersIcon } from "@/components/icons";
 import { tracks } from "@/data/tracks";
 import {
   Sidebar,
@@ -31,9 +31,9 @@ export function AppSidebar() {
         </Link>
       </SidebarHeader>
 
-      <SidebarContent>
-        <SidebarGroup>
-          <SidebarGroupLabel>Overview</SidebarGroupLabel>
+      <SidebarContent className="flex-1 min-h-0 overflow-hidden">
+        <SidebarGroup className="py-0.5">
+          <SidebarGroupLabel className="text-[9px] uppercase tracking-[0.15em] text-muted-foreground/60 px-3 py-0.5 h-5 flex items-center">Overview</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               <SidebarMenuItem>
@@ -56,8 +56,32 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
 
-        <SidebarGroup>
-          <SidebarGroupLabel>Tracks</SidebarGroupLabel>
+        <SidebarGroup className="py-0.5">
+          <SidebarGroupLabel className="text-[9px] uppercase tracking-[0.15em] text-muted-foreground/60 px-3 py-0.5 h-5 flex items-center">Cloud & DevOps</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild isActive={isActive("/roadmaps")}>
+                  <Link to="/roadmaps">
+                    <MapIcon className="h-4 w-4" />
+                    <span>Roadmaps</span>
+                  </Link>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild isActive={isActive("/community")}>
+                  <Link to="/community">
+                    <UsersIcon className="h-4 w-4" />
+                    <span>Community</span>
+                  </Link>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+
+        <SidebarGroup className="py-0.5">
+          <SidebarGroupLabel className="text-[9px] uppercase tracking-[0.15em] text-muted-foreground/60 px-3 py-0.5 h-5 flex items-center">Tracks</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {tracks.map((t) => {
@@ -65,7 +89,7 @@ export function AppSidebar() {
                 const path = `/track/${t.slug}`;
                 return (
                   <SidebarMenuItem key={t.slug}>
-                    <SidebarMenuButton asChild isActive={isActive(path)}>
+                    <SidebarMenuButton asChild isActive={isActive(path)} tooltip={t.title}>
                       <Link to="/track/$slug" params={{ slug: t.slug }}>
                         <Icon className="h-4 w-4" />
                         <span>{t.title}</span>

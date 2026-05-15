@@ -1,6 +1,6 @@
 import {
   Code2Icon, BrainIcon, NetworkIcon, DatabaseIcon, CpuIcon, GitBranchIcon, SigmaIcon,
-  CalculatorIcon, SparklesIcon, LayersIcon, CloudIcon, BarChart3Icon, WorkflowIcon, BookOpenIcon, BriefcaseIcon
+  CalculatorIcon, SparklesIcon, LayersIcon, CloudIcon, BarChart3Icon, WorkflowIcon, BookOpenIcon
 } from "@/components/icons";
 import type { ComponentType } from "react";
 
@@ -556,33 +556,6 @@ export const tracks: Track[] = [
     ],
   },
 
-  {
-    slug: "behavioral",
-    title: "Behavioral & SWE Practices",
-    tagline: "STAR stories, leadership principles, software engineering.",
-    icon: BriefcaseIcon,
-    color: "10",
-    topics: [
-      {
-        id: "be-1",
-        title: "Behavioral Interviews",
-        summary: "STAR, Amazon LP, conflict & ownership stories.",
-        resources: [
-          r("be-1", "Amazon Leadership Principles", "https://www.amazon.jobs/content/en/our-workplace/leadership-principles", "article", "Amazon"),
-          r("be-2", "Cracking the Behavioral Interview (Jackson Gabbard)", "https://www.youtube.com/watch?v=PJKYqLP6MRE", "video", "YouTube"),
-        ],
-      },
-      {
-        id: "be-2t",
-        title: "Software Engineering Practices",
-        summary: "Clean code, testing, code review, agile.",
-        resources: [
-          r("be-3", "Google Eng Practices", "https://google.github.io/eng-practices/", "docs", "Google"),
-          r("be-4", "Clean Code Summary", "https://gist.github.com/wojteklu/73c6914cc446146b8b533c0988cf8d29", "article", "Gist"),
-        ],
-      },
-    ],
-  },
 ];
 
 export const trackBySlug = (slug: string) => tracks.find((t) => t.slug === slug);
