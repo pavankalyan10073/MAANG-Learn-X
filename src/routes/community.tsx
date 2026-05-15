@@ -96,8 +96,10 @@ function CommunityPage() {
               </span>
             </div>
 
-            <Button className="w-full bg-gradient-primary shadow-glow border-0">
-              Join Community <ArrowRightIcon className="ml-2 h-4 w-4" />
+            <Button asChild className="w-full bg-gradient-primary shadow-glow border-0">
+              <a href="https://chat.whatsapp.com/JkRpw04SvAk1ImTrjGTgyW" target="_blank" rel="noopener noreferrer">
+                Join Community <ArrowRightIcon className="ml-2 h-4 w-4" />
+              </a>
             </Button>
           </div>
         </Card>

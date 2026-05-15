@@ -98,6 +98,23 @@
   overflow: hidden !important;
 }
 
+.sidebar-resize-handle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 3px;
+  height: 100%;
+  cursor: col-resize;
+  z-index: 50;
+  background: transparent;
+  transition: background-color 0.15s ease;
+}
+
+.sidebar-resize-handle:hover,
+.sidebar-resize-handle:active {
+  background-color: oklch(var(--sidebar-ring) / 0.4);
+}
+
 @layer utilities {
   .text-gradient {
     background: var(--gradient-primary);
