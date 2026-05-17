@@ -463,9 +463,11 @@ export function MentorMatchingDialog({
                 </div>
               </Card>
 
-              <Button onClick={handlePayment} className="w-full bg-gradient-primary shadow-glow border-0 mb-3" size="lg">
-                Pay ₹49 & Start Learning
-              </Button>
+              <a href="https://forms.gle/2vnodkcTpktvwsov5" target="_blank" rel="noopener noreferrer" className="block mb-3">
+                <Button className="w-full bg-gradient-primary shadow-glow border-0 h-12 text-sm sm:text-base" size="lg">
+                  Pay ₹49 & Start Learning
+                </Button>
+              </a>
 
               <Button onClick={() => setStep("found")} variant="ghost" className="w-full text-muted-foreground hover:text-foreground text-sm">
                 Go Back
@@ -662,9 +664,11 @@ export function MentorConnectDialog({ mentor, open, onOpenChange }: MentorConnec
                 </div>
               </div>
 
-              <Button onClick={handlePay} className="w-full bg-gradient-primary shadow-glow border-0 mb-3 h-12 text-sm sm:text-base" size="lg">
-                Pay ₹49 & Connect
-              </Button>
+              <a href="https://forms.gle/2vnodkcTpktvwsov5" target="_blank" rel="noopener noreferrer" className="block mb-3">
+                <Button className="w-full bg-gradient-primary shadow-glow border-0 h-12 text-sm sm:text-base" size="lg">
+                  Pay ₹49 & Connect
+                </Button>
+              </a>
 
               <button
                 type="button"
