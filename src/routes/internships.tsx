@@ -237,12 +237,6 @@ function InternshipsPage() {
                         </Button>
                       </a>
                     </div>
-                    <div className="flex items-center gap-1.5 mt-2.5">
-                      <UsersIcon className="h-3 w-3 text-muted-foreground/40" />
-                      <span className="text-[10px] text-muted-foreground/40">
-                        {domain.students + 120}+ already enrolled
-                      </span>
-                    </div>
                   </div>
                 </div>
               </div>

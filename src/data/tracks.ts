@@ -25,7 +25,8 @@ export type Track = {
   title: string;
   tagline: string;
   icon: ComponentType<{ className?: string }>;
-  color: string; // tailwind hue token use via style
+  color: string;
+  image: string;
   topics: Topic[];
 };
 
@@ -38,6 +39,7 @@ export const tracks: Track[] = [
     tagline: "Topic-wise patterns, must-do problems & video solutions for MAANG.",
     icon: Code2Icon,
     color: "255",
+    image: "/tracks/dsa.png",
     topics: [
       {
         id: "dsa-arrays",
@@ -150,6 +152,7 @@ export const tracks: Track[] = [
     tagline: "HLD + LLD case studies, scaling, distributed systems.",
     icon: LayersIcon,
     color: "210",
+    image: "/tracks/system-design.png",
     topics: [
       {
         id: "sd-fund",
@@ -198,6 +201,7 @@ export const tracks: Track[] = [
     tagline: "ML, DL, NLP, LLMs, RAG, LangChain, multi-agent systems.",
     icon: BrainIcon,
     color: "300",
+    image: "/tracks/ai-ml.png",
     topics: [
       {
         id: "ml-found",
@@ -258,6 +262,7 @@ export const tracks: Track[] = [
     tagline: "Theory MAANG interviewers test in round 2.",
     icon: CpuIcon,
     color: "180",
+    image: "/tracks/core-cs.png",
     topics: [
       {
         id: "cs-os",
@@ -306,6 +311,7 @@ export const tracks: Track[] = [
     tagline: "Quant, logical & verbal — for OAs and screening rounds.",
     icon: CalculatorIcon,
     color: "75",
+    image: "/tracks/aptitude.png",
     topics: [
       {
         id: "apt-quant",
@@ -342,6 +348,7 @@ export const tracks: Track[] = [
     tagline: "Master Python for both interviews and ML.",
     icon: Code2Icon,
     color: "45",
+    image: "/tracks/python.png",
     topics: [
       {
         id: "py-core",
@@ -380,6 +387,7 @@ export const tracks: Track[] = [
     tagline: "Stats, probability, linear algebra, calculus for ML+CS.",
     icon: SigmaIcon,
     color: "320",
+    image: "/tracks/math.png",
     topics: [
       {
         id: "m-stats",
@@ -425,6 +433,7 @@ export const tracks: Track[] = [
     tagline: "HTML/CSS/JS → React → Node → MongoDB → APIs.",
     icon: WorkflowIcon,
     color: "150",
+    image: "/tracks/fullstack.png",
     topics: [
       {
         id: "fs-frontend",
@@ -466,6 +475,7 @@ export const tracks: Track[] = [
     tagline: "Version control + shell mastery.",
     icon: GitBranchIcon,
     color: "30",
+    image: "/tracks/git-linux.png",
     topics: [
       {
         id: "git-1t",
@@ -496,6 +506,7 @@ export const tracks: Track[] = [
     tagline: "EDA, visualization, SQL, BI tools.",
     icon: BarChart3Icon,
     color: "200",
+    image: "/tracks/data-science.png",
     topics: [
       {
         id: "ds-eda",
@@ -533,6 +544,7 @@ export const tracks: Track[] = [
     tagline: "Deploy, scale, automate.",
     icon: CloudIcon,
     color: "260",
+    image: "/tracks/cloud-devops.png",
     topics: [
       {
         id: "cd-aws",
