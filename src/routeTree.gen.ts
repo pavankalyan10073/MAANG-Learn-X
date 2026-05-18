@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as TutorRouteImport } from './routes/tutor'
 import { Route as RoadmapsRouteImport } from './routes/roadmaps'
 import { Route as MentorsRouteImport } from './routes/mentors'
+import { Route as InternshipsRouteImport } from './routes/internships'
 import { Route as CommunityRouteImport } from './routes/community'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as IndexRouteImport } from './routes/index'
@@ -30,6 +31,11 @@ const RoadmapsRoute = RoadmapsRouteImport.update({
 const MentorsRoute = MentorsRouteImport.update({
   id: '/mentors',
   path: '/mentors',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InternshipsRoute = InternshipsRouteImport.update({
+  id: '/internships',
+  path: '/internships',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CommunityRoute = CommunityRouteImport.update({
@@ -57,6 +63,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/community': typeof CommunityRoute
+  '/internships': typeof InternshipsRoute
   '/mentors': typeof MentorsRoute
   '/roadmaps': typeof RoadmapsRoute
   '/tutor': typeof TutorRoute
@@ -66,6 +73,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/community': typeof CommunityRoute
+  '/internships': typeof InternshipsRoute
   '/mentors': typeof MentorsRoute
   '/roadmaps': typeof RoadmapsRoute
   '/tutor': typeof TutorRoute
@@ -76,6 +84,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/community': typeof CommunityRoute
+  '/internships': typeof InternshipsRoute
   '/mentors': typeof MentorsRoute
   '/roadmaps': typeof RoadmapsRoute
   '/tutor': typeof TutorRoute
@@ -87,6 +96,7 @@ export interface FileRouteTypes {
     | '/'
     | '/auth'
     | '/community'
+    | '/internships'
     | '/mentors'
     | '/roadmaps'
     | '/tutor'
@@ -96,6 +106,7 @@ export interface FileRouteTypes {
     | '/'
     | '/auth'
     | '/community'
+    | '/internships'
     | '/mentors'
     | '/roadmaps'
     | '/tutor'
@@ -105,6 +116,7 @@ export interface FileRouteTypes {
     | '/'
     | '/auth'
     | '/community'
+    | '/internships'
     | '/mentors'
     | '/roadmaps'
     | '/tutor'
@@ -115,6 +127,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthRoute: typeof AuthRoute
   CommunityRoute: typeof CommunityRoute
+  InternshipsRoute: typeof InternshipsRoute
   MentorsRoute: typeof MentorsRoute
   RoadmapsRoute: typeof RoadmapsRoute
   TutorRoute: typeof TutorRoute
@@ -142,6 +155,13 @@ declare module '@tanstack/react-router' {
       path: '/mentors'
       fullPath: '/mentors'
       preLoaderRoute: typeof MentorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/internships': {
+      id: '/internships'
+      path: '/internships'
+      fullPath: '/internships'
+      preLoaderRoute: typeof InternshipsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/community': {
@@ -179,6 +199,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthRoute: AuthRoute,
   CommunityRoute: CommunityRoute,
+  InternshipsRoute: InternshipsRoute,
   MentorsRoute: MentorsRoute,
   RoadmapsRoute: RoadmapsRoute,
   TutorRoute: TutorRoute,
