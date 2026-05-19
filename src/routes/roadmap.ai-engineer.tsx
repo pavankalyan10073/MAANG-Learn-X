@@ -278,7 +278,7 @@ function AIEngineerRoadmapPage() {
         <Card className="relative overflow-hidden bg-card/60 border-border p-5 sm:p-6">
           <div className="absolute inset-0 bg-gradient-to-r from-primary/[0.08] via-accent/[0.05] to-success/[0.06] pointer-events-none" />
           <div className="relative z-10">
-            <h3 className="text-lg font-bold mb-3">🚀 FINAL TRUTH</h3>
+            <h3 className="text-lg font-bold mb-3"> FINAL Suggestion:</h3>
             <p className="text-sm text-muted-foreground mb-3">
               The highest-paying AI engineers in 2026 are NOT just: <span className="font-semibold text-foreground">❌ ML Engineers</span>
             </p>
@@ -290,7 +290,7 @@ function AIEngineerRoadmapPage() {
               <Badge variant="outline" className="text-xs border-primary/30 text-primary">₹30–50+ LPA potential</Badge>
               <Badge variant="outline" className="text-xs border-accent/30 text-accent">Strong startup opportunities</Badge>
               <Badge variant="outline" className="text-xs border-success/30 text-success">Remote global jobs</Badge>
-              <Badge variant="outline" className="text-xs border-warning/30 text-warning">FAANG-level profile 🚀</Badge>
+              <Badge variant="outline" className="text-xs border-warning/30 text-warning">MAANG-level profile </Badge>
             </div>
           </div>
         </Card>
