@@ -17,6 +17,14 @@ import { Route as CommunityRouteImport } from './routes/community'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as TrackSlugRouteImport } from './routes/track.$slug'
+import { Route as RoadmapSystemDesignEngineerRouteImport } from './routes/roadmap.system-design-engineer'
+import { Route as RoadmapSdeRouteImport } from './routes/roadmap.sde'
+import { Route as RoadmapMlEngineerRouteImport } from './routes/roadmap.ml-engineer'
+import { Route as RoadmapFullstackDeveloperRouteImport } from './routes/roadmap.fullstack-developer'
+import { Route as RoadmapDataScientistRouteImport } from './routes/roadmap.data-scientist'
+import { Route as RoadmapCyberSecurityEngineerRouteImport } from './routes/roadmap.cyber-security-engineer'
+import { Route as RoadmapCloudDevopsEngineerRouteImport } from './routes/roadmap.cloud-devops-engineer'
+import { Route as RoadmapAiEngineerRouteImport } from './routes/roadmap.ai-engineer'
 
 const TutorRoute = TutorRouteImport.update({
   id: '/tutor',
@@ -58,6 +66,50 @@ const TrackSlugRoute = TrackSlugRouteImport.update({
   path: '/track/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RoadmapSystemDesignEngineerRoute =
+  RoadmapSystemDesignEngineerRouteImport.update({
+    id: '/roadmap/system-design-engineer',
+    path: '/roadmap/system-design-engineer',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const RoadmapSdeRoute = RoadmapSdeRouteImport.update({
+  id: '/roadmap/sde',
+  path: '/roadmap/sde',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RoadmapMlEngineerRoute = RoadmapMlEngineerRouteImport.update({
+  id: '/roadmap/ml-engineer',
+  path: '/roadmap/ml-engineer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RoadmapFullstackDeveloperRoute =
+  RoadmapFullstackDeveloperRouteImport.update({
+    id: '/roadmap/fullstack-developer',
+    path: '/roadmap/fullstack-developer',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const RoadmapDataScientistRoute = RoadmapDataScientistRouteImport.update({
+  id: '/roadmap/data-scientist',
+  path: '/roadmap/data-scientist',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RoadmapCyberSecurityEngineerRoute =
+  RoadmapCyberSecurityEngineerRouteImport.update({
+    id: '/roadmap/cyber-security-engineer',
+    path: '/roadmap/cyber-security-engineer',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const RoadmapCloudDevopsEngineerRoute =
+  RoadmapCloudDevopsEngineerRouteImport.update({
+    id: '/roadmap/cloud-devops-engineer',
+    path: '/roadmap/cloud-devops-engineer',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const RoadmapAiEngineerRoute = RoadmapAiEngineerRouteImport.update({
+  id: '/roadmap/ai-engineer',
+  path: '/roadmap/ai-engineer',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -67,6 +119,14 @@ export interface FileRoutesByFullPath {
   '/mentors': typeof MentorsRoute
   '/roadmaps': typeof RoadmapsRoute
   '/tutor': typeof TutorRoute
+  '/roadmap/ai-engineer': typeof RoadmapAiEngineerRoute
+  '/roadmap/cloud-devops-engineer': typeof RoadmapCloudDevopsEngineerRoute
+  '/roadmap/cyber-security-engineer': typeof RoadmapCyberSecurityEngineerRoute
+  '/roadmap/data-scientist': typeof RoadmapDataScientistRoute
+  '/roadmap/fullstack-developer': typeof RoadmapFullstackDeveloperRoute
+  '/roadmap/ml-engineer': typeof RoadmapMlEngineerRoute
+  '/roadmap/sde': typeof RoadmapSdeRoute
+  '/roadmap/system-design-engineer': typeof RoadmapSystemDesignEngineerRoute
   '/track/$slug': typeof TrackSlugRoute
 }
 export interface FileRoutesByTo {
@@ -77,6 +137,14 @@ export interface FileRoutesByTo {
   '/mentors': typeof MentorsRoute
   '/roadmaps': typeof RoadmapsRoute
   '/tutor': typeof TutorRoute
+  '/roadmap/ai-engineer': typeof RoadmapAiEngineerRoute
+  '/roadmap/cloud-devops-engineer': typeof RoadmapCloudDevopsEngineerRoute
+  '/roadmap/cyber-security-engineer': typeof RoadmapCyberSecurityEngineerRoute
+  '/roadmap/data-scientist': typeof RoadmapDataScientistRoute
+  '/roadmap/fullstack-developer': typeof RoadmapFullstackDeveloperRoute
+  '/roadmap/ml-engineer': typeof RoadmapMlEngineerRoute
+  '/roadmap/sde': typeof RoadmapSdeRoute
+  '/roadmap/system-design-engineer': typeof RoadmapSystemDesignEngineerRoute
   '/track/$slug': typeof TrackSlugRoute
 }
 export interface FileRoutesById {
@@ -88,6 +156,14 @@ export interface FileRoutesById {
   '/mentors': typeof MentorsRoute
   '/roadmaps': typeof RoadmapsRoute
   '/tutor': typeof TutorRoute
+  '/roadmap/ai-engineer': typeof RoadmapAiEngineerRoute
+  '/roadmap/cloud-devops-engineer': typeof RoadmapCloudDevopsEngineerRoute
+  '/roadmap/cyber-security-engineer': typeof RoadmapCyberSecurityEngineerRoute
+  '/roadmap/data-scientist': typeof RoadmapDataScientistRoute
+  '/roadmap/fullstack-developer': typeof RoadmapFullstackDeveloperRoute
+  '/roadmap/ml-engineer': typeof RoadmapMlEngineerRoute
+  '/roadmap/sde': typeof RoadmapSdeRoute
+  '/roadmap/system-design-engineer': typeof RoadmapSystemDesignEngineerRoute
   '/track/$slug': typeof TrackSlugRoute
 }
 export interface FileRouteTypes {
@@ -100,6 +176,14 @@ export interface FileRouteTypes {
     | '/mentors'
     | '/roadmaps'
     | '/tutor'
+    | '/roadmap/ai-engineer'
+    | '/roadmap/cloud-devops-engineer'
+    | '/roadmap/cyber-security-engineer'
+    | '/roadmap/data-scientist'
+    | '/roadmap/fullstack-developer'
+    | '/roadmap/ml-engineer'
+    | '/roadmap/sde'
+    | '/roadmap/system-design-engineer'
     | '/track/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -110,6 +194,14 @@ export interface FileRouteTypes {
     | '/mentors'
     | '/roadmaps'
     | '/tutor'
+    | '/roadmap/ai-engineer'
+    | '/roadmap/cloud-devops-engineer'
+    | '/roadmap/cyber-security-engineer'
+    | '/roadmap/data-scientist'
+    | '/roadmap/fullstack-developer'
+    | '/roadmap/ml-engineer'
+    | '/roadmap/sde'
+    | '/roadmap/system-design-engineer'
     | '/track/$slug'
   id:
     | '__root__'
@@ -120,6 +212,14 @@ export interface FileRouteTypes {
     | '/mentors'
     | '/roadmaps'
     | '/tutor'
+    | '/roadmap/ai-engineer'
+    | '/roadmap/cloud-devops-engineer'
+    | '/roadmap/cyber-security-engineer'
+    | '/roadmap/data-scientist'
+    | '/roadmap/fullstack-developer'
+    | '/roadmap/ml-engineer'
+    | '/roadmap/sde'
+    | '/roadmap/system-design-engineer'
     | '/track/$slug'
   fileRoutesById: FileRoutesById
 }
@@ -131,6 +231,14 @@ export interface RootRouteChildren {
   MentorsRoute: typeof MentorsRoute
   RoadmapsRoute: typeof RoadmapsRoute
   TutorRoute: typeof TutorRoute
+  RoadmapAiEngineerRoute: typeof RoadmapAiEngineerRoute
+  RoadmapCloudDevopsEngineerRoute: typeof RoadmapCloudDevopsEngineerRoute
+  RoadmapCyberSecurityEngineerRoute: typeof RoadmapCyberSecurityEngineerRoute
+  RoadmapDataScientistRoute: typeof RoadmapDataScientistRoute
+  RoadmapFullstackDeveloperRoute: typeof RoadmapFullstackDeveloperRoute
+  RoadmapMlEngineerRoute: typeof RoadmapMlEngineerRoute
+  RoadmapSdeRoute: typeof RoadmapSdeRoute
+  RoadmapSystemDesignEngineerRoute: typeof RoadmapSystemDesignEngineerRoute
   TrackSlugRoute: typeof TrackSlugRoute
 }
 
@@ -192,6 +300,62 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TrackSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/roadmap/system-design-engineer': {
+      id: '/roadmap/system-design-engineer'
+      path: '/roadmap/system-design-engineer'
+      fullPath: '/roadmap/system-design-engineer'
+      preLoaderRoute: typeof RoadmapSystemDesignEngineerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/roadmap/sde': {
+      id: '/roadmap/sde'
+      path: '/roadmap/sde'
+      fullPath: '/roadmap/sde'
+      preLoaderRoute: typeof RoadmapSdeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/roadmap/ml-engineer': {
+      id: '/roadmap/ml-engineer'
+      path: '/roadmap/ml-engineer'
+      fullPath: '/roadmap/ml-engineer'
+      preLoaderRoute: typeof RoadmapMlEngineerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/roadmap/fullstack-developer': {
+      id: '/roadmap/fullstack-developer'
+      path: '/roadmap/fullstack-developer'
+      fullPath: '/roadmap/fullstack-developer'
+      preLoaderRoute: typeof RoadmapFullstackDeveloperRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/roadmap/data-scientist': {
+      id: '/roadmap/data-scientist'
+      path: '/roadmap/data-scientist'
+      fullPath: '/roadmap/data-scientist'
+      preLoaderRoute: typeof RoadmapDataScientistRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/roadmap/cyber-security-engineer': {
+      id: '/roadmap/cyber-security-engineer'
+      path: '/roadmap/cyber-security-engineer'
+      fullPath: '/roadmap/cyber-security-engineer'
+      preLoaderRoute: typeof RoadmapCyberSecurityEngineerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/roadmap/cloud-devops-engineer': {
+      id: '/roadmap/cloud-devops-engineer'
+      path: '/roadmap/cloud-devops-engineer'
+      fullPath: '/roadmap/cloud-devops-engineer'
+      preLoaderRoute: typeof RoadmapCloudDevopsEngineerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/roadmap/ai-engineer': {
+      id: '/roadmap/ai-engineer'
+      path: '/roadmap/ai-engineer'
+      fullPath: '/roadmap/ai-engineer'
+      preLoaderRoute: typeof RoadmapAiEngineerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -203,6 +367,14 @@ const rootRouteChildren: RootRouteChildren = {
   MentorsRoute: MentorsRoute,
   RoadmapsRoute: RoadmapsRoute,
   TutorRoute: TutorRoute,
+  RoadmapAiEngineerRoute: RoadmapAiEngineerRoute,
+  RoadmapCloudDevopsEngineerRoute: RoadmapCloudDevopsEngineerRoute,
+  RoadmapCyberSecurityEngineerRoute: RoadmapCyberSecurityEngineerRoute,
+  RoadmapDataScientistRoute: RoadmapDataScientistRoute,
+  RoadmapFullstackDeveloperRoute: RoadmapFullstackDeveloperRoute,
+  RoadmapMlEngineerRoute: RoadmapMlEngineerRoute,
+  RoadmapSdeRoute: RoadmapSdeRoute,
+  RoadmapSystemDesignEngineerRoute: RoadmapSystemDesignEngineerRoute,
   TrackSlugRoute: TrackSlugRoute,
 }
 export const routeTree = rootRouteImport

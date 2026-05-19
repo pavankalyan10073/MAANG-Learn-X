@@ -282,6 +282,97 @@ const roadmaps = [
   },
 ];
 
+const roleRoadmaps = [
+  {
+    slug: "ai-engineer",
+    path: "/roadmap/ai-engineer",
+    title: "AI Engineer / Generative AI Engineer",
+    tagline: "Python + ML + Deep Learning + LLMs + RAG + Agents + Full Stack AI",
+    icon: BrainIcon,
+    gradient: "from-violet-500/20 via-purple-500/10 to-transparent",
+    badge: "AI ENGINEER",
+    image: "/role-roadmaps/ai-engineer.png",
+    highlights: ["LLMs", "RAG", "AI Agents", "Python + ML"],
+  },
+  {
+    slug: "sde",
+    path: "/roadmap/sde",
+    title: "Software Development Engineer (SDE)",
+    tagline: "DSA + Development + System Design + Core CS + Projects",
+    icon: Code2Icon,
+    gradient: "from-blue-500/20 via-cyan-500/10 to-transparent",
+    badge: "SDE",
+    image: "/role-roadmaps/sde.png",
+    highlights: ["DSA", "System Design", "Full Stack", "Core CS"],
+  },
+  {
+    slug: "cloud-devops-engineer",
+    path: "/roadmap/cloud-devops-engineer",
+    title: "Cloud & DevOps Engineer",
+    tagline: "Linux + Networking + AWS + Docker + Kubernetes + CI/CD",
+    icon: SparklesIcon,
+    gradient: "from-sky-500/20 via-indigo-500/10 to-transparent",
+    badge: "CLOUD & DEVOPS",
+    image: "/role-roadmaps/cloud-devops.png",
+    highlights: ["AWS", "Docker", "Kubernetes", "CI/CD"],
+  },
+  {
+    slug: "data-scientist",
+    path: "/roadmap/data-scientist",
+    title: "Data Scientist / Data Analyst",
+    tagline: "Python + SQL + Statistics + Visualization + Machine Learning",
+    icon: TargetIcon,
+    gradient: "from-emerald-500/20 via-green-500/10 to-transparent",
+    badge: "DATA SCIENCE",
+    image: "/role-roadmaps/data-scientist.png",
+    highlights: ["Python", "SQL", "Statistics", "ML"],
+  },
+  {
+    slug: "fullstack-developer",
+    path: "/roadmap/fullstack-developer",
+    title: "Full Stack Developer",
+    tagline: "HTML + CSS + JavaScript + React + Node.js + Databases + Deployment",
+    icon: LayersIcon,
+    gradient: "from-green-500/20 via-lime-500/10 to-transparent",
+    badge: "FULL STACK",
+    image: "/role-roadmaps/fullstack.png",
+    highlights: ["React", "Node.js", "MERN", "APIs"],
+  },
+  {
+    slug: "cyber-security-engineer",
+    path: "/roadmap/cyber-security-engineer",
+    title: "Cyber Security Engineer",
+    tagline: "Networking + Linux + Security + Ethical Hacking + Cloud Security",
+    icon: MapIcon,
+    gradient: "from-red-500/20 via-rose-500/10 to-transparent",
+    badge: "CYBER SECURITY",
+    image: "/role-roadmaps/cyber-security.png",
+    highlights: ["Ethical Hacking", "Web Security", "Cloud Security", "Linux"],
+  },
+  {
+    slug: "ml-engineer",
+    path: "/roadmap/ml-engineer",
+    title: "Machine Learning Engineer",
+    tagline: "Python + ML + Deep Learning + MLOps + Deployment + AI Systems",
+    icon: GraduationCapIcon,
+    gradient: "from-pink-500/20 via-rose-500/10 to-transparent",
+    badge: "ML ENGINEER",
+    image: "/role-roadmaps/ml-engineer.png",
+    highlights: ["Deep Learning", "MLOps", "NLP", "PyTorch"],
+  },
+  {
+    slug: "system-design-engineer",
+    path: "/roadmap/system-design-engineer",
+    title: "System Design / Backend Engineer",
+    tagline: "Backend + Databases + APIs + Distributed Systems + Scalability",
+    icon: DatabaseIcon,
+    gradient: "from-amber-500/20 via-orange-500/10 to-transparent",
+    badge: "BACKEND",
+    image: "/role-roadmaps/system-design.png",
+    highlights: ["System Design", "Distributed Systems", "APIs", "Databases"],
+  },
+];
+
 function RoadmapsPage() {
   return (
     <div className="px-6 py-10 md:px-12 md:py-16 max-w-7xl mx-auto">
@@ -379,6 +470,74 @@ function RoadmapsPage() {
           );
         })}
       </div>
+      
+
+      {/* Role-Based Roadmaps Section */}
+      <section className="mt-14 mb-14">
+        <div className="text-center mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-3">
+            Role-Based <span className="text-gradient">Roadmaps</span>
+          </h2>
+          <p className="text-base text-muted-foreground max-w-2xl mx-auto">
+            Choose your target role and follow a tailored preparation path designed specifically for that position.
+          </p>
+        </div>
+        <div className="grid gap-5 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          {roleRoadmaps.map((role) => {
+            const Icon = role.icon;
+            return (
+              <Link key={role.slug} to={role.path}>
+                <Card className="group relative overflow-hidden bg-card/60 backdrop-blur border-2 border-border/70 hover:border-primary/50 transition-all duration-300 hover:shadow-glow cursor-pointer h-full rounded-xl">
+                  {/* Hover gradient overlay */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${role.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0`} />
+                  <div className="relative z-10">
+                    {/* Image Section */}
+                    <div className="relative overflow-hidden rounded-t-xl">
+                      <img
+                        src={role.image}
+                        alt={role.title}
+                        className="w-full h-48 sm:h-52 object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute top-3 left-3 flex items-center gap-2">
+                        <Badge className="bg-background/80 backdrop-blur-sm text-foreground border-border/50 text-[10px] font-semibold tracking-wider">
+                          {role.badge}
+                        </Badge>
+                      </div>
+                      <div className="absolute top-3 right-3">
+                        <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-primary shadow-glow">
+                          <Icon className="h-4 w-4 text-primary-foreground" />
+                        </div>
+                      </div>
+                    </div>
+                    {/* Content Section */}
+                    <div className="p-4 sm:p-5">
+                      <h3 className="font-bold text-base sm:text-lg leading-tight mb-1 group-hover:text-primary transition-colors">
+                        {role.title}
+                      </h3>
+                      <p className="text-xs text-muted-foreground mb-3 line-clamp-2">{role.tagline}</p>
+                      <div className="flex flex-wrap gap-1.5 mb-4">
+                        {role.highlights.map((h) => (
+                          <span key={h} className="inline-flex items-center rounded-md border border-border/50 bg-background/40 px-2 py-0.5 text-[10px] font-medium text-muted-foreground">
+                            {h}
+                          </span>
+                        ))}
+                      </div>
+                      <div className="border-t border-border/40 pt-4">
+                        <Button
+                          size="sm"
+                          className="w-full bg-gradient-primary shadow-glow border-0 text-xs sm:text-sm font-semibold px-4 h-9"
+                        >
+                          Explore Now <ArrowRightIcon className="ml-2 h-3.5 w-3.5" />
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                </Card>
+              </Link>
+            );
+          })}
+        </div>
+      </section>
 
       {/* Contact Us CTA */}
       <section className="mt-14 mb-14">
@@ -406,6 +565,7 @@ function RoadmapsPage() {
           </div>
         </Card>
       </section>
+
 
       {/* CTA */}
       <section className="mt-14 text-center">
