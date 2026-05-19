@@ -241,7 +241,7 @@ function AIEngineerRoadmapPage() {
             </div>
 
             <div className="mt-6 rounded-xl border border-success/20 bg-success/[0.06] p-4 sm:p-5">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-success mb-2">🎯 RESULT</h4>
+              <h4 className="text-xs font-bold uppercase tracking-wider text-success mb-2"> RESULT</h4>
               <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3 mb-3">
                 {phase.result.map((r) => (
                   <p key={r} className="text-xs text-muted-foreground">{r}</p>
@@ -261,7 +261,7 @@ function AIEngineerRoadmapPage() {
         <Card className="relative overflow-hidden bg-card/60 backdrop-blur border-border p-5 sm:p-6">
           <div className="absolute inset-0 bg-gradient-to-r from-warning/[0.06] to-transparent pointer-events-none" />
           <div className="relative z-10">
-            <h3 className="text-lg font-bold mb-1">🔥 MOST IMPORTANT SKILLS FOR HIGH PAY</h3>
+            <h3 className="text-lg font-bold mb-1"> MOST IMPORTANT SKILLS FOR HIGH PAY</h3>
             <p className="text-xs text-muted-foreground mb-4">MUST MASTER:</p>
             <div className="flex flex-wrap gap-2">
               {mustMaster.map((skill) => (
@@ -278,7 +278,7 @@ function AIEngineerRoadmapPage() {
         <Card className="relative overflow-hidden bg-card/60 border-border p-5 sm:p-6">
           <div className="absolute inset-0 bg-gradient-to-r from-primary/[0.08] via-accent/[0.05] to-success/[0.06] pointer-events-none" />
           <div className="relative z-10">
-            <h3 className="text-lg font-bold mb-3"> FINAL Suggestion:</h3>
+            <h3 className="text-lg font-bold mb-3"> FINAL Suggestion</h3>
             <p className="text-sm text-muted-foreground mb-3">
               The highest-paying AI engineers in 2026 are NOT just: <span className="font-semibold text-foreground">❌ ML Engineers</span>
             </p>
