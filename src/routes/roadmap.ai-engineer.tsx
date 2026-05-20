@@ -20,7 +20,7 @@ export const Route = createFileRoute("/roadmap/ai-engineer")({
 
 const phases = [
   {
-    label: "🚀 3 MONTH",
+    label: " 3 MONTH",
     title: "Beginner → Intermediate",
     goal: "Build strong AI foundations + basic AI projects.",
     accent: "text-primary",
@@ -72,7 +72,7 @@ const phases = [
     opportunities: ["AI Internships", "Freelancing", "Beginner AI roles"],
   },
   {
-    label: "🚀 6 MONTH",
+    label: " 6 MONTH",
     title: "Intermediate → Industry Ready",
     goal: "Become job/internship ready AI Engineer.",
     accent: "text-accent",
@@ -121,7 +121,7 @@ const phases = [
     opportunities: ["₹10–20 LPA internships/jobs", "Startup AI roles", "Remote projects"],
   },
   {
-    label: "🚀 1 YEAR",
+    label: " 1 YEAR",
     title: "Advanced → High Paying AI Engineer",
     goal: "Become top-tier AI Engineer for FAANG, AI startups, Remote US jobs.",
     accent: "text-success",
@@ -269,28 +269,6 @@ function AIEngineerRoadmapPage() {
                   {skill}
                 </span>
               ))}
-            </div>
-          </div>
-        </Card>
-      </section>
-
-      <section className="mb-8">
-        <Card className="relative overflow-hidden bg-card/60 border-border p-5 sm:p-6">
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/[0.08] via-accent/[0.05] to-success/[0.06] pointer-events-none" />
-          <div className="relative z-10">
-            <h3 className="text-lg font-bold mb-3"> FINAL Suggestion</h3>
-            <p className="text-sm text-muted-foreground mb-3">
-              The highest-paying AI engineers in 2026 are NOT just: <span className="font-semibold text-foreground">❌ ML Engineers</span>
-            </p>
-            <p className="text-sm text-muted-foreground mb-3">
-              They are: <span className="font-semibold text-success">✅ AI Product Engineers</span>
-            </p>
-            <p className="text-sm text-muted-foreground mb-4">Meaning: AI + Full Stack + Deployment + System Design</p>
-            <div className="flex flex-wrap gap-2">
-              <Badge variant="outline" className="text-xs border-primary/30 text-primary">₹30–50+ LPA potential</Badge>
-              <Badge variant="outline" className="text-xs border-accent/30 text-accent">Strong startup opportunities</Badge>
-              <Badge variant="outline" className="text-xs border-success/30 text-success">Remote global jobs</Badge>
-              <Badge variant="outline" className="text-xs border-warning/30 text-warning">MAANG-level profile </Badge>
             </div>
           </div>
         </Card>
