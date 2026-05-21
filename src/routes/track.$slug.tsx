@@ -6,7 +6,11 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { useProgress } from "@/hooks/use-progress";
-import { ExternalLinkIcon, ArrowLeftIcon, VideoIcon, BookOpenIcon, FileTextIcon, CodeIcon, GraduationCapIcon, LibraryIcon, MessageCircleIcon } from "@/components/icons";
+import {
+  ExternalLinkIcon, ArrowLeftIcon, VideoIcon, BookOpenIcon, FileTextIcon,
+  CodeIcon, GraduationCapIcon, LibraryIcon, MessageCircleIcon, PlayIcon,
+  NotebookIcon, ClipboardListIcon, ArrowRightIcon,
+} from "@/components/icons";
 import type { Resource } from "@/data/tracks";
 
 export const Route = createFileRoute("/track/$slug")({
@@ -36,6 +40,49 @@ export const Route = createFileRoute("/track/$slug")({
   ),
 });
 
+/* ─── DSA section definitions ─── */
+const dsaSections = [
+  {
+    id: "video-courses",
+    title: "DSA Video Full Course",
+    description: "Complete video lectures for DSA in Python, Java & C++. From beginner to advanced — curated playlists from top educators.",
+    image: "/tracks/dsa-sections/video-courses.png",
+    badge: "VIDEO COURSES",
+    gradient: "from-blue-500/20 via-cyan-500/10 to-transparent",
+    borderHover: "hover:border-blue-500/40",
+    iconBg: "bg-gradient-to-br from-blue-500 to-cyan-600",
+    icon: PlayIcon,
+    glowColor: "shadow-[0_10px_40px_-10px_oklch(0.6_0.22_230/0.35)]",
+    link: "/track/dsa/videos",
+  },
+  {
+    id: "full-notes",
+    title: "DSA Full Notes",
+    description: "Comprehensive notes, roadmaps, PDFs and theory resources. Python-specific guides, pattern sheets and structured learning paths.",
+    image: "/tracks/dsa-sections/full-notes.png",
+    badge: "NOTES & GUIDES",
+    gradient: "from-emerald-500/20 via-green-500/10 to-transparent",
+    borderHover: "hover:border-emerald-500/40",
+    iconBg: "bg-gradient-to-br from-emerald-500 to-green-600",
+    icon: NotebookIcon,
+    glowColor: "shadow-[0_10px_40px_-10px_oklch(0.65_0.18_155/0.35)]",
+    link: "/track/dsa/notes",
+  },
+  {
+    id: "practice-questions",
+    title: "Coding Practice Questions",
+    description: "Curated coding sheets, interview questions, bootcamps and AI-powered courses. Practice 400+ problems across all DSA topics.",
+    image: "/tracks/dsa-sections/interview-prep.png",
+    badge: "PRACTICE & INTERVIEW",
+    gradient: "from-violet-500/20 via-purple-500/10 to-transparent",
+    borderHover: "hover:border-violet-500/40",
+    iconBg: "bg-gradient-to-br from-violet-500 to-purple-600",
+    icon: ClipboardListIcon,
+    glowColor: "shadow-[0_10px_40px_-10px_oklch(0.6_0.22_290/0.35)]",
+    link: "/track/dsa/practice",
+  },
+];
+
 function TrackPage() {
   const typeIcon: Record<Resource["type"], React.ComponentType<{ className?: string }>> = {
     video: VideoIcon,
@@ -58,15 +105,17 @@ function TrackPage() {
     0
   );
   const pct = totalResources ? Math.round((doneCount / totalResources) * 100) : 0;
-
   const pctStyle = { width: pct + "%" };
 
+  const isDsa = data.slug === "dsa";
+
   return (
-    <div className="px-6 py-8 md:px-12 max-w-6xl mx-auto">
+    <div className="px-4 py-6 sm:px-6 sm:py-8 md:px-12 md:py-10 max-w-7xl mx-auto">
       <Button asChild variant="ghost" size="sm" className="mb-6">
         <Link to="/"><ArrowLeftIcon className="h-4 w-4 mr-1" /> All tracks</Link>
       </Button>
 
+      {/* Track Header */}
       <div className="flex items-start gap-5 mb-8">
         <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-primary shadow-glow">
           <Icon className="h-6 w-6 text-primary-foreground" />
@@ -98,81 +147,155 @@ function TrackPage() {
         </Card>
       )}
 
-      <Accordion type="multiple" defaultValue={[data.topics[0]?.id]} className="space-y-3">
-        {data.topics.map((topic) => (
-          <AccordionItem
-            key={topic.id}
-            value={topic.id}
-            className="border border-border rounded-xl bg-card/60 backdrop-blur px-4 data-[state=open]:shadow-card"
-          >
-            <AccordionTrigger className="hover:no-underline py-4">
-              <div className="text-left">
-                <div className="font-semibold">{topic.title}</div>
-                <div className="text-xs text-muted-foreground mt-0.5">{topic.summary}</div>
-              </div>
-            </AccordionTrigger>
-            <AccordionContent className="pb-4 space-y-4">
-              <div>
-                <h4 className="text-xs font-semibold uppercase text-muted-foreground mb-2">Resources</h4>
-                <div className="space-y-2">
-                  {topic.resources.map((res) => {
-                    const TypeIcon = typeIcon[res.type];
-                    const done = doneIds.has(res.id);
-                    const doneClass = done ? "line-through text-muted-foreground" : "";
-                    return (
-                      <div
-                        key={res.id}
-                        className="flex items-center gap-3 rounded-lg border border-border bg-background/40 px-3 py-2 hover:border-primary/40 transition-colors"
-                      >
-                        <Checkbox
-                          checked={done}
-                          onCheckedChange={() => toggle(res.id)}
-                          disabled={!isLoggedIn}
-                        />
-                        <TypeIcon className="h-4 w-4 text-primary shrink-0" />
-                        <a
-                          href={res.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={"flex-1 text-sm hover:text-primary " + doneClass}
-                        >
-                          {res.title}
-                          {res.source && <span className="text-muted-foreground"> · {res.source}</span>}
-                        </a>
-                        <Badge variant="secondary" className="text-[10px] uppercase">{res.type}</Badge>
-                        <ExternalLinkIcon className="h-3 w-3 text-muted-foreground" />
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
+      {/* ─── DSA Section Cards (only for dsa slug) ─── */}
+      {isDsa && (
+        <section className="mb-10">
+          <h2 className="text-2xl md:text-3xl font-bold mb-2">DSA Learning Paths</h2>
+          <p className="text-muted-foreground mb-8 max-w-2xl">
+            Choose your learning style — watch video courses, read structured notes, or dive into coding practice.
+          </p>
 
-              {topic.questions && topic.questions.length > 0 && (
+          <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+            {dsaSections.map((section) => {
+              const SectionIcon = section.icon;
+              return (
+                <Card
+                  key={section.id}
+                  className={`group relative overflow-hidden bg-card/60 backdrop-blur border-border ${section.borderHover} transition-all duration-300 hover:${section.glowColor}`}
+                >
+                  <div className={`absolute inset-0 bg-gradient-to-br ${section.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0`} />
+
+                  <div className="relative z-10">
+                    {/* Image */}
+                    <div className="relative overflow-hidden rounded-t-xl">
+                      <img
+                        src={section.image}
+                        alt={section.title}
+                        className="w-full h-44 sm:h-48 object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute top-3 left-3">
+                        <Badge className="bg-background/80 backdrop-blur-sm text-foreground border-border/50 text-[10px] font-semibold tracking-wider">
+                          {section.badge}
+                        </Badge>
+                      </div>
+                      <div className="absolute top-3 right-3">
+                        <div className={`flex h-9 w-9 items-center justify-center rounded-lg ${section.iconBg} shadow-lg`}>
+                          <SectionIcon className="h-4 w-4 text-white" />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="p-4 sm:p-5">
+                      <h3 className="font-bold text-base sm:text-lg leading-tight mb-1 group-hover:text-primary transition-colors">
+                        {section.title}
+                      </h3>
+                      <p className="text-xs text-muted-foreground leading-relaxed mb-4 line-clamp-2">
+                        {section.description}
+                      </p>
+
+                      <div className="border-t border-border/40 pt-4">
+                        <Link to={section.link}>
+                          <Button
+                            size="sm"
+                            className="w-full bg-gradient-primary shadow-glow border-0 text-xs sm:text-sm font-semibold px-4 h-9"
+                          >
+                            Explore Now <ArrowRightIcon className="ml-2 h-3.5 w-3.5" />
+                          </Button>
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </Card>
+              );
+            })}
+          </div>
+        </section>
+      )}
+
+      {/* ─── Existing Topic Resources (preserved) ─── */}
+      <section>
+        <h2 className="text-2xl md:text-3xl font-bold mb-2">Topic-wise Resources</h2>
+        <p className="text-muted-foreground mb-6 max-w-2xl">
+          Detailed resources organized by DSA topic — arrays, trees, graphs, DP and more.
+        </p>
+
+        <Accordion type="multiple" defaultValue={[data.topics[0]?.id]} className="space-y-3">
+          {data.topics.map((topic) => (
+            <AccordionItem
+              key={topic.id}
+              value={topic.id}
+              className="border border-border rounded-xl bg-card/60 backdrop-blur px-4 data-[state=open]:shadow-card"
+            >
+              <AccordionTrigger className="hover:no-underline py-4">
+                <div className="text-left">
+                  <div className="font-semibold">{topic.title}</div>
+                  <div className="text-xs text-muted-foreground mt-0.5">{topic.summary}</div>
+                </div>
+              </AccordionTrigger>
+              <AccordionContent className="pb-4 space-y-4">
                 <div>
-                  <h4 className="text-xs font-semibold uppercase text-muted-foreground mb-2">
-                    Important Interview Questions
-                  </h4>
-                  <div className="grid gap-2 sm:grid-cols-2">
-                    {topic.questions.map((q, i) => (
-                      <a
-                        key={i}
-                        href={q.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 rounded-lg border border-border bg-background/40 px-3 py-2 text-sm hover:border-primary/40 hover:text-primary transition-colors"
-                      >
-                        <span className="text-primary">›</span>
-                        <span className="flex-1">{q.q}</span>
-                        <ExternalLinkIcon className="h-3 w-3 text-muted-foreground" />
-                      </a>
-                    ))}
+                  <h4 className="text-xs font-semibold uppercase text-muted-foreground mb-2">Resources</h4>
+                  <div className="space-y-2">
+                    {topic.resources.map((res) => {
+                      const TypeIcon = typeIcon[res.type];
+                      const done = doneIds.has(res.id);
+                      const doneClass = done ? "line-through text-muted-foreground" : "";
+                      return (
+                        <div
+                          key={res.id}
+                          className="flex items-center gap-3 rounded-lg border border-border bg-background/40 px-3 py-2 hover:border-primary/40 transition-colors"
+                        >
+                          <Checkbox
+                            checked={done}
+                            onCheckedChange={() => toggle(res.id)}
+                            disabled={!isLoggedIn}
+                          />
+                          <TypeIcon className="h-4 w-4 text-primary shrink-0" />
+                          <a
+                            href={res.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={"flex-1 text-sm hover:text-primary " + doneClass}
+                          >
+                            {res.title}
+                            {res.source && <span className="text-muted-foreground"> · {res.source}</span>}
+                          </a>
+                          <Badge variant="secondary" className="text-[10px] uppercase">{res.type}</Badge>
+                          <ExternalLinkIcon className="h-3 w-3 text-muted-foreground" />
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
-              )}
-            </AccordionContent>
-          </AccordionItem>
-        ))}
-      </Accordion>
+
+                {topic.questions && topic.questions.length > 0 && (
+                  <div>
+                    <h4 className="text-xs font-semibold uppercase text-muted-foreground mb-2">
+                      Important Interview Questions
+                    </h4>
+                    <div className="grid gap-2 sm:grid-cols-2">
+                      {topic.questions.map((q, i) => (
+                        <a
+                          key={i}
+                          href={q.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 rounded-lg border border-border bg-background/40 px-3 py-2 text-sm hover:border-primary/40 hover:text-primary transition-colors"
+                        >
+                          <span className="text-primary">›</span>
+                          <span className="flex-1">{q.q}</span>
+                          <ExternalLinkIcon className="h-3 w-3 text-muted-foreground" />
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </section>
     </div>
   );
 }
