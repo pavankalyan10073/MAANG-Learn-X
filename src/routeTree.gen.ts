@@ -25,9 +25,15 @@ import { Route as RoadmapDataScientistRouteImport } from './routes/roadmap.data-
 import { Route as RoadmapCyberSecurityEngineerRouteImport } from './routes/roadmap.cyber-security-engineer'
 import { Route as RoadmapCloudDevopsEngineerRouteImport } from './routes/roadmap.cloud-devops-engineer'
 import { Route as RoadmapAiEngineerRouteImport } from './routes/roadmap.ai-engineer'
+import { Route as TrackSystemDesignVideosRouteImport } from './routes/track.system-design.videos'
+import { Route as TrackSystemDesignPracticeRouteImport } from './routes/track.system-design.practice'
+import { Route as TrackSystemDesignNotesRouteImport } from './routes/track.system-design.notes'
 import { Route as TrackDsaVideosRouteImport } from './routes/track.dsa.videos'
 import { Route as TrackDsaPracticeRouteImport } from './routes/track.dsa.practice'
 import { Route as TrackDsaNotesRouteImport } from './routes/track.dsa.notes'
+import { Route as TrackAptitudeVideosRouteImport } from './routes/track.aptitude.videos'
+import { Route as TrackAptitudePracticeRouteImport } from './routes/track.aptitude.practice'
+import { Route as TrackAptitudeNotesRouteImport } from './routes/track.aptitude.notes'
 
 const TutorRoute = TutorRouteImport.update({
   id: '/tutor',
@@ -113,6 +119,22 @@ const RoadmapAiEngineerRoute = RoadmapAiEngineerRouteImport.update({
   path: '/roadmap/ai-engineer',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TrackSystemDesignVideosRoute = TrackSystemDesignVideosRouteImport.update({
+  id: '/track/system-design/videos',
+  path: '/track/system-design/videos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TrackSystemDesignPracticeRoute =
+  TrackSystemDesignPracticeRouteImport.update({
+    id: '/track/system-design/practice',
+    path: '/track/system-design/practice',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const TrackSystemDesignNotesRoute = TrackSystemDesignNotesRouteImport.update({
+  id: '/track/system-design/notes',
+  path: '/track/system-design/notes',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TrackDsaVideosRoute = TrackDsaVideosRouteImport.update({
   id: '/track/dsa/videos',
   path: '/track/dsa/videos',
@@ -126,6 +148,21 @@ const TrackDsaPracticeRoute = TrackDsaPracticeRouteImport.update({
 const TrackDsaNotesRoute = TrackDsaNotesRouteImport.update({
   id: '/track/dsa/notes',
   path: '/track/dsa/notes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TrackAptitudeVideosRoute = TrackAptitudeVideosRouteImport.update({
+  id: '/track/aptitude/videos',
+  path: '/track/aptitude/videos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TrackAptitudePracticeRoute = TrackAptitudePracticeRouteImport.update({
+  id: '/track/aptitude/practice',
+  path: '/track/aptitude/practice',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TrackAptitudeNotesRoute = TrackAptitudeNotesRouteImport.update({
+  id: '/track/aptitude/notes',
+  path: '/track/aptitude/notes',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -146,9 +183,15 @@ export interface FileRoutesByFullPath {
   '/roadmap/sde': typeof RoadmapSdeRoute
   '/roadmap/system-design-engineer': typeof RoadmapSystemDesignEngineerRoute
   '/track/$slug': typeof TrackSlugRoute
+  '/track/aptitude/notes': typeof TrackAptitudeNotesRoute
+  '/track/aptitude/practice': typeof TrackAptitudePracticeRoute
+  '/track/aptitude/videos': typeof TrackAptitudeVideosRoute
   '/track/dsa/notes': typeof TrackDsaNotesRoute
   '/track/dsa/practice': typeof TrackDsaPracticeRoute
   '/track/dsa/videos': typeof TrackDsaVideosRoute
+  '/track/system-design/notes': typeof TrackSystemDesignNotesRoute
+  '/track/system-design/practice': typeof TrackSystemDesignPracticeRoute
+  '/track/system-design/videos': typeof TrackSystemDesignVideosRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -167,9 +210,15 @@ export interface FileRoutesByTo {
   '/roadmap/sde': typeof RoadmapSdeRoute
   '/roadmap/system-design-engineer': typeof RoadmapSystemDesignEngineerRoute
   '/track/$slug': typeof TrackSlugRoute
+  '/track/aptitude/notes': typeof TrackAptitudeNotesRoute
+  '/track/aptitude/practice': typeof TrackAptitudePracticeRoute
+  '/track/aptitude/videos': typeof TrackAptitudeVideosRoute
   '/track/dsa/notes': typeof TrackDsaNotesRoute
   '/track/dsa/practice': typeof TrackDsaPracticeRoute
   '/track/dsa/videos': typeof TrackDsaVideosRoute
+  '/track/system-design/notes': typeof TrackSystemDesignNotesRoute
+  '/track/system-design/practice': typeof TrackSystemDesignPracticeRoute
+  '/track/system-design/videos': typeof TrackSystemDesignVideosRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -189,9 +238,15 @@ export interface FileRoutesById {
   '/roadmap/sde': typeof RoadmapSdeRoute
   '/roadmap/system-design-engineer': typeof RoadmapSystemDesignEngineerRoute
   '/track/$slug': typeof TrackSlugRoute
+  '/track/aptitude/notes': typeof TrackAptitudeNotesRoute
+  '/track/aptitude/practice': typeof TrackAptitudePracticeRoute
+  '/track/aptitude/videos': typeof TrackAptitudeVideosRoute
   '/track/dsa/notes': typeof TrackDsaNotesRoute
   '/track/dsa/practice': typeof TrackDsaPracticeRoute
   '/track/dsa/videos': typeof TrackDsaVideosRoute
+  '/track/system-design/notes': typeof TrackSystemDesignNotesRoute
+  '/track/system-design/practice': typeof TrackSystemDesignPracticeRoute
+  '/track/system-design/videos': typeof TrackSystemDesignVideosRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -212,9 +267,15 @@ export interface FileRouteTypes {
     | '/roadmap/sde'
     | '/roadmap/system-design-engineer'
     | '/track/$slug'
+    | '/track/aptitude/notes'
+    | '/track/aptitude/practice'
+    | '/track/aptitude/videos'
     | '/track/dsa/notes'
     | '/track/dsa/practice'
     | '/track/dsa/videos'
+    | '/track/system-design/notes'
+    | '/track/system-design/practice'
+    | '/track/system-design/videos'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -233,9 +294,15 @@ export interface FileRouteTypes {
     | '/roadmap/sde'
     | '/roadmap/system-design-engineer'
     | '/track/$slug'
+    | '/track/aptitude/notes'
+    | '/track/aptitude/practice'
+    | '/track/aptitude/videos'
     | '/track/dsa/notes'
     | '/track/dsa/practice'
     | '/track/dsa/videos'
+    | '/track/system-design/notes'
+    | '/track/system-design/practice'
+    | '/track/system-design/videos'
   id:
     | '__root__'
     | '/'
@@ -254,9 +321,15 @@ export interface FileRouteTypes {
     | '/roadmap/sde'
     | '/roadmap/system-design-engineer'
     | '/track/$slug'
+    | '/track/aptitude/notes'
+    | '/track/aptitude/practice'
+    | '/track/aptitude/videos'
     | '/track/dsa/notes'
     | '/track/dsa/practice'
     | '/track/dsa/videos'
+    | '/track/system-design/notes'
+    | '/track/system-design/practice'
+    | '/track/system-design/videos'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -276,9 +349,15 @@ export interface RootRouteChildren {
   RoadmapSdeRoute: typeof RoadmapSdeRoute
   RoadmapSystemDesignEngineerRoute: typeof RoadmapSystemDesignEngineerRoute
   TrackSlugRoute: typeof TrackSlugRoute
+  TrackAptitudeNotesRoute: typeof TrackAptitudeNotesRoute
+  TrackAptitudePracticeRoute: typeof TrackAptitudePracticeRoute
+  TrackAptitudeVideosRoute: typeof TrackAptitudeVideosRoute
   TrackDsaNotesRoute: typeof TrackDsaNotesRoute
   TrackDsaPracticeRoute: typeof TrackDsaPracticeRoute
   TrackDsaVideosRoute: typeof TrackDsaVideosRoute
+  TrackSystemDesignNotesRoute: typeof TrackSystemDesignNotesRoute
+  TrackSystemDesignPracticeRoute: typeof TrackSystemDesignPracticeRoute
+  TrackSystemDesignVideosRoute: typeof TrackSystemDesignVideosRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -395,6 +474,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RoadmapAiEngineerRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/track/system-design/videos': {
+      id: '/track/system-design/videos'
+      path: '/track/system-design/videos'
+      fullPath: '/track/system-design/videos'
+      preLoaderRoute: typeof TrackSystemDesignVideosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/track/system-design/practice': {
+      id: '/track/system-design/practice'
+      path: '/track/system-design/practice'
+      fullPath: '/track/system-design/practice'
+      preLoaderRoute: typeof TrackSystemDesignPracticeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/track/system-design/notes': {
+      id: '/track/system-design/notes'
+      path: '/track/system-design/notes'
+      fullPath: '/track/system-design/notes'
+      preLoaderRoute: typeof TrackSystemDesignNotesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/track/dsa/videos': {
       id: '/track/dsa/videos'
       path: '/track/dsa/videos'
@@ -414,6 +514,27 @@ declare module '@tanstack/react-router' {
       path: '/track/dsa/notes'
       fullPath: '/track/dsa/notes'
       preLoaderRoute: typeof TrackDsaNotesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/track/aptitude/videos': {
+      id: '/track/aptitude/videos'
+      path: '/track/aptitude/videos'
+      fullPath: '/track/aptitude/videos'
+      preLoaderRoute: typeof TrackAptitudeVideosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/track/aptitude/practice': {
+      id: '/track/aptitude/practice'
+      path: '/track/aptitude/practice'
+      fullPath: '/track/aptitude/practice'
+      preLoaderRoute: typeof TrackAptitudePracticeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/track/aptitude/notes': {
+      id: '/track/aptitude/notes'
+      path: '/track/aptitude/notes'
+      fullPath: '/track/aptitude/notes'
+      preLoaderRoute: typeof TrackAptitudeNotesRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -436,9 +557,15 @@ const rootRouteChildren: RootRouteChildren = {
   RoadmapSdeRoute: RoadmapSdeRoute,
   RoadmapSystemDesignEngineerRoute: RoadmapSystemDesignEngineerRoute,
   TrackSlugRoute: TrackSlugRoute,
+  TrackAptitudeNotesRoute: TrackAptitudeNotesRoute,
+  TrackAptitudePracticeRoute: TrackAptitudePracticeRoute,
+  TrackAptitudeVideosRoute: TrackAptitudeVideosRoute,
   TrackDsaNotesRoute: TrackDsaNotesRoute,
   TrackDsaPracticeRoute: TrackDsaPracticeRoute,
   TrackDsaVideosRoute: TrackDsaVideosRoute,
+  TrackSystemDesignNotesRoute: TrackSystemDesignNotesRoute,
+  TrackSystemDesignPracticeRoute: TrackSystemDesignPracticeRoute,
+  TrackSystemDesignVideosRoute: TrackSystemDesignVideosRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -7,83 +7,72 @@ import {
   SparklesIcon, TrophyIcon, TargetIcon, ClipboardListIcon,
 } from "@/components/icons";
 
-export const Route = createFileRoute("/track/dsa/practice")({
+export const Route = createFileRoute("/track/system-design/practice")({
   head: () => ({
     meta: [
-      { title: "DSA Coding Practice Questions — MAANG Learn X" },
-      { name: "description", content: "Curated coding sheets, interview questions, bootcamps and AI-powered courses." },
+      { title: "System Design Interview Prep — MAANG Learn X" },
+      { name: "description", content: "System design interview questions, case studies and practice resources for MAANG-level preparation." },
     ],
   }),
-  component: DSAPracticePage,
+  component: SDPracticePage,
 });
 
 const practiceGroups = [
   {
-    label: "Must Do Coding Questions — MAANG",
-    icon: "📋",
+    label: "System Design Interview Questions",
+    icon: "🎯",
     gradient: "from-amber-500/20 via-yellow-500/10 to-transparent",
     thumbBg: "from-amber-600 to-yellow-700",
     items: [
-      { title: "Must Do Coding Questions — MAANG", url: "https://www.geeksforgeeks.org/dsa/must-do-coding-questions-for-companies-like-amazon-microsoft-adobe/", tag: "MAANG (Highly Recommended)", desc: "Curated list of must-do questions for Amazon, Microsoft, Adobe & more", stars: 5, gradient: "from-green-500/20 via-emerald-500/10 to-transparent", thumbBg: "from-green-600 to-emerald-700", thumbEmoji: "💼" },
-      { title: "Striver A2Z DSA Course Sheet", url: "https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2/", tag: "Sheet (Strong Recommended )", desc: "The ultimate A2Z DSA sheet covering every topic systematically",  stars: 5, gradient: "from-green-500/20 via-emerald-500/10 to-transparent", thumbBg: "from-green-600 to-emerald-700", thumbEmoji: "📋" },
-      { title: "NeetCode 150", url: "https://neetcode.io/roadmap", tag: "Sheet (Recommended)", desc: "The most popular 150 problems curated for coding interviews", stars: 4, gradient: "from-cyan-500/20 via-blue-500/10 to-transparent", thumbBg: "from-indigo-600 to-violet-700", thumbEmoji: "🗺" },
-      { title: "Curious Freaks Coding Sheet (413)", url: "https://grindgram.in/career-tracks/curious-coding-sheet", tag: "Sheet (Highly Recommended)", desc: "Master 50 patterns to crack your dream SDE job — 413 curated problems", stars: 5, gradient: "from-indigo-500/20 via-violet-500/10 to-transparent", thumbBg: "from-indigo-600 to-violet-700", thumbEmoji: "📋" },
-      { title: "Top 100 DSA Interview Qs — Topic-wise", url: "https://www.geeksforgeeks.org/dsa/top-100-data-structure-and-algorithms-dsa-interview-questions-topic-wise/", tag: "Interview (Highly Recommended)", desc: "Topic-wise 100 most asked DSA interview questions with solutions", stars: 5, gradient: "from-green-500/20 via-emerald-500/10 to-transparent", thumbBg: "from-teal-600 to-cyan-700", thumbEmoji: "🎯" },
-      { title: "Top 100 DSA Interview Qs (LeetCode)", url: "https://leetcode.com/discuss/post/4258631/top-100-dsa-interview-questions-by-anony-jlgg/", tag: "Interview (Recommended)", desc: "Community-curated top 100 LeetCode questions for interview prep", stars: 3, gradient: "from-amber-500/20 via-yellow-500/10 to-transparent", thumbBg: "from-teal-600 to-cyan-700", thumbEmoji: "💡" },
-      { title: "LeetCode 75", url: "https://leetcode.com/studyplan/leetcode-75/", tag: "Study Plan (Higly Recommended)", desc: "75 essential LeetCode problems to ace your coding interview", stars: 4, gradient: "from-amber-500/20 via-orange-500/10 to-transparent", thumbBg: "from-amber-600 to-orange-700", thumbEmoji: "📝" },
-      { title: "Top 100 Liked Problems", url: "https://leetcode.com/studyplan/top-100-liked/", tag: "Study Plan (Highly Recommended)", desc: "The most liked LeetCode problems — community favorites for practice", stars: 4, gradient: "from-amber-500/20 via-orange-500/10 to-transparent", thumbBg: "from-amber-600 to-orange-700", thumbEmoji: "❤️" },
+      { title: "System Design Interview Questions — InterviewBit", url: "https://www.interviewbit.com/system-design-interview-questions/", tag: "Interview Q&A", desc: "Curated system design interview questions with detailed answers — design URL shortener, Twitter, WhatsApp, Uber and more", stars: 5, gradient: "from-green-500/20 via-emerald-500/10 to-transparent", thumbBg: "from-green-600 to-emerald-700", thumbEmoji: "🎯" },
     ],
   },
   {
-    label: "30 Days DSA Bootcamp (Unstop)",
-    icon: "🚀",
+    label: "Low-Level Design Practice",
+    icon: "🏗️",
     gradient: "from-orange-500/20 via-red-500/10 to-transparent",
     thumbBg: "from-orange-600 to-red-700",
     items: [
-      { title: "30 Days DSA Bootcamp", url: "https://unstop.com/practice/company-preparation/30-days-dsa-bootcamp/day-introduction-to-programming-37651/basics-of-programming-37652", tag: "Bootcamp", desc: "Intensive 30-day bootcamp with daily DSA problems and solutions", stars: 3, gradient: "from-orange-500/20 via-amber-500/10 to-transparent", thumbBg: "from-orange-600 to-red-700", thumbEmoji: "🚀" },
-      { title: "GfG - 3741 Problems Sheet (Problem of the day)", url: "https://www.geeksforgeeks.org/explore?page=2&sortBy=submissions", tag: "Popular Problems - 3741", desc: "GfG List of 3741 Problems", stars: 5, gradient: "from-orange-500/20 via-amber-500/10 to-transparent", thumbBg: "from-orange-600 to-red-700", thumbEmoji: "🚀" },
+      { title: "Low-Level Design in a Hurry — HelloInterview", url: "https://www.hellointerview.com/learn/low-level-design/in-a-hurry/introduction", tag: "LLD Practice", desc: "Fast-track LLD preparation with real-world design problems — Parking Lot, Splitwise, BookMyShow, Chess and more", stars: 5, gradient: "from-orange-500/20 via-amber-500/10 to-transparent", thumbBg: "from-orange-600 to-red-700", thumbEmoji: "🏗️" },
     ],
   },
   {
-    label: "Python Core & DSA Course with AI",
-    icon: "🤖",
-    gradient: "from-green-500/20 via-emerald-500/10 to-transparent",
+    label: "System Design Case Studies",
+    icon: "📐",
+    gradient: "from-blue-500/20 via-indigo-500/10 to-transparent",
     thumbBg: "from-blue-600 to-indigo-700",
     items: [
-      { title: "Python DSA Course with AI", url: "https://unstop.com/courses/python/python-dsa", tag: "Course", desc: "AI-powered Python DSA course with personalized learning path", stars: 3, gradient: "from-yellow-500/20 via-amber-500/10 to-transparent", thumbBg: "from-yellow-600 to-amber-700", thumbEmoji: "🤖" },
-      { title: "Python Basics with AI", url: "https://unstop.com/courses/python/python-basics", tag: "Course", desc: "Master Python fundamentals with AI-guided exercises", stars: 3, gradient: "from-yellow-500/20 via-amber-500/10 to-transparent", thumbBg: "from-yellow-600 to-amber-700", thumbEmoji: "🐍" },
-      { title: "Intermediate Python with AI", url: "https://unstop.com/courses/python/intermediate-coding-in-python-with-ai", tag: "Course", desc: "Level up your Python skills with intermediate concepts and AI support", stars: 2, gradient: "from-yellow-500/20 via-amber-500/10 to-transparent", thumbBg: "from-yellow-600 to-amber-700", thumbEmoji: "⚡" },
-      { title: "Ultimate Python Guide with AI", url: "https://unstop.com/courses/python/ultimate-python-guide", tag: "Course", desc: "The most comprehensive Python guide with AI-powered practice", stars: 3, gradient: "from-yellow-500/20 via-amber-500/10 to-transparent", thumbBg: "from-yellow-600 to-amber-700", thumbEmoji: "🏆" },
+      { title: "System Design Interview — Alex Xu (PDF)", url: "https://github.com/mukul96/System-Design-AlexXu/blob/master/System%20Design%20Interview%20An%20Insider%E2%80%99s%20Guide%20by%20Alex%20Xu%20(z-lib.org).pdf", tag: "Case Studies", desc: "Real-world system design case studies — design Twitter, WhatsApp, YouTube, Uber, Netflix, Dropbox with detailed architecture diagrams", stars: 5, gradient: "from-indigo-500/20 via-violet-500/10 to-transparent", thumbBg: "from-indigo-600 to-violet-700", thumbEmoji: "📐" },
     ],
   },
 ];
 
 const stats = [
-  { icon: ClipboardListIcon, value: "12", label: "Resources" },
-  { icon: TargetIcon, value: "400+", label: "Problems" },
-  { icon: TrophyIcon, value: "5", label: "Sheets" },
+  { icon: ClipboardListIcon, value: "3", label: "Resources" },
+  { icon: TargetIcon, value: "20+", label: "Questions" },
+  { icon: TrophyIcon, value: "3", label: "Categories" },
 ];
 
-function DSAPracticePage() {
+function SDPracticePage() {
   return (
     <div className="px-4 py-6 sm:px-6 sm:py-8 md:px-12 md:py-10 max-w-7xl mx-auto">
       <Button asChild variant="ghost" size="sm" className="mb-6">
-        <Link to="/track/$slug" params={{ slug: "dsa" }}>
-          <ArrowLeftIcon className="h-4 w-4 mr-1" /> Back to DSA Track
+        <Link to="/track/$slug" params={{ slug: "system-design" }}>
+          <ArrowLeftIcon className="h-4 w-4 mr-1" /> Back to System Design Track
         </Link>
       </Button>
 
       <section className="mb-10">
         <div className="relative overflow-hidden rounded-2xl border border-border bg-card/60 backdrop-blur">
           <div className="absolute inset-0 bg-gradient-to-br from-violet-500/10 via-purple-500/5 to-transparent" />
-          <div className="absolute inset-0 bg-[url('/tracks/dsa-sections/interview-prep.png')] bg-cover bg-center opacity-[0.07]" />
+          <div className="absolute inset-0 bg-[url('/tracks/system-design-sections/interview-prep.png')] bg-cover bg-center opacity-[0.07]" />
           <div className="relative z-10 p-6 sm:p-8 md:p-10">
             <div className="flex items-center gap-2 mb-4">
               <Badge className="bg-violet-500/20 text-violet-400 border-violet-500/30 text-[10px] font-semibold tracking-wider">PRACTICE & INTERVIEW</Badge>
               <Badge className="bg-purple-500/20 text-purple-400 border-purple-500/30 text-[10px] font-semibold tracking-wider">FREE</Badge>
             </div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-3">Coding <span className="text-gradient">Practice Questions</span></h1>
-            <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mb-6">Curated coding sheets, interview questions, bootcamps and AI-powered courses. Practice 400+ problems across all DSA topics to crack MAANG interviews.</p>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-3">System Design <span className="text-gradient">Interview Prep</span></h1>
+            <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mb-6">Curated system design interview questions, LLD practice problems and real-world case studies. Practice designing scalable systems to crack MAANG interviews.</p>
             <div className="grid grid-cols-3 gap-3 sm:gap-4 max-w-sm">
               {stats.map((s) => {
                 const SI = s.icon;

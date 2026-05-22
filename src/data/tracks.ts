@@ -343,45 +343,6 @@ export const tracks: Track[] = [
   },
 
   {
-    slug: "python",
-    title: "Python (DSA + ML)",
-    tagline: "Master Python for both interviews and ML.",
-    icon: Code2Icon,
-    color: "45",
-    image: "/tracks/python.png",
-    topics: [
-      {
-        id: "py-core",
-        title: "Core Python",
-        summary: "Data types, comprehensions, generators, decorators, OOP.",
-        resources: [
-          r("py-1", "Python Official Tutorial", "https://docs.python.org/3/tutorial/", "docs", "Python.org"),
-          r("py-2", "Corey Schafer Python Playlist", "https://www.youtube.com/playlist?list=PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU", "video", "Corey Schafer"),
-          r("py-3", "Real Python", "https://realpython.com/", "article", "Real Python"),
-        ],
-      },
-      {
-        id: "py-dsa",
-        title: "DSA in Python",
-        summary: "Built-ins, collections, heapq, bisect for interviews.",
-        resources: [
-          r("py-4", "NeetCode Python Solutions", "https://github.com/neetcode-gh/leetcode", "docs", "NeetCode"),
-          r("py-5", "LeetCode in Python", "https://leetcode.com/", "practice", "LeetCode"),
-        ],
-      },
-      {
-        id: "py-advanced",
-        title: "Advanced & Async",
-        summary: "asyncio, typing, dataclasses, performance.",
-        resources: [
-          r("py-6", "Fluent Python (Ramalho)", "https://www.fluentpython.com/", "book", "O'Reilly"),
-          r("py-7", "asyncio docs", "https://docs.python.org/3/library/asyncio.html", "docs", "Python.org"),
-        ],
-      },
-    ],
-  },
-
-  {
     slug: "math",
     title: "Maths for Engineering",
     tagline: "Stats, probability, linear algebra, calculus for ML+CS.",

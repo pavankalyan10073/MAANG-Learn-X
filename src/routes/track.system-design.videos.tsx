@@ -7,14 +7,14 @@ import {
   SparklesIcon, ClockIcon, FilmIcon, ListVideoIcon,
 } from "@/components/icons";
 
-export const Route = createFileRoute("/track/dsa/videos")({
+export const Route = createFileRoute("/track/system-design/videos")({
   head: () => ({
     meta: [
-      { title: "DSA Video Full Course — MAANG Learn X" },
-      { name: "description", content: "Complete DSA video courses in Python, Java & C++. Curated playlists from top educators." },
+      { title: "System Design Video Full Course — MAANG Learn X" },
+      { name: "description", content: "Complete system design video courses and playlists from top educators. HLD + LLD covered." },
     ],
   }),
-  component: DSAVideosPage,
+  component: SDVideosPage,
 });
 
 function getYoutubeId(url) {
@@ -32,66 +32,24 @@ function getYoutubeThumb(url) {
 
 const videoGroups = [
   {
-    label: "Python",
-    icon: "🐍",
-    color: "from-yellow-500 to-amber-600",
+    label: "System Design Playlist",
+    icon: "🎬",
+    color: "from-blue-500 to-cyan-600",
     items: [
-      { title: "DSA Patterns — Part 1 (UNQ Coder)", url: "https://youtube.com/playlist?list=PLi8IAB3zDlPPBbcI_sSqq5lyr_Io7IBZF&si=qHygK1G5Q5QLBNwb", desc: "Python Patterns: Triangle, Pyramid, Star, and More", isPlaylist: true },
-      { title: "DSA Patterns — Part 2 (Padho with Pratyush)", url: "https://youtube.com/playlist?list=PLbJhGqY-mq47k_WLUtzVjmarUm1EuXPj2&si=EDpJTh888UhHEjCv", desc: "DSA Patterns 2025 | Crack FAANG in 3 Months", isPlaylist: true },
-      { title: "DSA Patterns — Part 3", url: "https://youtu.be/pY_upt-U1LU?si=_SodH17UYrDDiKLt", desc: "Pattern-based problem solving approach" },
-      { title: "DSA Patterns — Part 4", url: "https://youtu.be/xzstcj3Cuso?si=EntUR7L7P_YFWauz", desc: "Advanced pattern recognition techniques" },
-      { title: "DSA Patterns — Part 5", url: "https://youtu.be/fX64q6sYom0?si=RrB_3G9_rLDTmsC9", desc: "Mastering complex DSA patterns" },
-      { title: "DSA Patterns — Part 6", url: "https://youtu.be/lsOOs5J8ycw?si=oMWlN6hJJJBJf3PE", desc: "Final pattern mastery for interviews" },
-    ],
-  },
-  {
-    label: "Java (Kunal Kushwaha)",
-    icon: "☕",
-    color: "from-orange-500 to-red-600",
-    items: [
-      { title: "DSA Full Course — Kunal Kushwaha", url: "https://youtube.com/playlist?list=PL9gnSGHSqcnr_DxHsP7AW9ftq0AtAyYqJ", desc: "Complete Java + DSA bootcamp — 200+ videos", isPlaylist: true },
-    ],
-  },
-  {
-    label: "C++ (Striver)",
-    icon: "⚡",
-    color: "from-blue-500 to-indigo-600",
-    items: [
-      { title: "Striver A2Z DSA Sheet (C++)", url: "https://youtube.com/playlist?list=PLgUwDviBIf0oF6QL8mX2oK7Zh7h2dsEiH&si=tjhemGTcxhkJ3i8U", desc: "Complete A2Z DSA course with C++ implementation", isPlaylist: true },
-      { title: "Recursion (Basics to Advanced) and Backtracking Series", url: "https://youtube.com/playlist?list=PLgUwDviBIf0rGlzIn_7rsaR2FQ5e6ZOL9", desc: "Recursion (Basics to Advanced) and Backtracking Series", isPlaylist: true },
-    ],
-  },
-  {
-    label: "Python",
-    icon: "🐍",
-    color: "from-yellow-500 to-amber-600",
-    items: [
-      { title: "DSA Full Course", url: "https://youtube.com/playlist?list=PLhR2IpV1b2FwWwviBHRrR118YAaSlyhTU&si=QsizANlgJrVZg-hJ", desc: "Complete DSA course — from basics to advanced", isPlaylist: true },
-      { title: "Python Full Course (Telugu)", url: "https://youtu.be/SkdrCkyq-pY?si=rQB1wl5_m50xQyAF", desc: "Complete Python Course in Telugu — from basics to advanced" },
-      { title: "Python Full Course & Libraries (Corey Schafer - 150)", url: "https://youtube.com/playlist?list=PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU&si=L8sPCu8oksSi5mvx", desc: "Python Tutorials", isPlaylist: true },
-    ],
-  },
-  {
-    label: "Dynamic Programming",
-    icon: "⚡",
-    color: "from-orange-500 to-red-600",
-    items: [
-      { title: "Dynamic Programming - NeetCode", url: "https://youtube.com/playlist?list=PLot-Xpze53lcvx_tjrr_m2lgD2NsRHlNO&si=wRSL6HVWWLTLAmz5", desc: "Complete Dynamic Programming course — from basics to advanced", isPlaylist: true },
-      { title: "Dynamic Programming Playlist Interview Questions - TUF (57)", url: "https://youtube.com/playlist?list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&si=J2om-jOCass__qOn", desc: "Complete Dynamic Programming course - TUF", isPlaylist: true },
+      { title: "System Design Playlist — Gaurav Sen", url: "https://www.youtube.com/playlist?list=PLMCXHnjXnTnvo6alSjVkgxV-VH6EPyvoX", desc: "Complete system design concepts — scalability, caching, load balancing, distributed systems and more", isPlaylist: true },
     ],
   },
 ];
 
 const stats = [
-  { icon: FilmIcon, value: "50+", label: "Videos" },
-  { icon: ClockIcon, value: "100+", label: "Hours" },
-  { icon: SparklesIcon, value: "3", label: "Languages" },
+  { icon: FilmIcon, value: "1", label: "Playlist" },
+  { icon: ClockIcon, value: "10+", label: "Hours" },
+  { icon: SparklesIcon, value: "1", label: "Educator" },
 ];
 
 function PlaylistThumb({ group }) {
   return (
     <div className={"relative w-full h-44 sm:h-48 bg-gradient-to-br " + group.color + " flex items-center justify-center overflow-hidden"}>
-      {/* Decorative background pattern */}
       <div className="absolute inset-0 opacity-[0.08]">
         <div className="absolute top-3 left-3 w-20 h-20 border-2 border-white rounded-xl rotate-12" />
         <div className="absolute bottom-3 right-3 w-24 h-24 border-2 border-white rounded-full" />
@@ -99,7 +57,6 @@ function PlaylistThumb({ group }) {
         <div className="absolute bottom-1/4 right-1/3 w-12 h-12 border border-white rounded-md rotate-45" />
         <div className="absolute top-1/4 right-1/4 w-28 h-28 border border-white/50 rounded-2xl rotate-12" />
       </div>
-      {/* Stacked video cards effect */}
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="relative w-28 h-20 sm:w-36 sm:h-24">
           <div className="absolute top-1 left-1 w-full h-full rounded-lg bg-white/10 border border-white/10 -rotate-6 scale-95" />
@@ -110,7 +67,6 @@ function PlaylistThumb({ group }) {
           </div>
         </div>
       </div>
-      {/* Bottom gradient fade */}
       <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-black/30 to-transparent" />
     </div>
   );
@@ -129,26 +85,26 @@ function VideoThumb({ thumb, group, video }) {
   return <PlaylistThumb group={group} />;
 }
 
-function DSAVideosPage() {
+function SDVideosPage() {
   return (
     <div className="px-4 py-6 sm:px-6 sm:py-8 md:px-12 md:py-10 max-w-7xl mx-auto">
       <Button asChild variant="ghost" size="sm" className="mb-6">
-        <Link to="/track/$slug" params={{ slug: "dsa" }}>
-          <ArrowLeftIcon className="h-4 w-4 mr-1" /> Back to DSA Track
+        <Link to="/track/$slug" params={{ slug: "system-design" }}>
+          <ArrowLeftIcon className="h-4 w-4 mr-1" /> Back to System Design Track
         </Link>
       </Button>
 
       <section className="mb-10">
         <div className="relative overflow-hidden rounded-2xl border border-border bg-card/60 backdrop-blur">
           <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-cyan-500/5 to-transparent" />
-          <div className="absolute inset-0 bg-[url('/tracks/dsa-sections/video-courses.png')] bg-cover bg-center opacity-[0.07]" />
+          <div className="absolute inset-0 bg-[url('/tracks/system-design-sections/video-courses.png')] bg-cover bg-center opacity-[0.07]" />
           <div className="relative z-10 p-6 sm:p-8 md:p-10">
             <div className="flex items-center gap-2 mb-4">
               <Badge className="bg-blue-500/20 text-blue-400 border-blue-500/30 text-[10px] font-semibold tracking-wider">VIDEO COURSES</Badge>
               <Badge className="bg-red-500/20 text-red-400 border-red-500/30 text-[10px] font-semibold tracking-wider">YOUTUBE</Badge>
             </div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-3">DSA <span className="text-gradient">Video Full Course</span></h1>
-            <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mb-6">Complete video lectures for DSA in Python, Java & C++. From beginner to advanced — curated playlists from top educators.</p>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-3">System Design <span className="text-gradient">Video Full Course</span></h1>
+            <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mb-6">Complete video lectures for System Design — HLD fundamentals, scaling, caching, load balancing, distributed systems and real-world case studies.</p>
             <div className="grid grid-cols-3 gap-3 sm:gap-4 max-w-sm">
               {stats.map((s) => {
                 const SI = s.icon;
@@ -170,7 +126,7 @@ function DSAVideosPage() {
           <div className="flex items-center gap-3 mb-5">
             <div className="text-2xl">{group.icon}</div>
             <div>
-              <h2 className="text-xl sm:text-2xl font-bold">{group.label} Video Lectures</h2>
+              <h2 className="text-xl sm:text-2xl font-bold">{group.label}</h2>
               <p className="text-xs text-muted-foreground">{group.items.length} {group.items.length === 1 ? "course" : "courses"}</p>
             </div>
           </div>
@@ -184,19 +140,16 @@ function DSAVideosPage() {
                     <div className="relative overflow-hidden">
                       <VideoThumb thumb={thumb} group={group} video={video} />
 
-                      {/* Hover play overlay */}
                       <div className="absolute inset-0 bg-black/0 group-hover/vid:bg-black/40 transition-all duration-300 flex items-center justify-center">
                         <div className="flex h-14 w-14 items-center justify-center rounded-full bg-red-600 shadow-lg opacity-0 group-hover/vid:opacity-100 transition-all duration-300 scale-50 group-hover/vid:scale-100">
                           <PlayIcon className="h-6 w-6 text-white ml-0.5" />
                         </div>
                       </div>
 
-                      {/* Top-left badge */}
                       <div className="absolute top-2 left-2">
                         <Badge className="bg-black/70 backdrop-blur-sm text-white border-0 text-[10px] font-medium">YouTube</Badge>
                       </div>
 
-                      {/* Top-right badge */}
                       <div className="absolute top-2 right-2">
                         {video.isPlaylist ? (
                           <Badge className="bg-blue-600/80 backdrop-blur-sm text-white border-0 text-[10px] font-medium flex items-center gap-1">

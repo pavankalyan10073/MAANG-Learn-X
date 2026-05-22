@@ -21,7 +21,6 @@ const trackGradients: Record<string, string> = {
   "ai-ml": "from-violet-500/20 via-purple-500/10 to-transparent",
   "core-cs": "from-teal-500/20 via-emerald-500/10 to-transparent",
   aptitude: "from-amber-500/20 via-yellow-500/10 to-transparent",
-  python: "from-yellow-500/20 via-orange-500/10 to-transparent",
   math: "from-pink-500/20 via-rose-500/10 to-transparent",
   fullstack: "from-green-500/20 via-lime-500/10 to-transparent",
   "git-linux": "from-orange-500/20 via-red-500/10 to-transparent",
@@ -35,7 +34,6 @@ const trackBadges: Record<string, string> = {
   "ai-ml": "AI & ML",
   "core-cs": "CORE CS",
   aptitude: "APTITUDE",
-  python: "PYTHON",
   math: "MATHS",
   fullstack: "MERN",
   "git-linux": "GIT & LINUX",
@@ -57,7 +55,7 @@ function Index() {
         </h1>
         <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
           Curated resources, important questions, video solutions and an AI tutor across
-          DSA, System Design, AI/ML, Aptitude, Core CS, Python, Math, MERN, DevOps and more.
+          DSA, System Design, AI/ML, Aptitude, Core CS, Math, MERN, DevOps and more.
         </p>
         <div className="flex flex-wrap items-center justify-center gap-3">
           <Button asChild size="lg" className="bg-gradient-primary shadow-glow border-0">

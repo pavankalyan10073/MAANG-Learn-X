@@ -10,6 +10,7 @@ import {
   ExternalLinkIcon, ArrowLeftIcon, VideoIcon, BookOpenIcon, FileTextIcon,
   CodeIcon, GraduationCapIcon, LibraryIcon, MessageCircleIcon, PlayIcon,
   NotebookIcon, ClipboardListIcon, ArrowRightIcon,
+  LeetCodeIcon, GeeksForGeeksIcon, CodeforcesIcon,
 } from "@/components/icons";
 import type { Resource } from "@/data/tracks";
 
@@ -83,6 +84,92 @@ const dsaSections = [
   },
 ];
 
+/* ─── Aptitude section definitions ─── */
+const aptitudeSections = [
+  {
+    id: "apt-video-courses",
+    title: "Aptitude Video Full Course",
+    description: "Complete video lectures for aptitude — quantitative, logical reasoning and verbal ability. Curated playlists from top educators and structured guided paths.",
+    image: "/tracks/aptitude-sections/video-courses.png",
+    badge: "VIDEO COURSES",
+    gradient: "from-blue-500/20 via-cyan-500/10 to-transparent",
+    borderHover: "hover:border-blue-500/40",
+    iconBg: "bg-gradient-to-br from-blue-500 to-cyan-600",
+    icon: PlayIcon,
+    glowColor: "shadow-[0_10px_40px_-10px_oklch(0.6_0.22_230/0.35)]",
+    link: "/track/aptitude/videos",
+  },
+  {
+    id: "apt-full-notes",
+    title: "Aptitude Full Notes",
+    description: "Comprehensive notes, cheat sheets, formulas and theory resources. 18-topic cheat sheet, GfG placement notes and topic-wise Q&A.",
+    image: "/tracks/aptitude-sections/full-notes.png",
+    badge: "NOTES & GUIDES",
+    gradient: "from-emerald-500/20 via-green-500/10 to-transparent",
+    borderHover: "hover:border-emerald-500/40",
+    iconBg: "bg-gradient-to-br from-emerald-500 to-green-600",
+    icon: NotebookIcon,
+    glowColor: "shadow-[0_10px_40px_-10px_oklch(0.65_0.18_155/0.35)]",
+    link: "/track/aptitude/notes",
+  },
+  {
+    id: "apt-practice-questions",
+    title: "Aptitude Interview Prep",
+    description: "Topic-wise mock tests, practice questions and cheat sheets. Practice 500+ aptitude problems across quantitative, logical reasoning and verbal ability.",
+    image: "/tracks/aptitude-sections/interview-prep.png",
+    badge: "PRACTICE & INTERVIEW",
+    gradient: "from-violet-500/20 via-purple-500/10 to-transparent",
+    borderHover: "hover:border-violet-500/40",
+    iconBg: "bg-gradient-to-br from-violet-500 to-purple-600",
+    icon: ClipboardListIcon,
+    glowColor: "shadow-[0_10px_40px_-10px_oklch(0.6_0.22_290/0.35)]",
+    link: "/track/aptitude/practice",
+  },
+];
+
+/* ─── System Design section definitions ─── */
+const sdSections = [
+  {
+    id: "sd-video-courses",
+    title: "System Design Video Full Course",
+    description: "Complete video lectures for System Design — HLD fundamentals, scaling, caching, load balancing, distributed systems and real-world case studies.",
+    image: "/tracks/system-design-sections/video-courses.png",
+    badge: "VIDEO COURSES",
+    gradient: "from-blue-500/20 via-cyan-500/10 to-transparent",
+    borderHover: "hover:border-blue-500/40",
+    iconBg: "bg-gradient-to-br from-blue-500 to-cyan-600",
+    icon: PlayIcon,
+    glowColor: "shadow-[0_10px_40px_-10px_oklch(0.6_0.22_230/0.35)]",
+    link: "/track/system-design/videos",
+  },
+  {
+    id: "sd-full-notes",
+    title: "System Design Full Notes",
+    description: "Comprehensive notes, PDF books, LLD guides and theory resources. Alex Xu's insider guide, HelloInterview LLD series and curated interview Q&A.",
+    image: "/tracks/system-design-sections/full-notes.png",
+    badge: "NOTES & GUIDES",
+    gradient: "from-emerald-500/20 via-green-500/10 to-transparent",
+    borderHover: "hover:border-emerald-500/40",
+    iconBg: "bg-gradient-to-br from-emerald-500 to-green-600",
+    icon: NotebookIcon,
+    glowColor: "shadow-[0_10px_40px_-10px_oklch(0.65_0.18_155/0.35)]",
+    link: "/track/system-design/notes",
+  },
+  {
+    id: "sd-practice-questions",
+    title: "System Design Interview Prep",
+    description: "Curated system design interview questions, LLD practice problems and real-world case studies. Practice designing scalable systems for MAANG.",
+    image: "/tracks/system-design-sections/interview-prep.png",
+    badge: "PRACTICE & INTERVIEW",
+    gradient: "from-violet-500/20 via-purple-500/10 to-transparent",
+    borderHover: "hover:border-violet-500/40",
+    iconBg: "bg-gradient-to-br from-violet-500 to-purple-600",
+    icon: ClipboardListIcon,
+    glowColor: "shadow-[0_10px_40px_-10px_oklch(0.6_0.22_290/0.35)]",
+    link: "/track/system-design/practice",
+  },
+];
+
 function TrackPage() {
   const typeIcon: Record<Resource["type"], React.ComponentType<{ className?: string }>> = {
     video: VideoIcon,
@@ -108,6 +195,17 @@ function TrackPage() {
   const pctStyle = { width: pct + "%" };
 
   const isDsa = data.slug === "dsa";
+  const isSystemDesign = data.slug === "system-design";
+  const isAptitude = data.slug === "aptitude";
+  const activeSections = isDsa ? dsaSections : isSystemDesign ? sdSections : isAptitude ? aptitudeSections : [];
+  const sectionTitle = isDsa ? "DSA Learning Paths" : isSystemDesign ? "System Design Learning Paths" : isAptitude ? "Aptitude Learning Paths" : "";
+  const sectionSubtitle = isDsa
+    ? "Choose your learning style — watch video courses, read structured notes, or dive into coding practice."
+    : isSystemDesign
+      ? "Choose your learning style — watch video courses, read structured notes, or practice interview questions."
+      : isAptitude
+        ? "Choose your learning style — watch video courses, read structured notes, or practice mock tests."
+        : "";
 
   return (
     <div className="px-4 py-6 sm:px-6 sm:py-8 md:px-12 md:py-10 max-w-7xl mx-auto">
@@ -139,6 +237,25 @@ function TrackPage() {
         </Button>
       </div>
 
+      {/* ─── Coding Practice Platforms (only for dsa slug) ─── */}
+      {isDsa && (
+        <div className="flex items-center gap-2 mb-6 -mt-2">
+          <span className="text-xs text-muted-foreground mr-1">Practice on:</span>
+          <a href="https://leetcode.com" target="_blank" rel="noopener noreferrer" className="group/platform inline-flex items-center gap-1.5 rounded-lg border border-border bg-background/60 px-3 py-1.5 text-xs font-medium hover:border-orange-500/50 hover:bg-orange-500/10 transition-all duration-200">
+            <LeetCodeIcon className="h-4 w-4 text-[#FFA116] group-hover/platform:scale-110 transition-transform" />
+            <span>LeetCode</span>
+          </a>
+          <a href="https://www.geeksforgeeks.org" target="_blank" rel="noopener noreferrer" className="group/platform inline-flex items-center gap-1.5 rounded-lg border border-border bg-background/60 px-3 py-1.5 text-xs font-medium hover:border-green-500/50 hover:bg-green-500/10 transition-all duration-200">
+            <GeeksForGeeksIcon className="h-4 w-4 text-[#2F8D46] group-hover/platform:scale-110 transition-transform" />
+            <span>GeeksForGeeks</span>
+          </a>
+          <a href="https://codeforces.com" target="_blank" rel="noopener noreferrer" className="group/platform inline-flex items-center gap-1.5 rounded-lg border border-border bg-background/60 px-3 py-1.5 text-xs font-medium hover:border-blue-500/50 hover:bg-blue-500/10 transition-all duration-200">
+            <CodeforcesIcon className="h-4 w-4 text-[#1F8ACB] group-hover/platform:scale-110 transition-transform" />
+            <span>Codeforces</span>
+          </a>
+        </div>
+      )}
+
       {!isLoggedIn && (
         <Card className="mb-6 p-4 bg-card/60 backdrop-blur border-primary/30">
           <p className="text-sm text-muted-foreground">
@@ -147,16 +264,16 @@ function TrackPage() {
         </Card>
       )}
 
-      {/* ─── DSA Section Cards (only for dsa slug) ─── */}
-      {isDsa && (
+      {/* ─── Section Cards (for dsa, system-design and aptitude slugs) ─── */}
+      {(isDsa || isSystemDesign || isAptitude) && (
         <section className="mb-10">
-          <h2 className="text-2xl md:text-3xl font-bold mb-2">DSA Learning Paths</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-2">{sectionTitle}</h2>
           <p className="text-muted-foreground mb-8 max-w-2xl">
-            Choose your learning style — watch video courses, read structured notes, or dive into coding practice.
+            {sectionSubtitle}
           </p>
 
           <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-            {dsaSections.map((section) => {
+            {activeSections.map((section) => {
               const SectionIcon = section.icon;
               return (
                 <Card
@@ -217,7 +334,11 @@ function TrackPage() {
       <section>
         <h2 className="text-2xl md:text-3xl font-bold mb-2">Topic-wise Resources</h2>
         <p className="text-muted-foreground mb-6 max-w-2xl">
-          Detailed resources organized by DSA topic — arrays, trees, graphs, DP and more.
+          {isSystemDesign
+            ? "Detailed resources organized by system design topic — fundamentals, scaling, case studies and LLD."
+            : isAptitude
+              ? "Detailed resources organized by aptitude topic — quantitative, logical reasoning and verbal ability."
+              : "Detailed resources organized by DSA topic — arrays, trees, graphs, DP and more."}
         </p>
 
         <Accordion type="multiple" defaultValue={[data.topics[0]?.id]} className="space-y-3">
