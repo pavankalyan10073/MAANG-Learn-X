@@ -127,6 +127,92 @@ const aptitudeSections = [
   },
 ];
 
+/* ─── Full Stack section definitions ─── */
+const fullstackSections = [
+  {
+    id: "fs-video-courses",
+    title: "Full Stack Video Full Course",
+    description: "Complete video lectures for Full Stack Development — HTML/CSS, JavaScript, React, Node.js, MongoDB, MySQL, Django, Spring Boot and more with projects.",
+    image: "/tracks/fullstack-sections/video-courses.png",
+    badge: "VIDEO COURSES",
+    gradient: "from-blue-500/20 via-cyan-500/10 to-transparent",
+    borderHover: "hover:border-blue-500/40",
+    iconBg: "bg-gradient-to-br from-blue-500 to-cyan-600",
+    icon: PlayIcon,
+    glowColor: "shadow-[0_10px_40px_-10px_oklch(0.6_0.22_230/0.35)]",
+    link: "/track/fullstack/videos",
+  },
+  {
+    id: "fs-full-notes",
+    title: "Full Stack Full Notes",
+    description: "Comprehensive notes, roadmaps, documentation and guides. Frontend, backend, databases and free certifications for complete full stack mastery.",
+    image: "/tracks/fullstack-sections/full-notes.png",
+    badge: "NOTES & GUIDES",
+    gradient: "from-emerald-500/20 via-green-500/10 to-transparent",
+    borderHover: "hover:border-emerald-500/40",
+    iconBg: "bg-gradient-to-br from-emerald-500 to-green-600",
+    icon: NotebookIcon,
+    glowColor: "shadow-[0_10px_40px_-10px_oklch(0.65_0.18_155/0.35)]",
+    link: "/track/fullstack/notes",
+  },
+  {
+    id: "fs-practice-questions",
+    title: "Full Stack Interview Prep",
+    description: "Full stack project ideas, interview questions and free certifications. Practice 50+ projects across frontend, backend and databases.",
+    image: "/tracks/fullstack-sections/interview-prep.png",
+    badge: "PRACTICE & INTERVIEW",
+    gradient: "from-violet-500/20 via-purple-500/10 to-transparent",
+    borderHover: "hover:border-violet-500/40",
+    iconBg: "bg-gradient-to-br from-violet-500 to-purple-600",
+    icon: ClipboardListIcon,
+    glowColor: "shadow-[0_10px_40px_-10px_oklch(0.6_0.22_290/0.35)]",
+    link: "/track/fullstack/practice",
+  },
+];
+
+/* ─── Core CS section definitions ─── */
+const coreCsSections = [
+  {
+    id: "cs-video-courses",
+    title: "Core CS Video Full Course",
+    description: "Complete video lectures for OS, DBMS, Computer Networks and OOPs. Curated playlists covering scheduling, SQL, OSI model, normalization and OOP principles.",
+    image: "/tracks/core-cs-sections/video-courses.png",
+    badge: "VIDEO COURSES",
+    gradient: "from-blue-500/20 via-cyan-500/10 to-transparent",
+    borderHover: "hover:border-blue-500/40",
+    iconBg: "bg-gradient-to-br from-blue-500 to-cyan-600",
+    icon: PlayIcon,
+    glowColor: "shadow-[0_10px_40px_-10px_oklch(0.6_0.22_230/0.35)]",
+    link: "/track/core-cs/videos",
+  },
+  {
+    id: "cs-full-notes",
+    title: "Core CS Full Notes",
+    description: "Comprehensive notes for OS, DBMS, CN and OOPs. Free textbooks, GfG tutorials, SQL guides, SOLID principles and Kurose & Ross.",
+    image: "/tracks/core-cs-sections/full-notes.png",
+    badge: "NOTES & GUIDES",
+    gradient: "from-emerald-500/20 via-green-500/10 to-transparent",
+    borderHover: "hover:border-emerald-500/40",
+    iconBg: "bg-gradient-to-br from-emerald-500 to-green-600",
+    icon: NotebookIcon,
+    glowColor: "shadow-[0_10px_40px_-10px_oklch(0.65_0.18_155/0.35)]",
+    link: "/track/core-cs/notes",
+  },
+  {
+    id: "cs-practice-questions",
+    title: "Core CS Interview Prep",
+    description: "Curated interview questions for OS, DBMS, CN and OOPs. Practice 200+ questions — scheduling, SQL, TCP/IP, OOPs and more.",
+    image: "/tracks/core-cs-sections/interview-prep.png",
+    badge: "PRACTICE & INTERVIEW",
+    gradient: "from-violet-500/20 via-purple-500/10 to-transparent",
+    borderHover: "hover:border-violet-500/40",
+    iconBg: "bg-gradient-to-br from-violet-500 to-purple-600",
+    icon: ClipboardListIcon,
+    glowColor: "shadow-[0_10px_40px_-10px_oklch(0.6_0.22_290/0.35)]",
+    link: "/track/core-cs/practice",
+  },
+];
+
 /* ─── System Design section definitions ─── */
 const sdSections = [
   {
@@ -197,15 +283,21 @@ function TrackPage() {
   const isDsa = data.slug === "dsa";
   const isSystemDesign = data.slug === "system-design";
   const isAptitude = data.slug === "aptitude";
-  const activeSections = isDsa ? dsaSections : isSystemDesign ? sdSections : isAptitude ? aptitudeSections : [];
-  const sectionTitle = isDsa ? "DSA Learning Paths" : isSystemDesign ? "System Design Learning Paths" : isAptitude ? "Aptitude Learning Paths" : "";
+  const isCoreCs = data.slug === "core-cs";
+  const isFullstack = data.slug === "fullstack";
+  const activeSections = isDsa ? dsaSections : isSystemDesign ? sdSections : isAptitude ? aptitudeSections : isCoreCs ? coreCsSections : isFullstack ? fullstackSections : [];
+  const sectionTitle = isDsa ? "DSA Learning Paths" : isSystemDesign ? "System Design Learning Paths" : isAptitude ? "Aptitude Learning Paths" : isCoreCs ? "Core CS Learning Paths" : isFullstack ? "Full Stack Learning Paths" : "";
   const sectionSubtitle = isDsa
     ? "Choose your learning style — watch video courses, read structured notes, or dive into coding practice."
     : isSystemDesign
       ? "Choose your learning style — watch video courses, read structured notes, or practice interview questions."
       : isAptitude
         ? "Choose your learning style — watch video courses, read structured notes, or practice mock tests."
-        : "";
+        : isCoreCs
+          ? "Choose your learning style — watch video courses, read structured notes, or practice interview questions."
+          : isFullstack
+            ? "Choose your learning style — watch video courses, read structured notes, or build projects."
+            : "";
 
   return (
     <div className="px-4 py-6 sm:px-6 sm:py-8 md:px-12 md:py-10 max-w-7xl mx-auto">
@@ -264,8 +356,8 @@ function TrackPage() {
         </Card>
       )}
 
-      {/* ─── Section Cards (for dsa, system-design and aptitude slugs) ─── */}
-      {(isDsa || isSystemDesign || isAptitude) && (
+      {/* ─── Section Cards (for tracks with learning paths) ─── */}
+      {(isDsa || isSystemDesign || isAptitude || isCoreCs || isFullstack) && (
         <section className="mb-10">
           <h2 className="text-2xl md:text-3xl font-bold mb-2">{sectionTitle}</h2>
           <p className="text-muted-foreground mb-8 max-w-2xl">
@@ -338,7 +430,11 @@ function TrackPage() {
             ? "Detailed resources organized by system design topic — fundamentals, scaling, case studies and LLD."
             : isAptitude
               ? "Detailed resources organized by aptitude topic — quantitative, logical reasoning and verbal ability."
-              : "Detailed resources organized by DSA topic — arrays, trees, graphs, DP and more."}
+              : isCoreCs
+                ? "Detailed resources organized by Core CS topic — Operating Systems, DBMS, Computer Networks and OOPs."
+                : isFullstack
+                  ? "Detailed resources organized by full stack topic — Frontend, Backend and Databases."
+                  : "Detailed resources organized by DSA topic — arrays, trees, graphs, DP and more."}
         </p>
 
         <Accordion type="multiple" defaultValue={[data.topics[0]?.id]} className="space-y-3">

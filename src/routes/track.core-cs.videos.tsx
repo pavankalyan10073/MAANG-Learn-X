@@ -7,14 +7,14 @@ import {
   SparklesIcon, ClockIcon, FilmIcon, ListVideoIcon,
 } from "@/components/icons";
 
-export const Route = createFileRoute("/track/system-design/videos")({
+export const Route = createFileRoute("/track/core-cs/videos")({
   head: () => ({
     meta: [
-      { title: "System Design Video Full Course — MAANG Learn X" },
-      { name: "description", content: "Complete system design video courses and playlists from top educators. HLD + LLD covered." },
+      { title: "Core CS Video Full Course — MAANG Learn X" },
+      { name: "description", content: "Complete video courses for OS, DBMS, Computer Networks and OOPs — curated playlists from top educators." },
     ],
   }),
-  component: SDVideosPage,
+  component: CoreCSVideosPage,
 });
 
 function getYoutubeId(url) {
@@ -32,20 +32,49 @@ function getYoutubeThumb(url) {
 
 const videoGroups = [
   {
-    label: "System Design Playlist",
-    icon: "🎬",
+    label: "Operating System",
+    icon: "🖥️",
     color: "from-blue-500 to-cyan-600",
     items: [
-      { title: "System Design Playlist — TUF", url: "https://takeuforward.org/system-design/complete-system-design-roadmap-with-videos-for-sdes", desc: "Complete System Design Roadmap with Videos for SDEs" },
-      { title: "System Design Playlist — Gaurav Sen", url: "https://www.youtube.com/playlist?list=PLMCXHnjXnTnvo6alSjVkgxV-VH6EPyvoX", desc: "Complete system design concepts — scalability, caching, load balancing, distributed systems and more", isPlaylist: true },
+      { title: "Operating Systems — Neso Academy (Playlist 1)", url: "https://www.youtube.com/playlist?list=PLBlnK6fEyqRiVhbXDGLXDk_OQAeuVcp2O", desc: "Complete OS course — CPU scheduling, process synchronization, deadlock, memory management and file systems", isPlaylist: true },
+      { title: "Operating Systems — Playlist 2", url: "https://www.youtube.com/playlist?list=PLxCzCOWd7aiGz9donHRrE9I3Mwn6XdP8p", desc: "OS full course covering processes, threads, scheduling algorithms, semaphores and virtual memory", isPlaylist: true },
+      { title: "Operating Systems — Playlist 3", url: "https://www.youtube.com/playlist?list=PLmXKhU9FNesSFvj6gASuWmQd23Ul5omtD", desc: "In-depth OS lectures — system structure, kernel, I/O, paging, file allocation and disk management", isPlaylist: true },
+    ],
+  },
+  {
+    label: "Database Management System",
+    icon: "🗄️",
+    color: "from-orange-500 to-red-600",
+    items: [
+      { title: "DBMS Full Course — Neso Academy (Playlist 1)", url: "https://www.youtube.com/playlist?list=PLBlnK6fEyqRjCGkYv9z0yQzp6Z2fBQxZq", desc: "Complete DBMS course — ER model, relational algebra, normalization, transactions, indexing and SQL", isPlaylist: true },
+      { title: "DBMS — Playlist 2", url: "https://www.youtube.com/playlist?list=PLmXKhU9FNesTpQNP_O1W4sVQzLZqXmP6B", desc: "DBMS lectures covering schema design, keys, anomalies, ACID properties, B/B+ trees and file structures", isPlaylist: true },
+      { title: "SQL Full Course — Apna College", url: "https://youtu.be/hlGoQC332VM?si=MR_QOiKUaf0TZ-wi", desc: "Complete SQL course from basics to advanced — queries, joins, subqueries, normalization and real-world projects", isPlaylist: false },
+      { title: "SQL Mastery: Basics to Advanced — Priya Bhatia", url: "https://youtube.com/playlist?list=PLcz9-JSejut-noXS7zEyDx34IJ46zGJaj&si=HI2e2oaFvlsN61tp", desc: "SQL mastery playlist — from fundamentals to advanced queries, optimization and interview preparation", isPlaylist: true },
+    ],
+  },
+  {
+    label: "Computer Networks",
+    icon: "🌐",
+    color: "from-green-500 to-emerald-600",
+    items: [
+      { title: "Computer Networks — Neso Academy (Playlist 1)", url: "https://www.youtube.com/playlist?list=PLBlnK6fEyqRgMCUAG0XRw78UA8qnv6jEx", desc: "Complete CN course — OSI model, TCP/UDP, IPv4/IPv6, routing, congestion control, Ethernet and application layer protocols", isPlaylist: true },
+      { title: "Computer Networks — Playlist 2", url: "https://www.youtube.com/playlist?list=PLmXKhU9FNesTpQNP_O1W4sVQzLZqXmP6B", desc: "In-depth networking lectures — data link layer, error/flow control, transport layer policies and network security", isPlaylist: true },
+    ],
+  },
+  {
+    label: "Object-Oriented Programming (OOPs)",
+    icon: "🧩",
+    color: "from-purple-500 to-violet-600",
+    items: [
+      { title: "OOPs using Python — Full Playlist", url: "https://youtube.com/playlist?list=PLJFpQTFWrkezwmVyQfK22_jycf9zYqGbY&si=f1ABrZxmrTCm6iCK", desc: "Complete OOPs in Python — objects, classes, inheritance, polymorphism, abstraction, encapsulation and exception handling", isPlaylist: true },
     ],
   },
 ];
 
 const stats = [
-  { icon: FilmIcon, value: "2", label: "Playlist" },
-  { icon: ClockIcon, value: "10+", label: "Hours" },
-  { icon: SparklesIcon, value: "2", label: "Educator" },
+  { icon: FilmIcon, value: "10+", label: "Playlists" },
+  { icon: ClockIcon, value: "80+", label: "Hours" },
+  { icon: SparklesIcon, value: "4", label: "Subjects" },
 ];
 
 function PlaylistThumb({ group }) {
@@ -86,26 +115,26 @@ function VideoThumb({ thumb, group, video }) {
   return <PlaylistThumb group={group} />;
 }
 
-function SDVideosPage() {
+function CoreCSVideosPage() {
   return (
     <div className="px-4 py-6 sm:px-6 sm:py-8 md:px-12 md:py-10 max-w-7xl mx-auto">
       <Button asChild variant="ghost" size="sm" className="mb-6">
-        <Link to="/track/$slug" params={{ slug: "system-design" }}>
-          <ArrowLeftIcon className="h-4 w-4 mr-1" /> Back to System Design Track
+        <Link to="/track/$slug" params={{ slug: "core-cs" }}>
+          <ArrowLeftIcon className="h-4 w-4 mr-1" /> Back to Core CS Track
         </Link>
       </Button>
 
       <section className="mb-10">
         <div className="relative overflow-hidden rounded-2xl border border-border bg-card/60 backdrop-blur">
           <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-cyan-500/5 to-transparent" />
-          <div className="absolute inset-0 bg-[url('/tracks/system-design-sections/video-courses.png')] bg-cover bg-center opacity-[0.07]" />
+          <div className="absolute inset-0 bg-[url('/tracks/core-cs-sections/video-courses.png')] bg-cover bg-center opacity-[0.07]" />
           <div className="relative z-10 p-6 sm:p-8 md:p-10">
             <div className="flex items-center gap-2 mb-4">
               <Badge className="bg-blue-500/20 text-blue-400 border-blue-500/30 text-[10px] font-semibold tracking-wider">VIDEO COURSES</Badge>
               <Badge className="bg-red-500/20 text-red-400 border-red-500/30 text-[10px] font-semibold tracking-wider">YOUTUBE</Badge>
             </div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-3">System Design <span className="text-gradient">Video Full Course</span></h1>
-            <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mb-6">Complete video lectures for System Design — HLD fundamentals, scaling, caching, load balancing, distributed systems and real-world case studies.</p>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-3">Core CS <span className="text-gradient">Video Full Course</span></h1>
+            <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mb-6">Complete video lectures for Operating Systems, DBMS, Computer Networks and OOPs. Curated playlists from top educators covering all MAANG interview topics.</p>
             <div className="grid grid-cols-3 gap-3 sm:gap-4 max-w-sm">
               {stats.map((s) => {
                 const SI = s.icon;
