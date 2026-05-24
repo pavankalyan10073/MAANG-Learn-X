@@ -40,6 +40,9 @@ import { Route as TrackCoreCsNotesRouteImport } from './routes/track.core-cs.not
 import { Route as TrackAptitudeVideosRouteImport } from './routes/track.aptitude.videos'
 import { Route as TrackAptitudePracticeRouteImport } from './routes/track.aptitude.practice'
 import { Route as TrackAptitudeNotesRouteImport } from './routes/track.aptitude.notes'
+import { Route as TrackAiMlVideosRouteImport } from './routes/track.ai-ml.videos'
+import { Route as TrackAiMlPracticeRouteImport } from './routes/track.ai-ml.practice'
+import { Route as TrackAiMlNotesRouteImport } from './routes/track.ai-ml.notes'
 
 const TutorRoute = TutorRouteImport.update({
   id: '/tutor',
@@ -201,6 +204,21 @@ const TrackAptitudeNotesRoute = TrackAptitudeNotesRouteImport.update({
   path: '/track/aptitude/notes',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TrackAiMlVideosRoute = TrackAiMlVideosRouteImport.update({
+  id: '/track/ai-ml/videos',
+  path: '/track/ai-ml/videos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TrackAiMlPracticeRoute = TrackAiMlPracticeRouteImport.update({
+  id: '/track/ai-ml/practice',
+  path: '/track/ai-ml/practice',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TrackAiMlNotesRoute = TrackAiMlNotesRouteImport.update({
+  id: '/track/ai-ml/notes',
+  path: '/track/ai-ml/notes',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -219,6 +237,9 @@ export interface FileRoutesByFullPath {
   '/roadmap/sde': typeof RoadmapSdeRoute
   '/roadmap/system-design-engineer': typeof RoadmapSystemDesignEngineerRoute
   '/track/$slug': typeof TrackSlugRoute
+  '/track/ai-ml/notes': typeof TrackAiMlNotesRoute
+  '/track/ai-ml/practice': typeof TrackAiMlPracticeRoute
+  '/track/ai-ml/videos': typeof TrackAiMlVideosRoute
   '/track/aptitude/notes': typeof TrackAptitudeNotesRoute
   '/track/aptitude/practice': typeof TrackAptitudePracticeRoute
   '/track/aptitude/videos': typeof TrackAptitudeVideosRoute
@@ -252,6 +273,9 @@ export interface FileRoutesByTo {
   '/roadmap/sde': typeof RoadmapSdeRoute
   '/roadmap/system-design-engineer': typeof RoadmapSystemDesignEngineerRoute
   '/track/$slug': typeof TrackSlugRoute
+  '/track/ai-ml/notes': typeof TrackAiMlNotesRoute
+  '/track/ai-ml/practice': typeof TrackAiMlPracticeRoute
+  '/track/ai-ml/videos': typeof TrackAiMlVideosRoute
   '/track/aptitude/notes': typeof TrackAptitudeNotesRoute
   '/track/aptitude/practice': typeof TrackAptitudePracticeRoute
   '/track/aptitude/videos': typeof TrackAptitudeVideosRoute
@@ -286,6 +310,9 @@ export interface FileRoutesById {
   '/roadmap/sde': typeof RoadmapSdeRoute
   '/roadmap/system-design-engineer': typeof RoadmapSystemDesignEngineerRoute
   '/track/$slug': typeof TrackSlugRoute
+  '/track/ai-ml/notes': typeof TrackAiMlNotesRoute
+  '/track/ai-ml/practice': typeof TrackAiMlPracticeRoute
+  '/track/ai-ml/videos': typeof TrackAiMlVideosRoute
   '/track/aptitude/notes': typeof TrackAptitudeNotesRoute
   '/track/aptitude/practice': typeof TrackAptitudePracticeRoute
   '/track/aptitude/videos': typeof TrackAptitudeVideosRoute
@@ -321,6 +348,9 @@ export interface FileRouteTypes {
     | '/roadmap/sde'
     | '/roadmap/system-design-engineer'
     | '/track/$slug'
+    | '/track/ai-ml/notes'
+    | '/track/ai-ml/practice'
+    | '/track/ai-ml/videos'
     | '/track/aptitude/notes'
     | '/track/aptitude/practice'
     | '/track/aptitude/videos'
@@ -354,6 +384,9 @@ export interface FileRouteTypes {
     | '/roadmap/sde'
     | '/roadmap/system-design-engineer'
     | '/track/$slug'
+    | '/track/ai-ml/notes'
+    | '/track/ai-ml/practice'
+    | '/track/ai-ml/videos'
     | '/track/aptitude/notes'
     | '/track/aptitude/practice'
     | '/track/aptitude/videos'
@@ -387,6 +420,9 @@ export interface FileRouteTypes {
     | '/roadmap/sde'
     | '/roadmap/system-design-engineer'
     | '/track/$slug'
+    | '/track/ai-ml/notes'
+    | '/track/ai-ml/practice'
+    | '/track/ai-ml/videos'
     | '/track/aptitude/notes'
     | '/track/aptitude/practice'
     | '/track/aptitude/videos'
@@ -421,6 +457,9 @@ export interface RootRouteChildren {
   RoadmapSdeRoute: typeof RoadmapSdeRoute
   RoadmapSystemDesignEngineerRoute: typeof RoadmapSystemDesignEngineerRoute
   TrackSlugRoute: typeof TrackSlugRoute
+  TrackAiMlNotesRoute: typeof TrackAiMlNotesRoute
+  TrackAiMlPracticeRoute: typeof TrackAiMlPracticeRoute
+  TrackAiMlVideosRoute: typeof TrackAiMlVideosRoute
   TrackAptitudeNotesRoute: typeof TrackAptitudeNotesRoute
   TrackAptitudePracticeRoute: typeof TrackAptitudePracticeRoute
   TrackAptitudeVideosRoute: typeof TrackAptitudeVideosRoute
@@ -657,6 +696,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TrackAptitudeNotesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/track/ai-ml/videos': {
+      id: '/track/ai-ml/videos'
+      path: '/track/ai-ml/videos'
+      fullPath: '/track/ai-ml/videos'
+      preLoaderRoute: typeof TrackAiMlVideosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/track/ai-ml/practice': {
+      id: '/track/ai-ml/practice'
+      path: '/track/ai-ml/practice'
+      fullPath: '/track/ai-ml/practice'
+      preLoaderRoute: typeof TrackAiMlPracticeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/track/ai-ml/notes': {
+      id: '/track/ai-ml/notes'
+      path: '/track/ai-ml/notes'
+      fullPath: '/track/ai-ml/notes'
+      preLoaderRoute: typeof TrackAiMlNotesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -677,6 +737,9 @@ const rootRouteChildren: RootRouteChildren = {
   RoadmapSdeRoute: RoadmapSdeRoute,
   RoadmapSystemDesignEngineerRoute: RoadmapSystemDesignEngineerRoute,
   TrackSlugRoute: TrackSlugRoute,
+  TrackAiMlNotesRoute: TrackAiMlNotesRoute,
+  TrackAiMlPracticeRoute: TrackAiMlPracticeRoute,
+  TrackAiMlVideosRoute: TrackAiMlVideosRoute,
   TrackAptitudeNotesRoute: TrackAptitudeNotesRoute,
   TrackAptitudePracticeRoute: TrackAptitudePracticeRoute,
   TrackAptitudeVideosRoute: TrackAptitudeVideosRoute,

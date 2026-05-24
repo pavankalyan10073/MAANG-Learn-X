@@ -170,6 +170,49 @@ const fullstackSections = [
   },
 ];
 
+/* ─── AI & ML section definitions ─── */
+const aiMlSections = [
+  {
+    id: "ai-ml-video-courses",
+    title: "AI & ML Video Full Course",
+    description: "Complete video lectures for AI & ML — Machine Learning, Deep Learning, NLP, LLMs, Generative AI, LangChain, RAG and MLOps with hands-on projects.",
+    image: "/tracks/ai-ml-sections/video-courses.png",
+    badge: "VIDEO COURSES",
+    gradient: "from-blue-500/20 via-cyan-500/10 to-transparent",
+    borderHover: "hover:border-blue-500/40",
+    iconBg: "bg-gradient-to-br from-blue-500 to-cyan-600",
+    icon: PlayIcon,
+    glowColor: "shadow-[0_10px_40px_-10px_oklch(0.6_0.22_230/0.35)]",
+    link: "/track/ai-ml/videos",
+  },
+  {
+    id: "ai-ml-full-notes",
+    title: "AI & ML Full Notes",
+    description: "Comprehensive notes for AI & ML — ML, DL, NLP, LLMs, RAG, LangChain, Computer Vision and MLOps guides and documentation.",
+    image: "/tracks/ai-ml-sections/full-notes.png",
+    badge: "NOTES & GUIDES",
+    gradient: "from-emerald-500/20 via-green-500/10 to-transparent",
+    borderHover: "hover:border-emerald-500/40",
+    iconBg: "bg-gradient-to-br from-emerald-500 to-green-600",
+    icon: NotebookIcon,
+    glowColor: "shadow-[0_10px_40px_-10px_oklch(0.65_0.18_155/0.35)]",
+    link: "/track/ai-ml/notes",
+  },
+  {
+    id: "ai-ml-practice-questions",
+    title: "AI & ML Interview Prep",
+    description: "Interview questions, hands-on projects and LLM agent frameworks. Practice ML interview prep, build 100+ projects and master LangChain, RAG and multi-agent systems.",
+    image: "/tracks/ai-ml-sections/interview-prep.png",
+    badge: "PRACTICE & INTERVIEW",
+    gradient: "from-violet-500/20 via-purple-500/10 to-transparent",
+    borderHover: "hover:border-violet-500/40",
+    iconBg: "bg-gradient-to-br from-violet-500 to-purple-600",
+    icon: ClipboardListIcon,
+    glowColor: "shadow-[0_10px_40px_-10px_oklch(0.6_0.22_290/0.35)]",
+    link: "/track/ai-ml/practice",
+  },
+];
+
 /* ─── Core CS section definitions ─── */
 const coreCsSections = [
   {
@@ -285,8 +328,9 @@ function TrackPage() {
   const isAptitude = data.slug === "aptitude";
   const isCoreCs = data.slug === "core-cs";
   const isFullstack = data.slug === "fullstack";
-  const activeSections = isDsa ? dsaSections : isSystemDesign ? sdSections : isAptitude ? aptitudeSections : isCoreCs ? coreCsSections : isFullstack ? fullstackSections : [];
-  const sectionTitle = isDsa ? "DSA Learning Paths" : isSystemDesign ? "System Design Learning Paths" : isAptitude ? "Aptitude Learning Paths" : isCoreCs ? "Core CS Learning Paths" : isFullstack ? "Full Stack Learning Paths" : "";
+  const isAiMl = data.slug === "ai-ml";
+  const activeSections = isDsa ? dsaSections : isSystemDesign ? sdSections : isAptitude ? aptitudeSections : isCoreCs ? coreCsSections : isFullstack ? fullstackSections : isAiMl ? aiMlSections : [];
+  const sectionTitle = isDsa ? "DSA Learning Paths" : isSystemDesign ? "System Design Learning Paths" : isAptitude ? "Aptitude Learning Paths" : isCoreCs ? "Core CS Learning Paths" : isFullstack ? "Full Stack Learning Paths" : isAiMl ? "AI & ML Learning Paths" : "";
   const sectionSubtitle = isDsa
     ? "Choose your learning style — watch video courses, read structured notes, or dive into coding practice."
     : isSystemDesign
@@ -297,7 +341,9 @@ function TrackPage() {
           ? "Choose your learning style — watch video courses, read structured notes, or practice interview questions."
           : isFullstack
             ? "Choose your learning style — watch video courses, read structured notes, or build projects."
-            : "";
+            : isAiMl
+              ? "Choose your learning style — watch video courses, read structured notes, or practice with projects."
+              : "";
 
   return (
     <div className="px-4 py-6 sm:px-6 sm:py-8 md:px-12 md:py-10 max-w-7xl mx-auto">
@@ -357,7 +403,7 @@ function TrackPage() {
       )}
 
       {/* ─── Section Cards (for tracks with learning paths) ─── */}
-      {(isDsa || isSystemDesign || isAptitude || isCoreCs || isFullstack) && (
+      {(isDsa || isSystemDesign || isAptitude || isCoreCs || isFullstack || isAiMl) && (
         <section className="mb-10">
           <h2 className="text-2xl md:text-3xl font-bold mb-2">{sectionTitle}</h2>
           <p className="text-muted-foreground mb-8 max-w-2xl">
@@ -434,7 +480,9 @@ function TrackPage() {
                 ? "Detailed resources organized by Core CS topic — Operating Systems, DBMS, Computer Networks and OOPs."
                 : isFullstack
                   ? "Detailed resources organized by full stack topic — Frontend, Backend and Databases."
-                  : "Detailed resources organized by DSA topic — arrays, trees, graphs, DP and more."}
+                  : isAiMl
+                    ? "Detailed resources organized by AI & ML topic — ML Foundations, Deep Learning, NLP, LLMs, RAG and Agentic AI."
+                    : "Detailed resources organized by DSA topic — arrays, trees, graphs, DP and more."}
         </p>
 
         <Accordion type="multiple" defaultValue={[data.topics[0]?.id]} className="space-y-3">
