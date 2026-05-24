@@ -299,6 +299,92 @@ const sdSections = [
   },
 ];
 
+/* ─── Git & Linux section definitions ─── */
+const gitLinuxSections = [
+  {
+    id: "gl-video-courses",
+    title: "Git, GitHub & Linux Video Full Course",
+    description: "Complete video lectures for Git, GitHub & Linux — version control, branching, rebasing, shell commands, file permissions and system administration.",
+    image: "/tracks/git-linux-sections/video-courses.png",
+    badge: "VIDEO COURSES",
+    gradient: "from-blue-500/20 via-cyan-500/10 to-transparent",
+    borderHover: "hover:border-blue-500/40",
+    iconBg: "bg-gradient-to-br from-blue-500 to-cyan-600",
+    icon: PlayIcon,
+    glowColor: "shadow-[0_10px_40px_-10px_oklch(0.6_0.22_230/0.35)]",
+    link: "/track/git-linux/videos",
+  },
+  {
+    id: "gl-full-notes",
+    title: "Git, GitHub & Linux Full Notes",
+    description: "Comprehensive notes, cheat sheets, tutorials and documentation for Git, GitHub & Linux — commands, workflows, branching strategies and shell scripting.",
+    image: "/tracks/git-linux-sections/full-notes.png",
+    badge: "NOTES & GUIDES",
+    gradient: "from-emerald-500/20 via-green-500/10 to-transparent",
+    borderHover: "hover:border-emerald-500/40",
+    iconBg: "bg-gradient-to-br from-emerald-500 to-green-600",
+    icon: NotebookIcon,
+    glowColor: "shadow-[0_10px_40px_-10px_oklch(0.65_0.18_155/0.35)]",
+    link: "/track/git-linux/notes",
+  },
+  {
+    id: "gl-practice-questions",
+    title: "Git, GitHub & Linux Interview Prep",
+    description: "Interview questions, hands-on practice and Q&A for Git, GitHub & Linux. Master version control workflows, shell commands and system administration concepts.",
+    image: "/tracks/git-linux-sections/interview-prep.png",
+    badge: "PRACTICE & INTERVIEW",
+    gradient: "from-violet-500/20 via-purple-500/10 to-transparent",
+    borderHover: "hover:border-violet-500/40",
+    iconBg: "bg-gradient-to-br from-violet-500 to-purple-600",
+    icon: ClipboardListIcon,
+    glowColor: "shadow-[0_10px_40px_-10px_oklch(0.6_0.22_290/0.35)]",
+    link: "/track/git-linux/practice",
+  },
+];
+
+/* ─── Cloud & DevOps section definitions ─── */
+const cloudDevopsSections = [
+  {
+    id: "cd-video-courses",
+    title: "Cloud & DevOps Video Full Course",
+    description: "Complete video lectures for Cloud & DevOps — AWS, Docker, CI/CD, Kubernetes, Terraform, Vercel and deployment strategies.",
+    image: "/tracks/cloud-devops-sections/video-courses.png",
+    badge: "VIDEO COURSES",
+    gradient: "from-blue-500/20 via-cyan-500/10 to-transparent",
+    borderHover: "hover:border-blue-500/40",
+    iconBg: "bg-gradient-to-br from-blue-500 to-cyan-600",
+    icon: PlayIcon,
+    glowColor: "shadow-[0_10px_40px_-10px_oklch(0.6_0.22_230/0.35)]",
+    link: "/track/cloud-devops/videos",
+  },
+  {
+    id: "cd-full-notes",
+    title: "Cloud & DevOps Full Notes",
+    description: "Comprehensive notes, tutorials and docs for Cloud & DevOps — AWS, Docker, Kubernetes, CI/CD, Terraform and deployment guides.",
+    image: "/tracks/cloud-devops-sections/full-notes.png",
+    badge: "NOTES & GUIDES",
+    gradient: "from-emerald-500/20 via-green-500/10 to-transparent",
+    borderHover: "hover:border-emerald-500/40",
+    iconBg: "bg-gradient-to-br from-emerald-500 to-green-600",
+    icon: NotebookIcon,
+    glowColor: "shadow-[0_10px_40px_-10px_oklch(0.65_0.18_155/0.35)]",
+    link: "/track/cloud-devops/notes",
+  },
+  {
+    id: "cd-practice-questions",
+    title: "Cloud & DevOps Interview Prep",
+    description: "Interview questions, hands-on practice and Q&A for Cloud & DevOps. Master AWS, Docker, CI/CD pipelines and deployment strategies.",
+    image: "/tracks/cloud-devops-sections/interview-prep.png",
+    badge: "PRACTICE & INTERVIEW",
+    gradient: "from-violet-500/20 via-purple-500/10 to-transparent",
+    borderHover: "hover:border-violet-500/40",
+    iconBg: "bg-gradient-to-br from-violet-500 to-purple-600",
+    icon: ClipboardListIcon,
+    glowColor: "shadow-[0_10px_40px_-10px_oklch(0.6_0.22_290/0.35)]",
+    link: "/track/cloud-devops/practice",
+  },
+];
+
 function TrackPage() {
   const typeIcon: Record<Resource["type"], React.ComponentType<{ className?: string }>> = {
     video: VideoIcon,
@@ -329,8 +415,10 @@ function TrackPage() {
   const isCoreCs = data.slug === "core-cs";
   const isFullstack = data.slug === "fullstack";
   const isAiMl = data.slug === "ai-ml";
-  const activeSections = isDsa ? dsaSections : isSystemDesign ? sdSections : isAptitude ? aptitudeSections : isCoreCs ? coreCsSections : isFullstack ? fullstackSections : isAiMl ? aiMlSections : [];
-  const sectionTitle = isDsa ? "DSA Learning Paths" : isSystemDesign ? "System Design Learning Paths" : isAptitude ? "Aptitude Learning Paths" : isCoreCs ? "Core CS Learning Paths" : isFullstack ? "Full Stack Learning Paths" : isAiMl ? "AI & ML Learning Paths" : "";
+  const isGitLinux = data.slug === "git-linux";
+  const isCloudDevops = data.slug === "cloud-devops";
+  const activeSections = isDsa ? dsaSections : isSystemDesign ? sdSections : isAptitude ? aptitudeSections : isCoreCs ? coreCsSections : isFullstack ? fullstackSections : isAiMl ? aiMlSections : isGitLinux ? gitLinuxSections : isCloudDevops ? cloudDevopsSections : [];
+  const sectionTitle = isDsa ? "DSA Learning Paths" : isSystemDesign ? "System Design Learning Paths" : isAptitude ? "Aptitude Learning Paths" : isCoreCs ? "Core CS Learning Paths" : isFullstack ? "Full Stack Learning Paths" : isAiMl ? "AI & ML Learning Paths" : isGitLinux ? "Git, GitHub & Linux Learning Paths" : isCloudDevops ? "Cloud & DevOps Learning Paths" : "";
   const sectionSubtitle = isDsa
     ? "Choose your learning style — watch video courses, read structured notes, or dive into coding practice."
     : isSystemDesign
@@ -343,7 +431,11 @@ function TrackPage() {
             ? "Choose your learning style — watch video courses, read structured notes, or build projects."
             : isAiMl
               ? "Choose your learning style — watch video courses, read structured notes, or practice with projects."
-              : "";
+              : isGitLinux
+                ? "Choose your learning style — watch video courses, read structured notes, or practice interview questions."
+                : isCloudDevops
+                  ? "Choose your learning style — watch video courses, read structured notes, or practice with hands-on labs."
+                  : "";
 
   return (
     <div className="px-4 py-6 sm:px-6 sm:py-8 md:px-12 md:py-10 max-w-7xl mx-auto">
@@ -403,7 +495,7 @@ function TrackPage() {
       )}
 
       {/* ─── Section Cards (for tracks with learning paths) ─── */}
-      {(isDsa || isSystemDesign || isAptitude || isCoreCs || isFullstack || isAiMl) && (
+      {(isDsa || isSystemDesign || isAptitude || isCoreCs || isFullstack || isAiMl || isGitLinux || isCloudDevops) && (
         <section className="mb-10">
           <h2 className="text-2xl md:text-3xl font-bold mb-2">{sectionTitle}</h2>
           <p className="text-muted-foreground mb-8 max-w-2xl">
@@ -482,7 +574,11 @@ function TrackPage() {
                   ? "Detailed resources organized by full stack topic — Frontend, Backend and Databases."
                   : isAiMl
                     ? "Detailed resources organized by AI & ML topic — ML Foundations, Deep Learning, NLP, LLMs, RAG and Agentic AI."
-                    : "Detailed resources organized by DSA topic — arrays, trees, graphs, DP and more."}
+                    : isGitLinux
+                      ? "Detailed resources organized by topic — Git & GitHub, Linux & Shell."
+                      : isCloudDevops
+                        ? "Detailed resources organized by topic — AWS Essentials, Deployment and CI/CD."
+                        : "Detailed resources organized by DSA topic — arrays, trees, graphs, DP and more."}
         </p>
 
         <Accordion type="multiple" defaultValue={[data.topics[0]?.id]} className="space-y-3">

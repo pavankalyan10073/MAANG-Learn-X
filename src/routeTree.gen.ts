@@ -28,6 +28,9 @@ import { Route as RoadmapAiEngineerRouteImport } from './routes/roadmap.ai-engin
 import { Route as TrackSystemDesignVideosRouteImport } from './routes/track.system-design.videos'
 import { Route as TrackSystemDesignPracticeRouteImport } from './routes/track.system-design.practice'
 import { Route as TrackSystemDesignNotesRouteImport } from './routes/track.system-design.notes'
+import { Route as TrackGitLinuxVideosRouteImport } from './routes/track.git-linux.videos'
+import { Route as TrackGitLinuxPracticeRouteImport } from './routes/track.git-linux.practice'
+import { Route as TrackGitLinuxNotesRouteImport } from './routes/track.git-linux.notes'
 import { Route as TrackFullstackVideosRouteImport } from './routes/track.fullstack.videos'
 import { Route as TrackFullstackPracticeRouteImport } from './routes/track.fullstack.practice'
 import { Route as TrackFullstackNotesRouteImport } from './routes/track.fullstack.notes'
@@ -37,6 +40,9 @@ import { Route as TrackDsaNotesRouteImport } from './routes/track.dsa.notes'
 import { Route as TrackCoreCsVideosRouteImport } from './routes/track.core-cs.videos'
 import { Route as TrackCoreCsPracticeRouteImport } from './routes/track.core-cs.practice'
 import { Route as TrackCoreCsNotesRouteImport } from './routes/track.core-cs.notes'
+import { Route as TrackCloudDevopsVideosRouteImport } from './routes/track.cloud-devops.videos'
+import { Route as TrackCloudDevopsPracticeRouteImport } from './routes/track.cloud-devops.practice'
+import { Route as TrackCloudDevopsNotesRouteImport } from './routes/track.cloud-devops.notes'
 import { Route as TrackAptitudeVideosRouteImport } from './routes/track.aptitude.videos'
 import { Route as TrackAptitudePracticeRouteImport } from './routes/track.aptitude.practice'
 import { Route as TrackAptitudeNotesRouteImport } from './routes/track.aptitude.notes'
@@ -144,6 +150,21 @@ const TrackSystemDesignNotesRoute = TrackSystemDesignNotesRouteImport.update({
   path: '/track/system-design/notes',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TrackGitLinuxVideosRoute = TrackGitLinuxVideosRouteImport.update({
+  id: '/track/git-linux/videos',
+  path: '/track/git-linux/videos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TrackGitLinuxPracticeRoute = TrackGitLinuxPracticeRouteImport.update({
+  id: '/track/git-linux/practice',
+  path: '/track/git-linux/practice',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TrackGitLinuxNotesRoute = TrackGitLinuxNotesRouteImport.update({
+  id: '/track/git-linux/notes',
+  path: '/track/git-linux/notes',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TrackFullstackVideosRoute = TrackFullstackVideosRouteImport.update({
   id: '/track/fullstack/videos',
   path: '/track/fullstack/videos',
@@ -187,6 +208,22 @@ const TrackCoreCsPracticeRoute = TrackCoreCsPracticeRouteImport.update({
 const TrackCoreCsNotesRoute = TrackCoreCsNotesRouteImport.update({
   id: '/track/core-cs/notes',
   path: '/track/core-cs/notes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TrackCloudDevopsVideosRoute = TrackCloudDevopsVideosRouteImport.update({
+  id: '/track/cloud-devops/videos',
+  path: '/track/cloud-devops/videos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TrackCloudDevopsPracticeRoute =
+  TrackCloudDevopsPracticeRouteImport.update({
+    id: '/track/cloud-devops/practice',
+    path: '/track/cloud-devops/practice',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const TrackCloudDevopsNotesRoute = TrackCloudDevopsNotesRouteImport.update({
+  id: '/track/cloud-devops/notes',
+  path: '/track/cloud-devops/notes',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TrackAptitudeVideosRoute = TrackAptitudeVideosRouteImport.update({
@@ -243,6 +280,9 @@ export interface FileRoutesByFullPath {
   '/track/aptitude/notes': typeof TrackAptitudeNotesRoute
   '/track/aptitude/practice': typeof TrackAptitudePracticeRoute
   '/track/aptitude/videos': typeof TrackAptitudeVideosRoute
+  '/track/cloud-devops/notes': typeof TrackCloudDevopsNotesRoute
+  '/track/cloud-devops/practice': typeof TrackCloudDevopsPracticeRoute
+  '/track/cloud-devops/videos': typeof TrackCloudDevopsVideosRoute
   '/track/core-cs/notes': typeof TrackCoreCsNotesRoute
   '/track/core-cs/practice': typeof TrackCoreCsPracticeRoute
   '/track/core-cs/videos': typeof TrackCoreCsVideosRoute
@@ -252,6 +292,9 @@ export interface FileRoutesByFullPath {
   '/track/fullstack/notes': typeof TrackFullstackNotesRoute
   '/track/fullstack/practice': typeof TrackFullstackPracticeRoute
   '/track/fullstack/videos': typeof TrackFullstackVideosRoute
+  '/track/git-linux/notes': typeof TrackGitLinuxNotesRoute
+  '/track/git-linux/practice': typeof TrackGitLinuxPracticeRoute
+  '/track/git-linux/videos': typeof TrackGitLinuxVideosRoute
   '/track/system-design/notes': typeof TrackSystemDesignNotesRoute
   '/track/system-design/practice': typeof TrackSystemDesignPracticeRoute
   '/track/system-design/videos': typeof TrackSystemDesignVideosRoute
@@ -279,6 +322,9 @@ export interface FileRoutesByTo {
   '/track/aptitude/notes': typeof TrackAptitudeNotesRoute
   '/track/aptitude/practice': typeof TrackAptitudePracticeRoute
   '/track/aptitude/videos': typeof TrackAptitudeVideosRoute
+  '/track/cloud-devops/notes': typeof TrackCloudDevopsNotesRoute
+  '/track/cloud-devops/practice': typeof TrackCloudDevopsPracticeRoute
+  '/track/cloud-devops/videos': typeof TrackCloudDevopsVideosRoute
   '/track/core-cs/notes': typeof TrackCoreCsNotesRoute
   '/track/core-cs/practice': typeof TrackCoreCsPracticeRoute
   '/track/core-cs/videos': typeof TrackCoreCsVideosRoute
@@ -288,6 +334,9 @@ export interface FileRoutesByTo {
   '/track/fullstack/notes': typeof TrackFullstackNotesRoute
   '/track/fullstack/practice': typeof TrackFullstackPracticeRoute
   '/track/fullstack/videos': typeof TrackFullstackVideosRoute
+  '/track/git-linux/notes': typeof TrackGitLinuxNotesRoute
+  '/track/git-linux/practice': typeof TrackGitLinuxPracticeRoute
+  '/track/git-linux/videos': typeof TrackGitLinuxVideosRoute
   '/track/system-design/notes': typeof TrackSystemDesignNotesRoute
   '/track/system-design/practice': typeof TrackSystemDesignPracticeRoute
   '/track/system-design/videos': typeof TrackSystemDesignVideosRoute
@@ -316,6 +365,9 @@ export interface FileRoutesById {
   '/track/aptitude/notes': typeof TrackAptitudeNotesRoute
   '/track/aptitude/practice': typeof TrackAptitudePracticeRoute
   '/track/aptitude/videos': typeof TrackAptitudeVideosRoute
+  '/track/cloud-devops/notes': typeof TrackCloudDevopsNotesRoute
+  '/track/cloud-devops/practice': typeof TrackCloudDevopsPracticeRoute
+  '/track/cloud-devops/videos': typeof TrackCloudDevopsVideosRoute
   '/track/core-cs/notes': typeof TrackCoreCsNotesRoute
   '/track/core-cs/practice': typeof TrackCoreCsPracticeRoute
   '/track/core-cs/videos': typeof TrackCoreCsVideosRoute
@@ -325,6 +377,9 @@ export interface FileRoutesById {
   '/track/fullstack/notes': typeof TrackFullstackNotesRoute
   '/track/fullstack/practice': typeof TrackFullstackPracticeRoute
   '/track/fullstack/videos': typeof TrackFullstackVideosRoute
+  '/track/git-linux/notes': typeof TrackGitLinuxNotesRoute
+  '/track/git-linux/practice': typeof TrackGitLinuxPracticeRoute
+  '/track/git-linux/videos': typeof TrackGitLinuxVideosRoute
   '/track/system-design/notes': typeof TrackSystemDesignNotesRoute
   '/track/system-design/practice': typeof TrackSystemDesignPracticeRoute
   '/track/system-design/videos': typeof TrackSystemDesignVideosRoute
@@ -354,6 +409,9 @@ export interface FileRouteTypes {
     | '/track/aptitude/notes'
     | '/track/aptitude/practice'
     | '/track/aptitude/videos'
+    | '/track/cloud-devops/notes'
+    | '/track/cloud-devops/practice'
+    | '/track/cloud-devops/videos'
     | '/track/core-cs/notes'
     | '/track/core-cs/practice'
     | '/track/core-cs/videos'
@@ -363,6 +421,9 @@ export interface FileRouteTypes {
     | '/track/fullstack/notes'
     | '/track/fullstack/practice'
     | '/track/fullstack/videos'
+    | '/track/git-linux/notes'
+    | '/track/git-linux/practice'
+    | '/track/git-linux/videos'
     | '/track/system-design/notes'
     | '/track/system-design/practice'
     | '/track/system-design/videos'
@@ -390,6 +451,9 @@ export interface FileRouteTypes {
     | '/track/aptitude/notes'
     | '/track/aptitude/practice'
     | '/track/aptitude/videos'
+    | '/track/cloud-devops/notes'
+    | '/track/cloud-devops/practice'
+    | '/track/cloud-devops/videos'
     | '/track/core-cs/notes'
     | '/track/core-cs/practice'
     | '/track/core-cs/videos'
@@ -399,6 +463,9 @@ export interface FileRouteTypes {
     | '/track/fullstack/notes'
     | '/track/fullstack/practice'
     | '/track/fullstack/videos'
+    | '/track/git-linux/notes'
+    | '/track/git-linux/practice'
+    | '/track/git-linux/videos'
     | '/track/system-design/notes'
     | '/track/system-design/practice'
     | '/track/system-design/videos'
@@ -426,6 +493,9 @@ export interface FileRouteTypes {
     | '/track/aptitude/notes'
     | '/track/aptitude/practice'
     | '/track/aptitude/videos'
+    | '/track/cloud-devops/notes'
+    | '/track/cloud-devops/practice'
+    | '/track/cloud-devops/videos'
     | '/track/core-cs/notes'
     | '/track/core-cs/practice'
     | '/track/core-cs/videos'
@@ -435,6 +505,9 @@ export interface FileRouteTypes {
     | '/track/fullstack/notes'
     | '/track/fullstack/practice'
     | '/track/fullstack/videos'
+    | '/track/git-linux/notes'
+    | '/track/git-linux/practice'
+    | '/track/git-linux/videos'
     | '/track/system-design/notes'
     | '/track/system-design/practice'
     | '/track/system-design/videos'
@@ -463,6 +536,9 @@ export interface RootRouteChildren {
   TrackAptitudeNotesRoute: typeof TrackAptitudeNotesRoute
   TrackAptitudePracticeRoute: typeof TrackAptitudePracticeRoute
   TrackAptitudeVideosRoute: typeof TrackAptitudeVideosRoute
+  TrackCloudDevopsNotesRoute: typeof TrackCloudDevopsNotesRoute
+  TrackCloudDevopsPracticeRoute: typeof TrackCloudDevopsPracticeRoute
+  TrackCloudDevopsVideosRoute: typeof TrackCloudDevopsVideosRoute
   TrackCoreCsNotesRoute: typeof TrackCoreCsNotesRoute
   TrackCoreCsPracticeRoute: typeof TrackCoreCsPracticeRoute
   TrackCoreCsVideosRoute: typeof TrackCoreCsVideosRoute
@@ -472,6 +548,9 @@ export interface RootRouteChildren {
   TrackFullstackNotesRoute: typeof TrackFullstackNotesRoute
   TrackFullstackPracticeRoute: typeof TrackFullstackPracticeRoute
   TrackFullstackVideosRoute: typeof TrackFullstackVideosRoute
+  TrackGitLinuxNotesRoute: typeof TrackGitLinuxNotesRoute
+  TrackGitLinuxPracticeRoute: typeof TrackGitLinuxPracticeRoute
+  TrackGitLinuxVideosRoute: typeof TrackGitLinuxVideosRoute
   TrackSystemDesignNotesRoute: typeof TrackSystemDesignNotesRoute
   TrackSystemDesignPracticeRoute: typeof TrackSystemDesignPracticeRoute
   TrackSystemDesignVideosRoute: typeof TrackSystemDesignVideosRoute
@@ -612,6 +691,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TrackSystemDesignNotesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/track/git-linux/videos': {
+      id: '/track/git-linux/videos'
+      path: '/track/git-linux/videos'
+      fullPath: '/track/git-linux/videos'
+      preLoaderRoute: typeof TrackGitLinuxVideosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/track/git-linux/practice': {
+      id: '/track/git-linux/practice'
+      path: '/track/git-linux/practice'
+      fullPath: '/track/git-linux/practice'
+      preLoaderRoute: typeof TrackGitLinuxPracticeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/track/git-linux/notes': {
+      id: '/track/git-linux/notes'
+      path: '/track/git-linux/notes'
+      fullPath: '/track/git-linux/notes'
+      preLoaderRoute: typeof TrackGitLinuxNotesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/track/fullstack/videos': {
       id: '/track/fullstack/videos'
       path: '/track/fullstack/videos'
@@ -673,6 +773,27 @@ declare module '@tanstack/react-router' {
       path: '/track/core-cs/notes'
       fullPath: '/track/core-cs/notes'
       preLoaderRoute: typeof TrackCoreCsNotesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/track/cloud-devops/videos': {
+      id: '/track/cloud-devops/videos'
+      path: '/track/cloud-devops/videos'
+      fullPath: '/track/cloud-devops/videos'
+      preLoaderRoute: typeof TrackCloudDevopsVideosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/track/cloud-devops/practice': {
+      id: '/track/cloud-devops/practice'
+      path: '/track/cloud-devops/practice'
+      fullPath: '/track/cloud-devops/practice'
+      preLoaderRoute: typeof TrackCloudDevopsPracticeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/track/cloud-devops/notes': {
+      id: '/track/cloud-devops/notes'
+      path: '/track/cloud-devops/notes'
+      fullPath: '/track/cloud-devops/notes'
+      preLoaderRoute: typeof TrackCloudDevopsNotesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/track/aptitude/videos': {
@@ -743,6 +864,9 @@ const rootRouteChildren: RootRouteChildren = {
   TrackAptitudeNotesRoute: TrackAptitudeNotesRoute,
   TrackAptitudePracticeRoute: TrackAptitudePracticeRoute,
   TrackAptitudeVideosRoute: TrackAptitudeVideosRoute,
+  TrackCloudDevopsNotesRoute: TrackCloudDevopsNotesRoute,
+  TrackCloudDevopsPracticeRoute: TrackCloudDevopsPracticeRoute,
+  TrackCloudDevopsVideosRoute: TrackCloudDevopsVideosRoute,
   TrackCoreCsNotesRoute: TrackCoreCsNotesRoute,
   TrackCoreCsPracticeRoute: TrackCoreCsPracticeRoute,
   TrackCoreCsVideosRoute: TrackCoreCsVideosRoute,
@@ -752,6 +876,9 @@ const rootRouteChildren: RootRouteChildren = {
   TrackFullstackNotesRoute: TrackFullstackNotesRoute,
   TrackFullstackPracticeRoute: TrackFullstackPracticeRoute,
   TrackFullstackVideosRoute: TrackFullstackVideosRoute,
+  TrackGitLinuxNotesRoute: TrackGitLinuxNotesRoute,
+  TrackGitLinuxPracticeRoute: TrackGitLinuxPracticeRoute,
+  TrackGitLinuxVideosRoute: TrackGitLinuxVideosRoute,
   TrackSystemDesignNotesRoute: TrackSystemDesignNotesRoute,
   TrackSystemDesignPracticeRoute: TrackSystemDesignPracticeRoute,
   TrackSystemDesignVideosRoute: TrackSystemDesignVideosRoute,
