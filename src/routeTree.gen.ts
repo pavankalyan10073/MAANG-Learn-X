@@ -13,6 +13,7 @@ import { Route as TutorRouteImport } from './routes/tutor'
 import { Route as RoadmapsRouteImport } from './routes/roadmaps'
 import { Route as MentorsRouteImport } from './routes/mentors'
 import { Route as InternshipsRouteImport } from './routes/internships'
+import { Route as FavoritesRouteImport } from './routes/favorites'
 import { Route as CommunityRouteImport } from './routes/community'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as IndexRouteImport } from './routes/index'
@@ -74,6 +75,11 @@ const MentorsRoute = MentorsRouteImport.update({
 const InternshipsRoute = InternshipsRouteImport.update({
   id: '/internships',
   path: '/internships',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FavoritesRoute = FavoritesRouteImport.update({
+  id: '/favorites',
+  path: '/favorites',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CommunityRoute = CommunityRouteImport.update({
@@ -298,6 +304,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/community': typeof CommunityRoute
+  '/favorites': typeof FavoritesRoute
   '/internships': typeof InternshipsRoute
   '/mentors': typeof MentorsRoute
   '/roadmaps': typeof RoadmapsRoute
@@ -346,6 +353,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/community': typeof CommunityRoute
+  '/favorites': typeof FavoritesRoute
   '/internships': typeof InternshipsRoute
   '/mentors': typeof MentorsRoute
   '/roadmaps': typeof RoadmapsRoute
@@ -395,6 +403,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/community': typeof CommunityRoute
+  '/favorites': typeof FavoritesRoute
   '/internships': typeof InternshipsRoute
   '/mentors': typeof MentorsRoute
   '/roadmaps': typeof RoadmapsRoute
@@ -445,6 +454,7 @@ export interface FileRouteTypes {
     | '/'
     | '/auth'
     | '/community'
+    | '/favorites'
     | '/internships'
     | '/mentors'
     | '/roadmaps'
@@ -493,6 +503,7 @@ export interface FileRouteTypes {
     | '/'
     | '/auth'
     | '/community'
+    | '/favorites'
     | '/internships'
     | '/mentors'
     | '/roadmaps'
@@ -541,6 +552,7 @@ export interface FileRouteTypes {
     | '/'
     | '/auth'
     | '/community'
+    | '/favorites'
     | '/internships'
     | '/mentors'
     | '/roadmaps'
@@ -590,6 +602,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthRoute: typeof AuthRoute
   CommunityRoute: typeof CommunityRoute
+  FavoritesRoute: typeof FavoritesRoute
   InternshipsRoute: typeof InternshipsRoute
   MentorsRoute: typeof MentorsRoute
   RoadmapsRoute: typeof RoadmapsRoute
@@ -663,6 +676,13 @@ declare module '@tanstack/react-router' {
       path: '/internships'
       fullPath: '/internships'
       preLoaderRoute: typeof InternshipsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/favorites': {
+      id: '/favorites'
+      path: '/favorites'
+      fullPath: '/favorites'
+      preLoaderRoute: typeof FavoritesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/community': {
@@ -966,6 +986,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthRoute: AuthRoute,
   CommunityRoute: CommunityRoute,
+  FavoritesRoute: FavoritesRoute,
   InternshipsRoute: InternshipsRoute,
   MentorsRoute: MentorsRoute,
   RoadmapsRoute: RoadmapsRoute,

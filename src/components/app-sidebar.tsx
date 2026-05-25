@@ -1,5 +1,5 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { RocketIcon, HomeIcon, MessageSquareIcon, MapIcon, UsersIcon, BriefcaseIcon } from "@/components/icons";
+import { RocketIcon, HomeIcon, MessageSquareIcon, MapIcon, UsersIcon, BriefcaseIcon, HeartIcon } from "@/components/icons";
 import { tracks } from "@/data/tracks";
 import {
   Sidebar,
@@ -94,6 +94,14 @@ export function AppSidebar() {
                   <Link to="/tutor" onClick={handleNavigate}>
                     <MessageSquareIcon className="h-4 w-4" />
                     <span>AI Tutor</span>
+                  </Link>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild isActive={isActive("/favorites")}>
+                  <Link to="/favorites" onClick={handleNavigate}>
+                    <HeartIcon className="h-4 w-4" />
+                    <span>Favorites</span>
                   </Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>

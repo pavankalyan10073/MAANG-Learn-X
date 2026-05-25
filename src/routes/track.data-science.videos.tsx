@@ -5,7 +5,9 @@ import { Button } from "@/components/ui/button";
 import {
   ArrowLeftIcon, ExternalLinkIcon, PlayIcon, YoutubeIcon,
   SparklesIcon, ClockIcon, FilmIcon, ListVideoIcon,
+  HeartIcon,
 } from "@/components/icons";
+import { useFavorites } from "@/hooks/use-favorites";
 
 export const Route = createFileRoute("/track/data-science/videos")({
   head: () => ({
@@ -123,6 +125,7 @@ function VideoThumb({ thumb, group, video }) {
 }
 
 function DSVideosPage() {
+  const { favIds, toggle: toggleFav } = useFavorites();
   return (
     <div className="px-4 py-6 sm:px-6 sm:py-8 md:px-12 md:py-10 max-w-7xl mx-auto">
       <Button asChild variant="ghost" size="sm" className="mb-6">
@@ -199,7 +202,7 @@ function DSVideosPage() {
                     </div>
 
                     <div className="p-4">
-                      <h3 className="font-semibold text-sm leading-snug line-clamp-2 group-hover/vid:text-primary transition-colors mb-1.5">{video.title}</h3>
+                      <div className="flex items-start justify-between gap-2 mb-1.5"><h3 className="font-semibold text-sm leading-snug line-clamp-2 group-hover/vid:text-primary transition-colors flex-1">{video.title}</h3><button onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggleFav(video.url); }} className="shrink-0 p-1 rounded-md hover:bg-muted/60 transition-colors mt-0.5" title={favIds.has(video.url) ? "Remove from Favorites" : "Add to Favorites"}><HeartIcon className={"h-3.5 w-3.5 transition-colors " + (favIds.has(video.url) ? "text-rose-500 fill-rose-500" : "text-muted-foreground hover:text-rose-400")} /></button></div>
                       {video.desc && (<p className="text-[11px] text-muted-foreground leading-relaxed line-clamp-2 mb-3">{video.desc}</p>)}
                       <div className="flex items-center gap-1.5 text-[11px] text-muted-foreground">
                         <YoutubeIcon className="h-3 w-3 text-red-400" />

@@ -6,10 +6,11 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { useProgress } from "@/hooks/use-progress";
+import { useFavorites } from "@/hooks/use-favorites";
 import {
   ExternalLinkIcon, ArrowLeftIcon, VideoIcon, BookOpenIcon, FileTextIcon,
   CodeIcon, GraduationCapIcon, LibraryIcon, MessageCircleIcon, PlayIcon,
-  NotebookIcon, ClipboardListIcon, ArrowRightIcon,
+  NotebookIcon, ClipboardListIcon, ArrowRightIcon, HeartIcon,
   LeetCodeIcon, GeeksForGeeksIcon, CodeforcesIcon,
 } from "@/components/icons";
 import type { Resource } from "@/data/tracks";
@@ -486,6 +487,7 @@ function TrackPage() {
   if (!trackFull) return null;
   const Icon = trackFull.icon;
   const { doneIds, toggle, isLoggedIn } = useProgress();
+  const { favIds, toggle: toggleFav } = useFavorites();
 
   const totalResources = data.topics.reduce((a, t) => a + t.resources.length, 0);
   const doneCount = data.topics.reduce(
@@ -718,6 +720,13 @@ function TrackPage() {
                             {res.title}
                             {res.source && <span className="text-muted-foreground"> · {res.source}</span>}
                           </a>
+                          <button
+                            onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggleFav(res.id); }}
+                            className="shrink-0 p-1 rounded-md hover:bg-muted/60 transition-colors"
+                            title={favIds.has(res.id) ? "Remove from Favorites" : "Add to Favorites"}
+                          >
+                            <HeartIcon className={"h-3.5 w-3.5 transition-colors " + (favIds.has(res.id) ? "text-rose-500 fill-rose-500" : "text-muted-foreground hover:text-rose-400")} />
+                          </button>
                           <Badge variant="secondary" className="text-[10px] uppercase">{res.type}</Badge>
                           <ExternalLinkIcon className="h-3 w-3 text-muted-foreground" />
                         </div>

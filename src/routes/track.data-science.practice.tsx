@@ -5,7 +5,9 @@ import { Button } from "@/components/ui/button";
 import {
   ArrowLeftIcon, ExternalLinkIcon, CodeIcon, StarIcon,
   SparklesIcon, TrophyIcon, TargetIcon, ClipboardListIcon,
+  HeartIcon,
 } from "@/components/icons";
+import { useFavorites } from "@/hooks/use-favorites";
 
 export const Route = createFileRoute("/track/data-science/practice")({
   head: () => ({
@@ -71,6 +73,7 @@ const stats = [
 ];
 
 function DSPracticePage() {
+  const { favIds, toggle: toggleFav } = useFavorites();
   return (
     <div className="px-4 py-6 sm:px-6 sm:py-8 md:px-12 md:py-10 max-w-7xl mx-auto">
       <Button asChild variant="ghost" size="sm" className="mb-6">
@@ -120,9 +123,9 @@ function DSPracticePage() {
             {group.items.map((practice) => (
               <a key={practice.url} href={practice.url} target="_blank" rel="noopener noreferrer" className="group/prac">
                 <Card className="relative overflow-hidden bg-card/60 backdrop-blur border-border hover:border-violet-500/40 transition-all duration-300 hover:shadow-[0_10px_40px_-10px_oklch(0.6_0.22_290/0.3)] h-full">
-                  <div className={"absolute inset-0 bg-gradient-to-br " + practice.gradient + " opacity-0 group-hover/prac:opacity-100 transition-opacity duration-500"} />
+                  <div className={"absolute inset-0 bg-gradient-to-br " + group.gradient + " opacity-0 group-hover/prac:opacity-100 transition-opacity duration-500"} />
                   <div className="relative z-10">
-                    <div className={"relative h-36 sm:h-40 bg-gradient-to-br " + practice.thumbBg + " flex items-center justify-center overflow-hidden"}>
+                    <div className={"relative h-36 sm:h-40 bg-gradient-to-br " + group.thumbBg + " flex items-center justify-center overflow-hidden"}>
                       <div className="absolute inset-0 opacity-10">
                         <div className="absolute top-3 left-3 w-12 h-12 border-2 border-white/30 rounded-lg rotate-45" />
                         <div className="absolute bottom-3 right-3 w-16 h-16 border-2 border-white/20 rounded-full" />
@@ -152,7 +155,7 @@ function DSPracticePage() {
                           ))}
                         </div>
                       </div>
-                      <h3 className="font-semibold text-sm leading-snug line-clamp-2 group-hover/prac:text-primary transition-colors mb-1.5">{practice.title}</h3>
+                      <div className="flex items-start justify-between gap-2 mb-1.5"><h3 className="font-semibold text-sm leading-snug line-clamp-2 group-hover/prac:text-primary transition-colors flex-1">{practice.title}</h3><button onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggleFav(practice.url); }} className="shrink-0 p-1 rounded-md hover:bg-muted/60 transition-colors mt-0.5" title={favIds.has(practice.url) ? "Remove from Favorites" : "Add to Favorites"}><HeartIcon className={"h-3.5 w-3.5 transition-colors " + (favIds.has(practice.url) ? "text-rose-500 fill-rose-500" : "text-muted-foreground hover:text-rose-400")} /></button></div>
                       <p className="text-[11px] text-muted-foreground leading-relaxed line-clamp-2 mb-3">{practice.desc}</p>
                       <div className="flex items-center gap-1.5 text-[11px] text-muted-foreground">
                         <CodeIcon className="h-3 w-3 text-violet-400" />
