@@ -342,6 +342,92 @@ const gitLinuxSections = [
   },
 ];
 
+/* ─── Maths for Engineering section definitions ─── */
+const mathSections = [
+  {
+    id: "math-video-courses",
+    title: "Maths for Engineering Video Full Course",
+    description: "Complete video lectures for Engineering Mathematics — Statistics, Linear Algebra, Calculus, Discrete Math and Probability with curated playlists.",
+    image: "/tracks/math-sections/video-courses.png",
+    badge: "VIDEO COURSES",
+    gradient: "from-blue-500/20 via-cyan-500/10 to-transparent",
+    borderHover: "hover:border-blue-500/40",
+    iconBg: "bg-gradient-to-br from-blue-500 to-cyan-600",
+    icon: PlayIcon,
+    glowColor: "shadow-[0_10px_40px_-10px_oklch(0.6_0.22_230/0.35)]",
+    link: "/track/math/videos",
+  },
+  {
+    id: "math-full-notes",
+    title: "Maths for Engineering Full Notes",
+    description: "Comprehensive notes, cheat sheets, PDFs and theory resources. MIT, Stanford and top educator notes for all engineering math topics.",
+    image: "/tracks/math-sections/full-notes.png",
+    badge: "NOTES & GUIDES",
+    gradient: "from-emerald-500/20 via-green-500/10 to-transparent",
+    borderHover: "hover:border-emerald-500/40",
+    iconBg: "bg-gradient-to-br from-emerald-500 to-green-600",
+    icon: NotebookIcon,
+    glowColor: "shadow-[0_10px_40px_-10px_oklch(0.65_0.18_155/0.35)]",
+    link: "/track/math/notes",
+  },
+  {
+    id: "math-practice-questions",
+    title: "Maths for Engineering Interview Prep Q&A",
+    description: "Curated practice questions, interview Q&A and problem sets. Statistics, Linear Algebra, Calculus, Discrete Math and Probability from top platforms.",
+    image: "/tracks/math-sections/interview-prep.png",
+    badge: "PRACTICE & INTERVIEW",
+    gradient: "from-violet-500/20 via-purple-500/10 to-transparent",
+    borderHover: "hover:border-violet-500/40",
+    iconBg: "bg-gradient-to-br from-violet-500 to-purple-600",
+    icon: ClipboardListIcon,
+    glowColor: "shadow-[0_10px_40px_-10px_oklch(0.6_0.22_290/0.35)]",
+    link: "/track/math/practice",
+  },
+];
+
+/* ─── Data Science & Analytics section definitions ─── */
+const dataScienceSections = [
+  {
+    id: "ds-video-courses",
+    title: "Data Science & Analytics Video Full Course",
+    description: "Complete video lectures for Data Science & Analytics — Python, SQL, EDA, Visualization, ML, Power BI & Tableau with curated playlists.",
+    image: "/tracks/data-science-sections/video-courses.png",
+    badge: "VIDEO COURSES",
+    gradient: "from-blue-500/20 via-cyan-500/10 to-transparent",
+    borderHover: "hover:border-blue-500/40",
+    iconBg: "bg-gradient-to-br from-blue-500 to-cyan-600",
+    icon: PlayIcon,
+    glowColor: "shadow-[0_10px_40px_-10px_oklch(0.6_0.22_230/0.35)]",
+    link: "/track/data-science/videos",
+  },
+  {
+    id: "ds-full-notes",
+    title: "Data Science & Analytics Full Notes",
+    description: "Comprehensive notes, cheat sheets, documentation and theory resources. Python, SQL, EDA, ML and BI tools from official sources.",
+    image: "/tracks/data-science-sections/full-notes.png",
+    badge: "NOTES & GUIDES",
+    gradient: "from-emerald-500/20 via-green-500/10 to-transparent",
+    borderHover: "hover:border-emerald-500/40",
+    iconBg: "bg-gradient-to-br from-emerald-500 to-green-600",
+    icon: NotebookIcon,
+    glowColor: "shadow-[0_10px_40px_-10px_oklch(0.65_0.18_155/0.35)]",
+    link: "/track/data-science/notes",
+  },
+  {
+    id: "ds-practice-questions",
+    title: "Data Science & Analytics Interview Prep Q&A",
+    description: "Curated interview questions, practice problems, case studies and competitions. Python, SQL, Statistics, ML and real-world data science.",
+    image: "/tracks/data-science-sections/interview-prep.png",
+    badge: "PRACTICE & INTERVIEW",
+    gradient: "from-violet-500/20 via-purple-500/10 to-transparent",
+    borderHover: "hover:border-violet-500/40",
+    iconBg: "bg-gradient-to-br from-violet-500 to-purple-600",
+    icon: ClipboardListIcon,
+    glowColor: "shadow-[0_10px_40px_-10px_oklch(0.6_0.22_290/0.35)]",
+    link: "/track/data-science/practice",
+  },
+];
+
 /* ─── Cloud & DevOps section definitions ─── */
 const cloudDevopsSections = [
   {
@@ -417,8 +503,10 @@ function TrackPage() {
   const isAiMl = data.slug === "ai-ml";
   const isGitLinux = data.slug === "git-linux";
   const isCloudDevops = data.slug === "cloud-devops";
-  const activeSections = isDsa ? dsaSections : isSystemDesign ? sdSections : isAptitude ? aptitudeSections : isCoreCs ? coreCsSections : isFullstack ? fullstackSections : isAiMl ? aiMlSections : isGitLinux ? gitLinuxSections : isCloudDevops ? cloudDevopsSections : [];
-  const sectionTitle = isDsa ? "DSA Learning Paths" : isSystemDesign ? "System Design Learning Paths" : isAptitude ? "Aptitude Learning Paths" : isCoreCs ? "Core CS Learning Paths" : isFullstack ? "Full Stack Learning Paths" : isAiMl ? "AI & ML Learning Paths" : isGitLinux ? "Git, GitHub & Linux Learning Paths" : isCloudDevops ? "Cloud & DevOps Learning Paths" : "";
+  const isMath = data.slug === "math";
+  const isDataScience = data.slug === "data-science";
+  const activeSections = isDsa ? dsaSections : isSystemDesign ? sdSections : isAptitude ? aptitudeSections : isCoreCs ? coreCsSections : isFullstack ? fullstackSections : isAiMl ? aiMlSections : isGitLinux ? gitLinuxSections : isCloudDevops ? cloudDevopsSections : isMath ? mathSections : isDataScience ? dataScienceSections : [];
+  const sectionTitle = isDsa ? "DSA Learning Paths" : isSystemDesign ? "System Design Learning Paths" : isAptitude ? "Aptitude Learning Paths" : isCoreCs ? "Core CS Learning Paths" : isFullstack ? "Full Stack Learning Paths" : isAiMl ? "AI & ML Learning Paths" : isGitLinux ? "Git, GitHub & Linux Learning Paths" : isCloudDevops ? "Cloud & DevOps Learning Paths" : isMath ? "Maths for Engineering Learning Paths" : isDataScience ? "Data Science & Analytics Learning Paths" : "";
   const sectionSubtitle = isDsa
     ? "Choose your learning style — watch video courses, read structured notes, or dive into coding practice."
     : isSystemDesign
@@ -435,7 +523,11 @@ function TrackPage() {
                 ? "Choose your learning style — watch video courses, read structured notes, or practice interview questions."
                 : isCloudDevops
                   ? "Choose your learning style — watch video courses, read structured notes, or practice with hands-on labs."
-                  : "";
+                  : isMath
+                    ? "Choose your learning style — watch video courses, read structured notes, or practice with problem sets."
+                    : isDataScience
+                      ? "Choose your learning style — watch video courses, read structured notes, or practice with real datasets."
+                      : "";
 
   return (
     <div className="px-4 py-6 sm:px-6 sm:py-8 md:px-12 md:py-10 max-w-7xl mx-auto">
@@ -495,7 +587,7 @@ function TrackPage() {
       )}
 
       {/* ─── Section Cards (for tracks with learning paths) ─── */}
-      {(isDsa || isSystemDesign || isAptitude || isCoreCs || isFullstack || isAiMl || isGitLinux || isCloudDevops) && (
+      {(isDsa || isSystemDesign || isAptitude || isCoreCs || isFullstack || isAiMl || isGitLinux || isCloudDevops || isMath || isDataScience) && (
         <section className="mb-10">
           <h2 className="text-2xl md:text-3xl font-bold mb-2">{sectionTitle}</h2>
           <p className="text-muted-foreground mb-8 max-w-2xl">
@@ -576,9 +668,13 @@ function TrackPage() {
                     ? "Detailed resources organized by AI & ML topic — ML Foundations, Deep Learning, NLP, LLMs, RAG and Agentic AI."
                     : isGitLinux
                       ? "Detailed resources organized by topic — Git & GitHub, Linux & Shell."
-                      : isCloudDevops
-                        ? "Detailed resources organized by topic — AWS Essentials, Deployment and CI/CD."
-                        : "Detailed resources organized by DSA topic — arrays, trees, graphs, DP and more."}
+                        : isCloudDevops
+                          ? "Detailed resources organized by topic — AWS Essentials, Deployment and CI/CD."
+                           : isMath
+                             ? "Detailed resources organized by Maths topic — Statistics, Linear Algebra, Calculus and Discrete Math."
+                             : isDataScience
+                               ? "Detailed resources organized by Data Science topic — EDA, Visualization, SQL and BI Tools."
+                               : "Detailed resources organized by DSA topic — arrays, trees, graphs, DP and more."}
         </p>
 
         <Accordion type="multiple" defaultValue={[data.topics[0]?.id]} className="space-y-3">

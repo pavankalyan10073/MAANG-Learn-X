@@ -28,6 +28,9 @@ import { Route as RoadmapAiEngineerRouteImport } from './routes/roadmap.ai-engin
 import { Route as TrackSystemDesignVideosRouteImport } from './routes/track.system-design.videos'
 import { Route as TrackSystemDesignPracticeRouteImport } from './routes/track.system-design.practice'
 import { Route as TrackSystemDesignNotesRouteImport } from './routes/track.system-design.notes'
+import { Route as TrackMathVideosRouteImport } from './routes/track.math.videos'
+import { Route as TrackMathPracticeRouteImport } from './routes/track.math.practice'
+import { Route as TrackMathNotesRouteImport } from './routes/track.math.notes'
 import { Route as TrackGitLinuxVideosRouteImport } from './routes/track.git-linux.videos'
 import { Route as TrackGitLinuxPracticeRouteImport } from './routes/track.git-linux.practice'
 import { Route as TrackGitLinuxNotesRouteImport } from './routes/track.git-linux.notes'
@@ -37,6 +40,9 @@ import { Route as TrackFullstackNotesRouteImport } from './routes/track.fullstac
 import { Route as TrackDsaVideosRouteImport } from './routes/track.dsa.videos'
 import { Route as TrackDsaPracticeRouteImport } from './routes/track.dsa.practice'
 import { Route as TrackDsaNotesRouteImport } from './routes/track.dsa.notes'
+import { Route as TrackDataScienceVideosRouteImport } from './routes/track.data-science.videos'
+import { Route as TrackDataSciencePracticeRouteImport } from './routes/track.data-science.practice'
+import { Route as TrackDataScienceNotesRouteImport } from './routes/track.data-science.notes'
 import { Route as TrackCoreCsVideosRouteImport } from './routes/track.core-cs.videos'
 import { Route as TrackCoreCsPracticeRouteImport } from './routes/track.core-cs.practice'
 import { Route as TrackCoreCsNotesRouteImport } from './routes/track.core-cs.notes'
@@ -150,6 +156,21 @@ const TrackSystemDesignNotesRoute = TrackSystemDesignNotesRouteImport.update({
   path: '/track/system-design/notes',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TrackMathVideosRoute = TrackMathVideosRouteImport.update({
+  id: '/track/math/videos',
+  path: '/track/math/videos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TrackMathPracticeRoute = TrackMathPracticeRouteImport.update({
+  id: '/track/math/practice',
+  path: '/track/math/practice',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TrackMathNotesRoute = TrackMathNotesRouteImport.update({
+  id: '/track/math/notes',
+  path: '/track/math/notes',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TrackGitLinuxVideosRoute = TrackGitLinuxVideosRouteImport.update({
   id: '/track/git-linux/videos',
   path: '/track/git-linux/videos',
@@ -193,6 +214,22 @@ const TrackDsaPracticeRoute = TrackDsaPracticeRouteImport.update({
 const TrackDsaNotesRoute = TrackDsaNotesRouteImport.update({
   id: '/track/dsa/notes',
   path: '/track/dsa/notes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TrackDataScienceVideosRoute = TrackDataScienceVideosRouteImport.update({
+  id: '/track/data-science/videos',
+  path: '/track/data-science/videos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TrackDataSciencePracticeRoute =
+  TrackDataSciencePracticeRouteImport.update({
+    id: '/track/data-science/practice',
+    path: '/track/data-science/practice',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const TrackDataScienceNotesRoute = TrackDataScienceNotesRouteImport.update({
+  id: '/track/data-science/notes',
+  path: '/track/data-science/notes',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TrackCoreCsVideosRoute = TrackCoreCsVideosRouteImport.update({
@@ -286,6 +323,9 @@ export interface FileRoutesByFullPath {
   '/track/core-cs/notes': typeof TrackCoreCsNotesRoute
   '/track/core-cs/practice': typeof TrackCoreCsPracticeRoute
   '/track/core-cs/videos': typeof TrackCoreCsVideosRoute
+  '/track/data-science/notes': typeof TrackDataScienceNotesRoute
+  '/track/data-science/practice': typeof TrackDataSciencePracticeRoute
+  '/track/data-science/videos': typeof TrackDataScienceVideosRoute
   '/track/dsa/notes': typeof TrackDsaNotesRoute
   '/track/dsa/practice': typeof TrackDsaPracticeRoute
   '/track/dsa/videos': typeof TrackDsaVideosRoute
@@ -295,6 +335,9 @@ export interface FileRoutesByFullPath {
   '/track/git-linux/notes': typeof TrackGitLinuxNotesRoute
   '/track/git-linux/practice': typeof TrackGitLinuxPracticeRoute
   '/track/git-linux/videos': typeof TrackGitLinuxVideosRoute
+  '/track/math/notes': typeof TrackMathNotesRoute
+  '/track/math/practice': typeof TrackMathPracticeRoute
+  '/track/math/videos': typeof TrackMathVideosRoute
   '/track/system-design/notes': typeof TrackSystemDesignNotesRoute
   '/track/system-design/practice': typeof TrackSystemDesignPracticeRoute
   '/track/system-design/videos': typeof TrackSystemDesignVideosRoute
@@ -328,6 +371,9 @@ export interface FileRoutesByTo {
   '/track/core-cs/notes': typeof TrackCoreCsNotesRoute
   '/track/core-cs/practice': typeof TrackCoreCsPracticeRoute
   '/track/core-cs/videos': typeof TrackCoreCsVideosRoute
+  '/track/data-science/notes': typeof TrackDataScienceNotesRoute
+  '/track/data-science/practice': typeof TrackDataSciencePracticeRoute
+  '/track/data-science/videos': typeof TrackDataScienceVideosRoute
   '/track/dsa/notes': typeof TrackDsaNotesRoute
   '/track/dsa/practice': typeof TrackDsaPracticeRoute
   '/track/dsa/videos': typeof TrackDsaVideosRoute
@@ -337,6 +383,9 @@ export interface FileRoutesByTo {
   '/track/git-linux/notes': typeof TrackGitLinuxNotesRoute
   '/track/git-linux/practice': typeof TrackGitLinuxPracticeRoute
   '/track/git-linux/videos': typeof TrackGitLinuxVideosRoute
+  '/track/math/notes': typeof TrackMathNotesRoute
+  '/track/math/practice': typeof TrackMathPracticeRoute
+  '/track/math/videos': typeof TrackMathVideosRoute
   '/track/system-design/notes': typeof TrackSystemDesignNotesRoute
   '/track/system-design/practice': typeof TrackSystemDesignPracticeRoute
   '/track/system-design/videos': typeof TrackSystemDesignVideosRoute
@@ -371,6 +420,9 @@ export interface FileRoutesById {
   '/track/core-cs/notes': typeof TrackCoreCsNotesRoute
   '/track/core-cs/practice': typeof TrackCoreCsPracticeRoute
   '/track/core-cs/videos': typeof TrackCoreCsVideosRoute
+  '/track/data-science/notes': typeof TrackDataScienceNotesRoute
+  '/track/data-science/practice': typeof TrackDataSciencePracticeRoute
+  '/track/data-science/videos': typeof TrackDataScienceVideosRoute
   '/track/dsa/notes': typeof TrackDsaNotesRoute
   '/track/dsa/practice': typeof TrackDsaPracticeRoute
   '/track/dsa/videos': typeof TrackDsaVideosRoute
@@ -380,6 +432,9 @@ export interface FileRoutesById {
   '/track/git-linux/notes': typeof TrackGitLinuxNotesRoute
   '/track/git-linux/practice': typeof TrackGitLinuxPracticeRoute
   '/track/git-linux/videos': typeof TrackGitLinuxVideosRoute
+  '/track/math/notes': typeof TrackMathNotesRoute
+  '/track/math/practice': typeof TrackMathPracticeRoute
+  '/track/math/videos': typeof TrackMathVideosRoute
   '/track/system-design/notes': typeof TrackSystemDesignNotesRoute
   '/track/system-design/practice': typeof TrackSystemDesignPracticeRoute
   '/track/system-design/videos': typeof TrackSystemDesignVideosRoute
@@ -415,6 +470,9 @@ export interface FileRouteTypes {
     | '/track/core-cs/notes'
     | '/track/core-cs/practice'
     | '/track/core-cs/videos'
+    | '/track/data-science/notes'
+    | '/track/data-science/practice'
+    | '/track/data-science/videos'
     | '/track/dsa/notes'
     | '/track/dsa/practice'
     | '/track/dsa/videos'
@@ -424,6 +482,9 @@ export interface FileRouteTypes {
     | '/track/git-linux/notes'
     | '/track/git-linux/practice'
     | '/track/git-linux/videos'
+    | '/track/math/notes'
+    | '/track/math/practice'
+    | '/track/math/videos'
     | '/track/system-design/notes'
     | '/track/system-design/practice'
     | '/track/system-design/videos'
@@ -457,6 +518,9 @@ export interface FileRouteTypes {
     | '/track/core-cs/notes'
     | '/track/core-cs/practice'
     | '/track/core-cs/videos'
+    | '/track/data-science/notes'
+    | '/track/data-science/practice'
+    | '/track/data-science/videos'
     | '/track/dsa/notes'
     | '/track/dsa/practice'
     | '/track/dsa/videos'
@@ -466,6 +530,9 @@ export interface FileRouteTypes {
     | '/track/git-linux/notes'
     | '/track/git-linux/practice'
     | '/track/git-linux/videos'
+    | '/track/math/notes'
+    | '/track/math/practice'
+    | '/track/math/videos'
     | '/track/system-design/notes'
     | '/track/system-design/practice'
     | '/track/system-design/videos'
@@ -499,6 +566,9 @@ export interface FileRouteTypes {
     | '/track/core-cs/notes'
     | '/track/core-cs/practice'
     | '/track/core-cs/videos'
+    | '/track/data-science/notes'
+    | '/track/data-science/practice'
+    | '/track/data-science/videos'
     | '/track/dsa/notes'
     | '/track/dsa/practice'
     | '/track/dsa/videos'
@@ -508,6 +578,9 @@ export interface FileRouteTypes {
     | '/track/git-linux/notes'
     | '/track/git-linux/practice'
     | '/track/git-linux/videos'
+    | '/track/math/notes'
+    | '/track/math/practice'
+    | '/track/math/videos'
     | '/track/system-design/notes'
     | '/track/system-design/practice'
     | '/track/system-design/videos'
@@ -542,6 +615,9 @@ export interface RootRouteChildren {
   TrackCoreCsNotesRoute: typeof TrackCoreCsNotesRoute
   TrackCoreCsPracticeRoute: typeof TrackCoreCsPracticeRoute
   TrackCoreCsVideosRoute: typeof TrackCoreCsVideosRoute
+  TrackDataScienceNotesRoute: typeof TrackDataScienceNotesRoute
+  TrackDataSciencePracticeRoute: typeof TrackDataSciencePracticeRoute
+  TrackDataScienceVideosRoute: typeof TrackDataScienceVideosRoute
   TrackDsaNotesRoute: typeof TrackDsaNotesRoute
   TrackDsaPracticeRoute: typeof TrackDsaPracticeRoute
   TrackDsaVideosRoute: typeof TrackDsaVideosRoute
@@ -551,6 +627,9 @@ export interface RootRouteChildren {
   TrackGitLinuxNotesRoute: typeof TrackGitLinuxNotesRoute
   TrackGitLinuxPracticeRoute: typeof TrackGitLinuxPracticeRoute
   TrackGitLinuxVideosRoute: typeof TrackGitLinuxVideosRoute
+  TrackMathNotesRoute: typeof TrackMathNotesRoute
+  TrackMathPracticeRoute: typeof TrackMathPracticeRoute
+  TrackMathVideosRoute: typeof TrackMathVideosRoute
   TrackSystemDesignNotesRoute: typeof TrackSystemDesignNotesRoute
   TrackSystemDesignPracticeRoute: typeof TrackSystemDesignPracticeRoute
   TrackSystemDesignVideosRoute: typeof TrackSystemDesignVideosRoute
@@ -691,6 +770,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TrackSystemDesignNotesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/track/math/videos': {
+      id: '/track/math/videos'
+      path: '/track/math/videos'
+      fullPath: '/track/math/videos'
+      preLoaderRoute: typeof TrackMathVideosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/track/math/practice': {
+      id: '/track/math/practice'
+      path: '/track/math/practice'
+      fullPath: '/track/math/practice'
+      preLoaderRoute: typeof TrackMathPracticeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/track/math/notes': {
+      id: '/track/math/notes'
+      path: '/track/math/notes'
+      fullPath: '/track/math/notes'
+      preLoaderRoute: typeof TrackMathNotesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/track/git-linux/videos': {
       id: '/track/git-linux/videos'
       path: '/track/git-linux/videos'
@@ -752,6 +852,27 @@ declare module '@tanstack/react-router' {
       path: '/track/dsa/notes'
       fullPath: '/track/dsa/notes'
       preLoaderRoute: typeof TrackDsaNotesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/track/data-science/videos': {
+      id: '/track/data-science/videos'
+      path: '/track/data-science/videos'
+      fullPath: '/track/data-science/videos'
+      preLoaderRoute: typeof TrackDataScienceVideosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/track/data-science/practice': {
+      id: '/track/data-science/practice'
+      path: '/track/data-science/practice'
+      fullPath: '/track/data-science/practice'
+      preLoaderRoute: typeof TrackDataSciencePracticeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/track/data-science/notes': {
+      id: '/track/data-science/notes'
+      path: '/track/data-science/notes'
+      fullPath: '/track/data-science/notes'
+      preLoaderRoute: typeof TrackDataScienceNotesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/track/core-cs/videos': {
@@ -870,6 +991,9 @@ const rootRouteChildren: RootRouteChildren = {
   TrackCoreCsNotesRoute: TrackCoreCsNotesRoute,
   TrackCoreCsPracticeRoute: TrackCoreCsPracticeRoute,
   TrackCoreCsVideosRoute: TrackCoreCsVideosRoute,
+  TrackDataScienceNotesRoute: TrackDataScienceNotesRoute,
+  TrackDataSciencePracticeRoute: TrackDataSciencePracticeRoute,
+  TrackDataScienceVideosRoute: TrackDataScienceVideosRoute,
   TrackDsaNotesRoute: TrackDsaNotesRoute,
   TrackDsaPracticeRoute: TrackDsaPracticeRoute,
   TrackDsaVideosRoute: TrackDsaVideosRoute,
@@ -879,6 +1003,9 @@ const rootRouteChildren: RootRouteChildren = {
   TrackGitLinuxNotesRoute: TrackGitLinuxNotesRoute,
   TrackGitLinuxPracticeRoute: TrackGitLinuxPracticeRoute,
   TrackGitLinuxVideosRoute: TrackGitLinuxVideosRoute,
+  TrackMathNotesRoute: TrackMathNotesRoute,
+  TrackMathPracticeRoute: TrackMathPracticeRoute,
+  TrackMathVideosRoute: TrackMathVideosRoute,
   TrackSystemDesignNotesRoute: TrackSystemDesignNotesRoute,
   TrackSystemDesignPracticeRoute: TrackSystemDesignPracticeRoute,
   TrackSystemDesignVideosRoute: TrackSystemDesignVideosRoute,
