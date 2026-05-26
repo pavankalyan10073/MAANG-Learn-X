@@ -721,7 +721,7 @@ function TrackPage() {
                             {res.source && <span className="text-muted-foreground"> · {res.source}</span>}
                           </a>
                           <button
-                            onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggleFav(res.id); }}
+                            onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggleFav(res.url); }}
                             className="shrink-0 p-1 rounded-md hover:bg-muted/60 transition-colors"
                             title={favIds.has(res.id) ? "Remove from Favorites" : "Add to Favorites"}
                           >

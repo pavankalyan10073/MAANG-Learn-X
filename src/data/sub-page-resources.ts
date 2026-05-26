@@ -10,7 +10,7 @@ export type SubPageResource = {
   sectionType: "video" | "notes" | "practice";
 };
 
-function r(_id: string, title: string, url: string, type: SubPageResource["type"], source: string | undefined, trackTitle: string, trackSlug: string, groupLabel: string, sectionType: SubPageResource["sectionType"]): SubPageResource {
+function r(id: string, title: string, url: string, type: SubPageResource["type"], source: string | undefined, trackTitle: string, trackSlug: string, groupLabel: string, sectionType: SubPageResource["sectionType"]): SubPageResource {
   return { id: url, title, url, type, source, trackTitle, trackSlug, groupLabel, sectionType };
 }
 

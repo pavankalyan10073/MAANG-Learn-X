@@ -15,7 +15,7 @@ import type { Resource } from "@/data/tracks";
 export const Route = createFileRoute("/favorites")({
   head: () => ({
     meta: [
-      { title: "Favorites — MAANG Learn X" },
+      { title: "Favorites \u2014 MAANG Learn X" },
       { name: "description", content: "Your saved favorite resources across all tracks." },
     ],
   }),
@@ -40,10 +40,11 @@ function classifyType(type: Resource["type"]): "video" | "notes" | "practice" {
   return "notes";
 }
 
-function sectionColor(sectionType: "video" | "notes" | "practice"): string {
-  if (sectionType === "video") return "from-blue-500 to-cyan-600";
-  if (sectionType === "practice") return "from-violet-500 to-purple-600";
-  return "from-emerald-500 to-green-600";
+function getSectionType(f: { type: Resource["type"]; sectionType: string }): "video" | "notes" | "practice" {
+  if (f.sectionType === "video" || f.sectionType === "notes" || f.sectionType === "practice") {
+    return f.sectionType;
+  }
+  return classifyType(f.type);
 }
 
 function sectionBorder(sectionType: "video" | "notes" | "practice"): string {
@@ -64,12 +65,6 @@ function sectionIconBg(sectionType: "video" | "notes" | "practice"): string {
   return "bg-gradient-to-br from-emerald-500 to-green-600";
 }
 
-function sectionIconColor(sectionType: "video" | "notes" | "practice"): string {
-  if (sectionType === "video") return "text-blue-400";
-  if (sectionType === "practice") return "text-violet-400";
-  return "text-emerald-400";
-}
-
 function sectionBadge(sectionType: "video" | "notes" | "practice"): string {
   if (sectionType === "video") return "VIDEO";
   if (sectionType === "practice") return "PRACTICE";
@@ -83,11 +78,10 @@ function FavoritesPage() {
     if (!favIds.size) return [];
     const items: FavItem[] = [];
 
-    // Track topic resources (identified by id)
     for (const track of tracks) {
       for (const topic of track.topics) {
         for (const res of topic.resources) {
-          if (favIds.has(res.id)) {
+          if (favIds.has(res.url)) {
             items.push({
               id: res.id,
               title: res.title,
@@ -104,9 +98,8 @@ function FavoritesPage() {
       }
     }
 
-    // Sub-page resources (identified by id)
     for (const sp of subPageResources) {
-      if (favIds.has(sp.id) && !items.some((i) => i.id === sp.id)) {
+      if (favIds.has(sp.url) && !items.some((i) => i.url === sp.url)) {
         items.push({
           id: sp.id,
           title: sp.title,
@@ -124,9 +117,9 @@ function FavoritesPage() {
     return items;
   }, [favIds]);
 
-  const videoFavs = allFavs.filter((f) => classifyType(f.type) === "video" || f.sectionType === "video");
-  const notesFavs = allFavs.filter((f) => classifyType(f.type) === "notes" || f.sectionType === "notes");
-  const practiceFavs = allFavs.filter((f) => classifyType(f.type) === "practice" || f.sectionType === "practice");
+  const videoFavs = allFavs.filter((f) => getSectionType(f) === "video");
+  const notesFavs = allFavs.filter((f) => getSectionType(f) === "notes");
+  const practiceFavs = allFavs.filter((f) => getSectionType(f) === "practice");
 
   if (!isLoggedIn) {
     return (
@@ -185,7 +178,9 @@ function FavoritesPage() {
         </div>
         <div>
           <h1 className="text-2xl sm:text-3xl font-bold">Favorites</h1>
-          <p className="text-xs text-muted-foreground">{allFavs.length} saved resource{allFavs.length !== 1 ? "s" : ""} across {sections.length} section{sections.length !== 1 ? "s" : ""}</p>
+          <p className="text-xs text-muted-foreground">
+            {allFavs.length} saved resource{allFavs.length !== 1 ? "s" : ""} across {sections.length} section{sections.length !== 1 ? "s" : ""}
+          </p>
         </div>
       </div>
 
@@ -204,43 +199,55 @@ function FavoritesPage() {
             </div>
 
             <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-              {section.items.map((fav) => (
-                <Card key={fav.id} className={"relative overflow-hidden bg-card/60 backdrop-blur border-border " + sectionBorder(fav.sectionType) + " transition-all duration-300 " + sectionGlow(fav.sectionType) + " h-full"}>
-                  <div className="p-4 sm:p-5">
-                    <div className="flex items-start justify-between gap-2 mb-3">
-                      <Badge className={"text-[10px] font-semibold tracking-wider " + sectionIconBg(fav.sectionType) + " text-white border-0"}>
-                        {sectionBadge(fav.sectionType)}
-                      </Badge>
-                      <button
-                        onClick={() => toggle(fav.id)}
-                        className="shrink-0 p-1.5 rounded-md hover:bg-muted/60 transition-colors"
-                        title="Remove from Favorites"
-                      >
-                        <HeartIcon className="h-4 w-4 text-rose-500 fill-rose-500" />
-                      </button>
-                    </div>
+              {section.items.map((fav) => {
+                const st = getSectionType(fav);
+                return (
+                  <Card
+                    key={fav.id}
+                    className={
+                      "relative overflow-hidden bg-card/60 backdrop-blur border-border " +
+                      sectionBorder(st) +
+                      " transition-all duration-300 " +
+                      sectionGlow(st) +
+                      " h-full"
+                    }
+                  >
+                    <div className="p-4 sm:p-5">
+                      <div className="flex items-start justify-between gap-2 mb-3">
+                        <Badge className={"text-[10px] font-semibold tracking-wider " + sectionIconBg(st) + " text-white border-0"}>
+                          {sectionBadge(st)}
+                        </Badge>
+                        <button
+                          onClick={() => toggle(fav.url)}
+                          className="shrink-0 p-1.5 rounded-md hover:bg-muted/60 transition-colors"
+                          title="Remove from Favorites"
+                        >
+                          <HeartIcon className="h-4 w-4 text-rose-500 fill-rose-500" />
+                        </button>
+                      </div>
 
-                    <a href={fav.url} target="_blank" rel="noopener noreferrer" className="block group/link">
-                      <h3 className="font-semibold text-sm leading-snug line-clamp-2 group-hover/link:text-primary transition-colors mb-2">
-                        {fav.title}
-                      </h3>
-                    </a>
+                      <a href={fav.url} target="_blank" rel="noopener noreferrer" className="block group/link">
+                        <h3 className="font-semibold text-sm leading-snug line-clamp-2 group-hover/link:text-primary transition-colors mb-2">
+                          {fav.title}
+                        </h3>
+                      </a>
 
-                    <div className="flex items-center gap-2 mb-3">
-                      <Badge variant="secondary" className="text-[10px]">{fav.type}</Badge>
-                      {fav.source && <span className="text-[10px] text-muted-foreground">· {fav.source}</span>}
-                    </div>
+                      <div className="flex items-center gap-2 mb-3">
+                        <Badge variant="secondary" className="text-[10px]">{fav.type}</Badge>
+                        {fav.source && <span className="text-[10px] text-muted-foreground">&middot; {fav.source}</span>}
+                      </div>
 
-                    <div className="flex items-center gap-2 text-[11px] text-muted-foreground pt-3 border-t border-border/40">
-                      <Link to="/track/$slug" params={{ slug: fav.trackSlug }} className="hover:text-primary transition-colors truncate">
-                        {fav.trackTitle}
-                      </Link>
-                      <span className="shrink-0">›</span>
-                      <span className="truncate">{fav.topicTitle}</span>
+                      <div className="flex items-center gap-2 text-[11px] text-muted-foreground pt-3 border-t border-border/40">
+                        <Link to="/track/$slug" params={{ slug: fav.trackSlug }} className="hover:text-primary transition-colors truncate">
+                          {fav.trackTitle}
+                        </Link>
+                        <span className="shrink-0">{">"}</span>
+                        <span className="truncate">{fav.topicTitle}</span>
+                      </div>
                     </div>
-                  </div>
-                </Card>
-              ))}
+                  </Card>
+                );
+              })}
             </div>
           </section>
         );
