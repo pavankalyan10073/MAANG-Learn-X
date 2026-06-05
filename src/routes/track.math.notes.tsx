@@ -4,10 +4,9 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   ArrowLeftIcon, ExternalLinkIcon, BookOpenIcon,
-  NotebookIcon, SparklesIcon, MapIcon, LibraryIcon,
-  HeartIcon,
+  NotebookIcon, SparklesIcon, MapIcon, LibraryIcon, BookmarkPlusIcon, BookmarkFilledIcon,
 } from "@/components/icons";
-import { useFavorites } from "@/hooks/use-favorites";
+import { useWishlist } from "@/hooks/use-wishlist";
 
 export const Route = createFileRoute("/track/math/notes")({
   head: () => ({
@@ -86,7 +85,7 @@ const stats = [
 ];
 
 function MathNotesPage() {
-  const { favIds, toggle: toggleFav } = useFavorites();
+  const { wishlistIds, addToWishlist, removeFromWishlist } = useWishlist();
   return (
     <div className="px-4 py-6 sm:px-6 sm:py-8 md:px-12 md:py-10 max-w-7xl mx-auto">
       <Button asChild variant="ghost" size="sm" className="mb-6">
@@ -158,7 +157,15 @@ function MathNotesPage() {
                       <div className="flex items-center gap-2 mb-2">
                         <Badge variant="secondary" className="text-[10px]">{note.tag}</Badge>
                       </div>
-                      <div className="flex items-start justify-between gap-2 mb-1.5"><h3 className="font-semibold text-sm leading-snug line-clamp-2 group-hover/note:text-primary transition-colors flex-1">{note.title}</h3><button onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggleFav(note.url); }} className="shrink-0 p-1 rounded-md hover:bg-muted/60 transition-colors mt-0.5" title={favIds.has(note.url) ? "Remove from Favorites" : "Add to Favorites"}><HeartIcon className={"h-3.5 w-3.5 transition-colors " + (favIds.has(note.url) ? "text-rose-500 fill-rose-500" : "text-muted-foreground hover:text-rose-400")} /></button></div>
+                      <div className="flex items-start justify-between gap-2 mb-1.5"><h3 className="font-semibold text-sm leading-snug line-clamp-2 group-hover/note:text-primary transition-colors flex-1">{note.title}</h3>{wishlistIds.has(note.url) ? (
+                            <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); removeFromWishlist(note.url); }} className="shrink-0 p-1 rounded-md hover:bg-amber-500/10 transition-colors mt-0.5" title="Remove from Wishlist">
+                              <BookmarkFilledIcon className="h-3.5 w-3.5 text-amber-400" />
+                            </button>
+                          ) : (
+                            <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); addToWishlist(note.url, note.title); }} className="shrink-0 p-1 rounded-md hover:bg-muted/60 transition-colors mt-0.5" title="Add to Wishlist">
+                              <BookmarkPlusIcon className="h-3.5 w-3.5 text-muted-foreground hover:text-amber-400" />
+                            </button>
+                          )}</div>
                       <p className="text-[11px] text-muted-foreground leading-relaxed line-clamp-2 mb-3">{note.desc}</p>
                       <div className="flex items-center gap-1.5 text-[11px] text-muted-foreground">
                         <BookOpenIcon className="h-3 w-3 text-emerald-400" />
