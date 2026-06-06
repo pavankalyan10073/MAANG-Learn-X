@@ -35,7 +35,7 @@ const r = (id: string, title: string, url: string, type: Resource["type"], sourc
 export const tracks: Track[] = [
   {
     slug: "dsa",
-    title: "DSA (300+ Problems)",
+    title: "DSA Mastery Track (300+ Problems)",
     tagline: "Topic-wise patterns, must-do problems & video solutions for MAANG.",
     icon: Code2Icon,
     color: "255",
