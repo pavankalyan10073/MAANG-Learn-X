@@ -46,15 +46,21 @@ const videoGroups = [
     icon: "☁️",
     color: "from-orange-500 to-amber-600",
     items: [
+      {
+        title: "Cloud Computing (Complete Course) — Gate Smashers",
+        url: "https://youtube.com/playlist?list=PLxCzCOWd7aiHRHVUtR-O52MsrdUSrzuy4&si=ZstZtIEvinagLgOf",
+        desc: "Complete Cloud Computing course covering cloud fundamentals, service models (IaaS, PaaS, SaaS), virtualization, cloud architecture, deployment models, security, distributed computing and cloud platforms",
+        isPlaylist: true,
+      },
       { title: "AWS Full Course — freeCodeCamp", url: "https://www.youtube.com/watch?v=SOTamWNgDKc", desc: "Complete AWS course — EC2, S3, Lambda, IAM, RDS, CloudFormation and more from freeCodeCamp", isPlaylist: false },
     ],
   },
 ];
 
 const stats = [
-  { icon: FilmIcon, value: "3", label: "Videos" },
-  { icon: ClockIcon, value: "15+", label: "Hours" },
-  { icon: SparklesIcon, value: "2", label: "Educators" },
+  { icon: FilmIcon, value: "4", label: "Videos" },
+  { icon: ClockIcon, value: "25+", label: "Hours" },
+  { icon: SparklesIcon, value: "3", label: "Educators" },
 ];
 
 function PlaylistThumb({ group }: { group: typeof videoGroups[number] }) {

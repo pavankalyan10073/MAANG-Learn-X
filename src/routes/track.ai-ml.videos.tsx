@@ -33,6 +33,22 @@ function getYoutubeThumb(url) {
 
 const videoGroups = [
   {
+  label: "Artificial Intelligence",
+  icon: "🤖",
+  gradient: "from-purple-500/20 via-pink-500/10 to-transparent",
+  thumbBg: "from-purple-600 to-pink-700",
+  items: [
+    {
+      title: "Artificial Intelligence — Complete Playlist (Gate Smashers)",
+      url: "https://youtube.com/playlist?list=PLxCzCOWd7aiHGhOHV-nwb0HR5US5GFKFI&si=5APTJ9L8WypDc9sp",
+      tag: "Playlist",
+      desc: "Complete Artificial Intelligence course covering intelligent agents, problem-solving, search algorithms, knowledge representation, reasoning, planning, expert systems, machine learning basics and AI applications",
+      thumbIcon: "🤖",
+    },
+  ],
+},
+  
+  {
     label: "Machine Learning — Fundamentals",
     icon: "🤖",
     color: "from-blue-500 to-cyan-600",
@@ -41,6 +57,18 @@ const videoGroups = [
       { title: "Machine Learning Course for Beginners", url: "https://youtu.be/NWONeJKn6kc?si=qDHqG1efdN3pXoHS", desc: "Full ML course from scratch — supervised and unsupervised learning, feature engineering, model selection and evaluation metrics", isPlaylist: false },
       { title: "StatQuest with Josh Starmer — ML Playlist", url: "https://www.youtube.com/@statquest", desc: "StatQuest ML series — clear explanations of linear regression, logistic regression, decision trees, SVM, PCA and neural networks", isPlaylist: true },
       { title: "Intro to Machine Learning — Kaggle", url: "https://www.kaggle.com/learn/intro-to-machine-learning", desc: "Hands-on ML course — decision trees, random forests, model validation and submitting to Kaggle competitions", isPlaylist: false },
+      {
+        title: "Machine Learning — Complete Playlist (Gate Smashers)",
+        url: "https://youtube.com/playlist?list=PLxCzCOWd7aiEXg5BV10k9THtjnS48yI-T&si=dcomninURS3mFBmT",
+        desc: "Comprehensive Machine Learning playlist covering supervised learning, unsupervised learning, regression, classification, clustering, dimensionality reduction and model evaluation techniques",
+        isPlaylist: true,
+      },
+      {
+        title: "100 Days of Machine Learning — CampusX",
+        url: "https://youtube.com/playlist?list=PLKnIA16_Rmvbr7zKYQuBfsVkjoLcJgxHH&si=x7-ATIz0WRYIiDMs",
+        desc: "Structured ML roadmap with daily lessons covering statistics, machine learning algorithms, feature engineering, model building, deployment and interview preparation",
+        isPlaylist: true,
+      },
     ],
   },
   {
@@ -52,6 +80,12 @@ const videoGroups = [
       { title: "DeepLearning.AI TensorFlow in Practice", url: "https://www.coursera.org/specializations/tensorflow-in-practice", desc: "TensorFlow specialization — CNNs, NLP, time series, transfer learning and production deployment with TensorFlow", isPlaylist: false },
       { title: "Practical Deep Learning for Coders — fast.ai", url: "https://course.fast.ai/", desc: "Free practical deep learning — computer vision, NLP, tabular data and collaborative filtering with PyTorch", isPlaylist: false },
       { title: "PyTorch Tutorials — Official", url: "https://pytorch.org/tutorials/", desc: "Official PyTorch tutorials — tensors, autograd, CNNs, RNNs, transfer learning and distributed training", isPlaylist: false },
+      {
+        title: "Deep Learning (ANN, CNN, RNN, Transformers) — Gate Smashers",
+        url: "https://youtube.com/playlist?list=PLxCzCOWd7aiHQ9Qyo70JCTkTxczPnVC6s&si=lSY6Fre1xAQVmjKp",
+        desc: "Complete Deep Learning course covering Artificial Neural Networks (ANN), Convolutional Neural Networks (CNN), Recurrent Neural Networks (RNN), LSTM, GRU, Transformers and modern deep learning architectures",
+        isPlaylist: true,
+      },
     ],
   },
   {

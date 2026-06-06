@@ -58,7 +58,7 @@ const videoGroups = [
     icon: "⚡",
     color: "from-blue-500 to-indigo-600",
     items: [
-      { title: "Striver A2Z DSA Sheet (C++)", url: "https://youtube.com/playlist?list=PLgUwDviBIf0oF6QL8mX2oK7Zh7h2dsEiH&si=tjhemGTcxhkJ3i8U", desc: "Complete A2Z DSA course with C++ implementation", isPlaylist: true },
+      { title: "Striver A2Z DSA Sheet (C++)", url: "https://youtube.com/playlist?list=PLgUwDviBIf0oF6QL8m22w1hIDC1vJ_BHz&si=F9IulQP5rbDv2KTI", desc: "Complete A2Z DSA course with C++ implementation", isPlaylist: true },
       { title: "Recursion (Basics to Advanced) and Backtracking Series", url: "https://youtube.com/playlist?list=PLgUwDviBIf0rGlzIn_7rsaR2FQ5e6ZOL9", desc: "Recursion (Basics to Advanced) and Backtracking Series", isPlaylist: true },
     ],
   },

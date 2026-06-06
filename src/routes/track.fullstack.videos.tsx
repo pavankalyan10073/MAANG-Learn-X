@@ -33,6 +33,62 @@ function getYoutubeThumb(url) {
 
 const videoGroups = [
   {
+    label: "🌟 Recommended Learning Path (Most Practical)",
+    icon: "⭐",
+    color: "from-yellow-500 to-orange-600",
+    items: [
+      {
+        title: "Git & GitHub Crash Course for Beginners [2026]",
+        url: "https://youtu.be/mAFoROnOfHs?si=FYjafrYJY6-MDMQJ",
+        desc: "Learn Git and GitHub from scratch — repositories, commits, branches, merging, pull requests and collaboration workflows",
+        isPlaylist: false,
+      },
+      {
+        title: "Master Git & GitHub Series — Sheryians Coding School",
+        url: "https://youtube.com/playlist?list=PLbtI3_MArDOlJ4036mWiUKaQToUS8MZVu&si=toeB6tb_GmC-Buq3",
+        desc: "Complete Git & GitHub series covering version control, branching, collaboration and real-world development workflows",
+        isPlaylist: true,
+      },
+      {
+        title: "GitHub in Telugu | Complete Git & GitHub in 1 Hour",
+        url: "https://youtu.be/KBOCCssL5B4?si=0muZTrRVLjn13W50",
+        desc: "Git and GitHub complete beginner guide in Telugu covering repositories, commits, branches, merging and collaboration workflows",
+        isPlaylist: false,
+      },
+      {
+        title: "HTML & CSS Full Course — Beginner to Pro",
+        url: "https://youtu.be/G3e-cpL7ofc?si=8JcBxmAv5uXSMT-H",
+        desc: "Master HTML and CSS from fundamentals to advanced responsive web design and modern layouts",
+        isPlaylist: false,
+      },
+      {
+        title: "JavaScript Full Course (2025-26) — Beginners to Pro",
+        url: "https://youtube.com/playlist?list=PLGjplNEQ1it_oTvuLRNqXfz_v_0pq6unW&si=7QwkCs-7YGr5Ewd_",
+        desc: "Complete JavaScript roadmap covering ES6+, DOM, async programming, APIs and modern frontend development",
+        isPlaylist: true,
+      },
+      {
+        title: "ReactJS Full Course — Sheryians Coding School",
+        url: "https://youtu.be/3LRZRSIh_KE?si=kV4wBc19cnWHUXhn",
+        desc: "Learn ReactJS from scratch — components, hooks, routing, APIs, state management and projects",
+        isPlaylist: false,
+      },
+      {
+        title: "Master Backend Development Series — NodeJS, Express & MongoDB",
+        url: "https://youtube.com/playlist?list=PLbtI3_MArDOkXRLxdMt1NOMtCS-84ibHH&si=tzjbce4l8qY9ENXY",
+        desc: "Backend roadmap covering Node.js, Express.js, MongoDB, authentication, REST APIs and deployment",
+        isPlaylist: true,
+      },
+      {
+        title: "MERN Stack Certification Course — TuteDude",
+        url: "https://tutedude.in/category/mernstack",
+        desc: "Structured MERN Stack course with projects, certification and guided learning path",
+        isPlaylist: false,
+      },
+    ],
+  },
+  
+  {
     label: "Full Stack Web Development — Complete Course",
     icon: "🚀",
     color: "from-blue-500 to-cyan-600",

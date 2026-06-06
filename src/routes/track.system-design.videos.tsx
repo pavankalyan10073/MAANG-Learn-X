@@ -39,6 +39,12 @@ const videoGroups = [
     items: [
       { title: "System Design Playlist — TUF", url: "https://takeuforward.org/system-design/complete-system-design-roadmap-with-videos-for-sdes", desc: "Complete System Design Roadmap with Videos for SDEs" },
       { title: "System Design Playlist — Gaurav Sen", url: "https://www.youtube.com/playlist?list=PLMCXHnjXnTnvo6alSjVkgxV-VH6EPyvoX", desc: "Complete system design concepts — scalability, caching, load balancing, distributed systems and more", isPlaylist: true },
+      {
+        title: "System Design — Gate Smashers",
+        url: "https://youtube.com/playlist?list=PLxCzCOWd7aiHanm1nA5_fMwbx5dCNFkDX&si=F9Qd2UW_EDyAZK06",
+        desc: "Complete System Design course covering scalability, distributed systems, load balancing, caching, database sharding, consistency, CAP theorem, microservices and real-world system architecture",
+        isPlaylist: true,
+      },
     ],
   },
 ];

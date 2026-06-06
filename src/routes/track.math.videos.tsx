@@ -40,7 +40,12 @@ const videoGroups = [
       { title: "Statistics Full Course — StatQuest (Josh Starmer)", url: "https://www.youtube.com/playlist?list=PLblh5JKOoLUK0FLuzwntyYI10UQFUhsY9", desc: "Complete statistics fundamentals — distributions, hypothesis testing, regression and more with clear visual explanations", isPlaylist: true },
       { title: "Statistics — Khan Academy", url: "https://www.khanacademy.org/math/statistics-probability", desc: "Full statistics and probability course from Khan Academy — from basics to advanced concepts", isPlaylist: true },
       { title: "Probability & Statistics — MIT OCW 18.05", url: "https://www.youtube.com/playlist?list=PLUl4u3cNGP60hI9ATjSFgLZpbNJ7myAg6", desc: "MIT OpenCourseWare — Introduction to Probability and Statistics with rigorous mathematical treatment", isPlaylist: true },
-      { title: "Bayesian Statistics — 3Blue1Brown", url: "https://www.youtube.com/playlist?list=PLZHQObOWTQDOjZzFwXkpw94x75Q09QZ_0", desc: "Bayesian thinking and probability intuition — visual and intuitive approach", isPlaylist: true },
+      {
+        title: "Probability and Statistics — Complete Playlist (Gate Smashers)",
+        url: "https://youtube.com/playlist?list=PLxCzCOWd7aiFjZP4z1_3Kr3m3J5wu5Q8V&si=sXp-Ey9PfsVov9bz",
+        desc: "Complete Probability and Statistics course covering probability distributions, random variables, expectation, hypothesis testing, correlation, regression and statistical inference",
+        isPlaylist: true,
+      },
     ],
   },
   {
@@ -50,7 +55,19 @@ const videoGroups = [
     items: [
       { title: "Essence of Linear Algebra — 3Blue1Brown", url: "https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab", desc: "The most intuitive linear algebra series — vectors, matrices, determinants, eigenvalues, eigenvectors and transformations", isPlaylist: true },
       { title: "Linear Algebra Full Course — MIT 18.06 (Gilbert Strang)", url: "https://www.youtube.com/playlist?list=PL221E2BBF13BECF6C", desc: "MIT OCW complete linear algebra course by Gilbert Strang — the gold standard for engineering math", isPlaylist: true },
-      { title: "Linear Algebra for Machine Learning", url: "https://www.youtube.com/playlist?list=PLRDl2inofT4DwHY4p6GAplXN1g05ef6xL", desc: "Linear algebra specifically tailored for ML — SVD, PCA, matrix decompositions and applications", isPlaylist: true },
+      { title: "Linear Algebra for Machine Learning", url: "https://youtu.be/QCPJ0VdpM00?si=YKxU_pYW4nlIv4yU", desc: "Linear algebra specifically tailored for ML — SVD, PCA, matrix decompositions and applications", isPlaylist: false },
+      {
+        title: "Linear Algebra — Complete Playlist (Gate Smashers)",
+        url: "https://youtube.com/playlist?list=PLxCzCOWd7aiGmXGb0t8YXtWl7qAe6hk25&si=XkL4ts2Z8Izqr083",
+        desc: "Comprehensive Linear Algebra course covering matrices, determinants, vector spaces, linear transformations, eigenvalues, eigenvectors and matrix decompositions",
+        isPlaylist: true,
+      },
+      {
+        title: "Linear Algebra for Engineering Mathematics — Gate Smashers",
+        url: "https://youtube.com/playlist?list=PLxCzCOWd7aiHnkPiCulMX5SIHMl2ZMmzL&si=I7lP6v3aE1t5gule",
+        desc: "Engineering-focused Linear Algebra covering systems of equations, rank, matrix operations, vector spaces, eigenvalues and practical problem solving",
+        isPlaylist: true,
+      },
     ],
   },
   {
@@ -74,12 +91,25 @@ const videoGroups = [
       { title: "Graph Theory — Reducible", url: "https://www.youtube.com/playlist?list=PLi01XoE8jYoi3SgnnGorR_XOW3IcK-TP6", desc: "Graph theory fundamentals — trees, connectivity, planarity, coloring and graph algorithms", isPlaylist: true },
     ],
   },
+
+  {
+  label: "Number System & Quantitative Foundations",
+  icon: "🔢",
+  color: "from-indigo-500 to-blue-600",
+  items: [
+    {
+      title: "Number System — Gate Smashers",
+      url: "https://youtube.com/playlist?list=PLxCzCOWd7aiFOet6KEEqDff1aXEGLdUzn&si=lT1ySc5UhY9aZWAo",
+      desc: "Complete Number System course covering divisibility, remainders, modular arithmetic, HCF, LCM, base conversions, logarithms and quantitative aptitude foundations",
+      isPlaylist: true,
+    },
+  ],
+},
   {
     label: "Important Questions & Problem Solving",
     icon: "💡",
     color: "from-amber-500 to-yellow-600",
     items: [
-      { title: "Engineering Maths — Important Questions Solved", url: "https://www.youtube.com/playlist?list=PLU6SqdYcYsfJlpLH35MEWnKAQv9YrZ9Qp", desc: "Solved important questions for engineering mathematics exams — step-by-step solutions", isPlaylist: true },
       { title: "Linear Algebra — Problem Solving Session", url: "https://www.youtube.com/playlist?list=PL49CF3715CB9EF31D", desc: "MIT problem-solving sessions for linear algebra — exam-style questions with detailed solutions", isPlaylist: true },
     ],
   },

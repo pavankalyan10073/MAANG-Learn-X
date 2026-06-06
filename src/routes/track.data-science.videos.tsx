@@ -73,7 +73,13 @@ const videoGroups = [
     icon: "📈",
     color: "from-orange-500 to-red-600",
     items: [
-      { title: "Power BI Full Course — freeCodeCamp", url: "https://www.youtube.com/watch?v=3u7bstQkLDI", desc: "Complete Power BI course — data modeling, DAX, dashboards and end-to-end business intelligence projects" },
+      { title: "Power BI Full Course — freeCodeCamp", url: "https://youtu.be/PSNXoAs2FtQ?si=9bO7PG1CHaA845Y9", desc: "Complete Power BI course — data modeling, DAX, dashboards and end-to-end business intelligence projects" },
+      {
+        title: "Power BI Full Course in 6 Hours | Learn Power BI for Beginners with Project (2025 Edition)",
+        url: "https://youtu.be/bQ-HTp-tx40?si=XvgUt2nVUAT8xzd1",
+        desc: "Hands-on Power BI course with real-world project work — data cleaning, Power Query, data modeling, DAX, dashboards, visualizations and business intelligence reporting",
+        isPlaylist: false,
+      },
       { title: "Tableau Full Course — Simplilearn", url: "https://www.youtube.com/watch?v=aHaOIvR00So", desc: "Tableau for data visualization — charts, dashboards, calculated fields and interactive reports" },
     ],
   },

@@ -47,10 +47,12 @@ const videoGroups = [
     icon: "🗄️",
     color: "from-orange-500 to-red-600",
     items: [
-      { title: "DBMS Full Course — Neso Academy (Playlist 1)", url: "https://www.youtube.com/playlist?list=PLBlnK6fEyqRjCGkYv9z0yQzp6Z2fBQxZq", desc: "Complete DBMS course — ER model, relational algebra, normalization, transactions, indexing and SQL", isPlaylist: true },
-      { title: "DBMS — Playlist 2", url: "https://www.youtube.com/playlist?list=PLmXKhU9FNesTpQNP_O1W4sVQzLZqXmP6B", desc: "DBMS lectures covering schema design, keys, anomalies, ACID properties, B/B+ trees and file structures", isPlaylist: true },
+      { title: "DBMS Full Course — Neso Academy (Playlist 1)", url: "https://youtube.com/playlist?list=PLBlnK6fEyqRiyryTrbKHX1Sh9luYI0dhX&si=LhlqUYjJLxEmV7T2", desc: "Complete DBMS course — ER model, relational algebra, normalization, transactions, indexing and SQL", isPlaylist: true },
+      { title: "DBMS — Gate Smashers (Playlist 2)", url: "https://youtube.com/playlist?list=PLxCzCOWd7aiFAN6I8CuViBuCdJgiOkT2Y&si=yoKwxSrxxzl5SkzR", desc: "DBMS lectures covering schema design, keys, anomalies, ACID properties, B/B+ trees and file structures", isPlaylist: true },
       { title: "SQL Full Course — Apna College", url: "https://youtu.be/hlGoQC332VM?si=MR_QOiKUaf0TZ-wi", desc: "Complete SQL course from basics to advanced — queries, joins, subqueries, normalization and real-world projects", isPlaylist: false },
+      { title: "SQL Z-H Course — Kaarthik For U", url: "https://youtu.be/A9SavjIHNPo?si=eULgV6X6hYfoQgEx", desc: "Complete SQL course from basics to advanced ", isPlaylist: false },
       { title: "SQL Mastery: Basics to Advanced — Priya Bhatia", url: "https://youtube.com/playlist?list=PLcz9-JSejut-noXS7zEyDx34IJ46zGJaj&si=HI2e2oaFvlsN61tp", desc: "SQL mastery playlist — from fundamentals to advanced queries, optimization and interview preparation", isPlaylist: true },
+      { title: "SQL Full Course — Gate Smashers (Playlist)", url: "https://youtube.com/playlist?list=PLxCzCOWd7aiFbom4rYyl5qROgqYuCuAPD&si=Lafj832THv86PoFr", desc: "SQL mastery playlist — from Gate Smasher", isPlaylist: true },
     ],
   },
   {
@@ -59,7 +61,7 @@ const videoGroups = [
     color: "from-green-500 to-emerald-600",
     items: [
       { title: "Computer Networks — Neso Academy (Playlist 1)", url: "https://www.youtube.com/playlist?list=PLBlnK6fEyqRgMCUAG0XRw78UA8qnv6jEx", desc: "Complete CN course — OSI model, TCP/UDP, IPv4/IPv6, routing, congestion control, Ethernet and application layer protocols", isPlaylist: true },
-      { title: "Computer Networks — Playlist 2", url: "https://www.youtube.com/playlist?list=PLmXKhU9FNesTpQNP_O1W4sVQzLZqXmP6B", desc: "In-depth networking lectures — data link layer, error/flow control, transport layer policies and network security", isPlaylist: true },
+      { title: "Computer Networks — Gate Smashers (Playlist 2)", url: "https://youtube.com/playlist?list=PLxCzCOWd7aiGFBD2-2joCpWOLUrDLvVV_&si=YZoHPW765YmfjZZK", desc: "In-depth networking lectures — data link layer, error/flow control, transport layer policies and network security", isPlaylist: true },
     ],
   },
   {
@@ -70,6 +72,49 @@ const videoGroups = [
       { title: "OOPs using Python — Full Playlist", url: "https://youtube.com/playlist?list=PLJFpQTFWrkezwmVyQfK22_jycf9zYqGbY&si=f1ABrZxmrTCm6iCK", desc: "Complete OOPs in Python — objects, classes, inheritance, polymorphism, abstraction, encapsulation and exception handling", isPlaylist: true },
     ],
   },
+
+  {
+  label: "Theory of Computation (TOC)",
+  icon: "⚙️",
+  color: "from-blue-500 to-cyan-600",
+  items: [
+    {
+      title: "TOC — Complete Playlist",
+      url: "https://youtube.com/playlist?list=PLxCzCOWd7aiFM9Lj5G9G_76adtyb4ef7i&si=r2Y7alMsf-dDc83T",
+      desc: "Complete Theory of Computation covering finite automata, regular languages, CFGs, PDA, Turing machines, decidability, computability and complexity basics",
+      isPlaylist: true,
+    },
+  ],
+},
+
+{
+  label: "Computer Organization & Architecture (COA)",
+  icon: "🖥️",
+  color: "from-emerald-500 to-green-600",
+  items: [
+    {
+      title: "COA — Complete Playlist",
+      url: "https://youtube.com/playlist?list=PLxCzCOWd7aiHMonh3G6QNKq53C6oNXGrX&si=sanV9UzV8NxaWPZ_",
+      desc: "Complete Computer Organization and Architecture covering CPU design, instruction sets, memory hierarchy, pipelining, cache memory, I/O organization and performance",
+      isPlaylist: true,
+    },
+  ],
+},
+
+{
+  label: "Software Engineering",
+  icon: "📋",
+  color: "from-orange-500 to-red-600",
+  items: [
+    {
+      title: "Software Engineering — Complete Playlist",
+      url: "https://youtube.com/playlist?list=PLxCzCOWd7aiEed7SKZBnC6ypFDWYLRvB2&si=6ay2-n_rx2A8-04X",
+      desc: "Complete Software Engineering covering SDLC, software models, requirements engineering, design, testing, maintenance, project management and quality assurance",
+      isPlaylist: true,
+    },
+  ],
+},
+
 ];
 
 const stats = [

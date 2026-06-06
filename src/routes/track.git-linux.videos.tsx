@@ -39,7 +39,6 @@ const videoGroups = [
     items: [
       { title: "Master Git & Github Series", url: "https://youtube.com/playlist?list=PLbtI3_MArDOlJ4036mWiUKaQToUS8MZVu&si=bsTWJ_f1ZxBCnY8l", desc: "Complete Git & GitHub playlist from basics to advanced workflows", isPlaylist: true },
       { title: "Git & GitHub by freeCodeCamp", url: "https://youtu.be/mAFoROnOfHs?si=X0jVGlreLiuKt1vb", desc: "Full Git & GitHub course covering all essential concepts for beginners to pro" },
-      { title: "1 Hour Basics to Pro — Git & GitHub", url: "https://www.youtube.com/watch?v=2w-M4z-iQpk", desc: "Quick crash course from basics to pro-level Git & GitHub in just 1 hour", isPlaylist: false },
       { title: "GitHub in Telugu | Complete Git & GitHub in 1 Hour", url: "https://youtu.be/KBOCCssL5B4?si=dwnq-e1LtOb99SR6", desc: "Complete Git & GitHub tutorial in Telugu — A to Z coverage" },
       { title: "Master Git Today Course with AI Support", url: "https://unstop.com/courses/software-tools/master-git-today", desc: "AI-powered interactive Git course with hands-on practice and personalized learning" },
       { title: "GitHub Workflow Mastery Course with AI Support", url: "https://unstop.com/courses/software-tools/github-workflow-mastery", desc: "Master GitHub workflows — PRs, CI/CD, code review and collaboration with AI support", isPlaylist: true },

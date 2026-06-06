@@ -37,9 +37,31 @@ const videoGroups = [
     icon: "📐",
     color: "from-blue-500 to-cyan-600",
     items: [
-      { title: "Aptitude Preparation — Playlist 1", url: "https://www.youtube.com/playlist?list=PLpyc33gOcbVADMKqylI__O_O_RMeHTyNK", desc: "Complete aptitude preparation covering quantitative, logical reasoning and verbal ability topics", isPlaylist: true },
-      { title: "Aptitude Preparation — Playlist 2", url: "https://www.youtube.com/playlist?list=PLpyc33gOcbVA4qXMoQ5vmhefTruk5t9lt", desc: "Comprehensive aptitude course with shortcuts, tricks and practice problems", isPlaylist: true },
-    ],
+        {
+          title: "Aptitude Preparation for Campus Placement — Code Step By Step",
+          url: "https://youtube.com/playlist?list=PL8p2I9GklV454LdGfDOw0KkNazKuA-6B2&si=Ykyj02lxL856hOIe",
+          desc: "Campus placement aptitude preparation covering quantitative aptitude, logical reasoning, verbal ability, shortcuts, tricks and placement-oriented practice questions",
+          isPlaylist: true,
+        },
+        {
+          title: "Aptitude for Campus Placement — Avinash Singh (Unacademy)",
+          url: "https://youtube.com/playlist?list=PLk7ptZcI9vmjLJMjTSV2FkSNFaDOV-6cr&si=A3YMCp28qWZVMwwa",
+          desc: "Placement aptitude course covering arithmetic, algebra, probability, permutations & combinations, logical reasoning and interview-focused problem solving",
+          isPlaylist: true,
+        },
+        {
+          title: "Aptitude Preparation — Playlist 1",
+          url: "https://www.youtube.com/playlist?list=PLpyc33gOcbVADMKqylI__O_O_RMeHTyNK",
+          desc: "Complete aptitude preparation covering quantitative, logical reasoning and verbal ability topics",
+          isPlaylist: true,
+        },
+        {
+          title: "Aptitude Preparation — Playlist 2",
+          url: "https://www.youtube.com/playlist?list=PLpyc33gOcbVA4qXMoQ5vmhefTruk5t9lt",
+          desc: "Comprehensive aptitude course with shortcuts, tricks and practice problems",
+          isPlaylist: true,
+        },
+      ],
   },
   {
     label: "Banking & Competitive Exams",
